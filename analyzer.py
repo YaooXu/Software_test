@@ -2,6 +2,7 @@ import os
 import re
 import ast
 import json
+import astunparse
 
 
 # 测试的时候用的
@@ -95,7 +96,16 @@ class CallVisitor(ast.NodeVisitor):
     def visit_Call(self, node):
         # TODO：re.sub只会显示CALL sub
         # 不会显示re
-        print(node.func.attr)
+        try:
+            # xx.xx 不区分方法和构造函数
+            # re.sub，np.ndarray
+            print(node.func.value.id, node.func.attr)
+        except:
+            if 'attr' in node.func.__dict__:
+                print(node.func.attr)
+            else:
+                print(node.func.id)
+            pass
 
 
 if __name__ == "__main__":
@@ -124,11 +134,14 @@ if __name__ == "__main__":
     with open('test.json', 'w', encoding='utf8') as f:
         f.write(json.dumps(res, indent=4))
 
-    path = r'D:\软件测试\test.py'
+    path = r'D:\Scripts\BIT-score\getScore.py'
     with open(path, encoding='utf8') as f:
         source = f.readlines()
     source = ''.join(source)
 
     root = ast.parse(source)
+
+    # print(astunparse.dump(root))
+
     visitor = CallVisitor()
     visitor.visit(root)
