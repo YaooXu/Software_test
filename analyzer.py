@@ -94,13 +94,18 @@ class CallVisitor(ast.NodeVisitor):
         print()
 
     def visit_Call(self, node):
-        # TODO：re.sub只会显示CALL sub
-        # 不会显示re
+        # 当前语句的行数
+        line_num = node.lineno
+        # TODO：打log
+        # TODO：判断是否有赋值
+        source[line_num - 1] += 'print xxx\n'
+        print(source[line_num - 1])
         try:
             # xx.xx 不区分方法和构造函数
             # re.sub，np.ndarray
             print(node.func.value.id, node.func.attr)
         except:
+            # TODO：什么时候是attr，什么时候是id
             if 'attr' in node.func.__dict__:
                 print(node.func.attr)
             else:
@@ -134,12 +139,13 @@ if __name__ == "__main__":
     with open('test.json', 'w', encoding='utf8') as f:
         f.write(json.dumps(res, indent=4))
 
-    path = r'D:\Scripts\BIT-score\getScore.py'
+    # TODO：识别目标代码自定义的函数
+    path = r'D:\软件测试\test.py'
     with open(path, encoding='utf8') as f:
         source = f.readlines()
-    source = ''.join(source)
+    source2 = ''.join(source)
 
-    root = ast.parse(source)
+    root = ast.parse(source2)
 
     # print(astunparse.dump(root))
 
