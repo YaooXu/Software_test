@@ -114,8 +114,8 @@ class CallVisitor(ast.NodeVisitor):
 
 
 if __name__ == "__main__":
-    pathes = [r'E:\Anaconda\Lib\re.py',
-              r'E:\Anaconda\Lib\os.py']
+    pathes = [r'D:\Anaconda\Anaconda\Lib\re.py',
+              r'D:\Anaconda\Anaconda\Lib\os.py']
     res = {}
     for path in pathes:
         with open(path, encoding='utf8') as f:
@@ -140,7 +140,7 @@ if __name__ == "__main__":
         f.write(json.dumps(res, indent=4))
 
     # TODO：识别目标代码自定义的函数
-    path = r'D:\软件测试\test.py'
+    path = r'D:\课件\大三上\软件质量测试\大作业\code\Software_test\test.py'
     with open(path, encoding='utf8') as f:
         source = f.readlines()
     source2 = ''.join(source)
