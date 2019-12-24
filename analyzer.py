@@ -72,6 +72,40 @@ class SourceAnalyser(ast.NodeVisitor):
         print()
 
 
+def typeCastToString(castParameter):
+    '''
+    将任意基本类型的对象转换为字符串
+    :param castParameter:需要转换的参数
+    '''
+    newType = []
+    if type(castParameter) == int:
+        # 整型转字符串
+        newType = str(castParameter)
+    elif type(castParameter) == list:
+        castParameter_new = []
+        for i in castParameter:
+            if type(i) == str:
+                newType = ','.join(castParameter)
+            elif type(i) == int:
+                i = str(i)
+                castParameter_new.append(i)
+                newType = ','.join(castParameter_new)
+            elif type(i) == tuple:
+                i = ','.join(i)
+                castParameter_new.append(i)
+                newType = ','.join(castParameter_new)
+            elif type(i) == dict:
+                i = str(i)
+                castParameter_new.append(i)
+                newType = ','.join(castParameter_new)
+
+    #     return type(newType)
+    return newType
+
+
+
+
+
 # 分析目标代码的函数调用
 class CallVisitor(ast.NodeVisitor):
     def __init__(self):
@@ -93,48 +127,73 @@ class CallVisitor(ast.NodeVisitor):
                 self.all_class[node.name].append(sub_node.name)
         print()
 
-    def visit_Call(self, node):
-        # 当前语句的行数
-        print("node print:")
-        # print(type(astunparse.dump(node)))
-        print(astunparse.dump(node))
+    # 判断是否有assign
+    def visit_Assign(self, node):
+        print("\n------访问Assign节点---")
         line_num = node.lineno
 
-        # TODO：判断是否有赋值
-
-        # TODO：打log
-        log_path = "./log_txt/" + filename + ".txt"
-        print("log_path = " + log_path)
-        # 插入信息
-        content = "insert\\n"
-        # content = "line: %d, id = %s, attr = %s\\n"%(line_num, node.func.value.id, node.func.attr)
-        addition = ""
-        addition += "with open(\"%s\", \"a+\", encoding=\'utf8\') as f:\n    f.write(\"%s\")"%(log_path, content)
-        # print(addition)
-        source[line_num - 1] += '%s\n'%(addition)
+        print("line_num = ", line_num)
         print(source[line_num - 1])
+        # print(type(astunparse.dump(node)))
+        col_offset = node.col_offset
+        if not isinstance(node.value, ast.Call):
+            print("节点不存在Call")
+            return
+
+        # args = " "
+        # for tmp in node.value.args:
+        #     print(type(tmp))
+        #     print(tmp)
+        #     # args += tmp.s
+        # # args = " ".join('%s' %id.s for id in node.value.args)
+        # print("参数 = " + args)
 
         try:
-            # xx.xx 不区分方法和构造函数
-            # re.sub，np.ndarray
-            print(node.func.value.id, node.func.attr)
+            # print(node.value.func.value.id, node.value.func.attr)
+            # 打log
+            log_path = "./log_txt/" + filename + ".txt"
+            print("log_path = " + log_path)
+            # 插入信息
+            # content = "insert\\n"
+            content = "line: %d, id = %s, attr = %s\\n" % (
+                line_num, node.value.func.value.id, node.value.func.attr)
+            #插装
+            addition = ""
+            addition += "%swith open(\"%s\", \"a+\", encoding=\'utf8\') as f:\n    %sf.write(\"%s\")" % (
+            " " * col_offset, log_path, " " * col_offset, content)
+            # print(addition)
+            source[line_num - 1] += '%s\n' % (addition)
+            # print(source[line_num - 1])
         except:
-            # TODO：什么时候是attr，什么时候是id
-            if 'attr' in node.func.__dict__:
-                print(node.func.attr)
-            else:
-                print(node.func.id)
-            pass
+            print("错误：节点属性缺少")
+
+    def visit_Call(self, node):
+        pass
+
+        # try:
+        #     # xx.xx 不区分方法和构造函数
+        #     # re.sub，np.ndarray
+        #     print(node.func.value.id, node.func.attr)
+        # except:
+        #     # 什么时候是attr，什么时候是id
+        #     if 'attr' in node.func.__dict__:
+        #         print(node.func.attr)
+        #     else:
+        #         print(node.func.id)
+        #     pass
 
 
 if __name__ == "__main__":
+    # print typeCast(['1','2','3'])
+    # print(typeCastToString([{'name': 'xiaoming'}, {'age': 12}]))
     pathes = [r'D:\Anaconda\Anaconda\Lib\re.py',
               r'D:\Anaconda\Anaconda\Lib\os.py']
     res = {}
     for path in pathes:
         with open(path, encoding='utf8') as f:
             source = f.readlines()
-        source = ''.join(source)
+        tmp =''
+        source = tmp.join(source)
 
         t = ast.parse(source)
         # w().visit(t)
@@ -161,7 +220,8 @@ if __name__ == "__main__":
         filename = filename[-1][0:-3]
         # print("Test filename = " + filename)
 
-    source2 = ''.join(source)
+    tmp = ''
+    source2 = tmp.join(source)
 
     root = ast.parse(source2)
 
@@ -169,6 +229,12 @@ if __name__ == "__main__":
 
     visitor = CallVisitor()
     visitor.visit(root)
+
+    if not os.path.exists("./write"):
+        os.mkdir("./write")
+    if not os.path.exists("./write/log_txt"):
+        os.mkdir("./write/log_txt")
+
     with open("./write/%s.py"%(filename), "w+", encoding='utf8') as f:
         tmp = ''.join(source)
         f.write(tmp)

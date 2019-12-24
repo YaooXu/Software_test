@@ -1,0 +1,3 @@
+line: 9, id = re, attr = sub
+line: 10, id = np, attr = ndarray
+line: 14, id = c, attr = split

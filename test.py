@@ -3,16 +3,16 @@ from socket import socketpair
 import numpy as np
 
 if __name__ == '__main__':
-    a = re.sub('x*', '-', 'abxd')
-
-    a2 = np.ndarray([1, 2, 3])
-
     b = []
     b.append('bbb')
 
+    a = re.sub('x*', '-', 'abxd')
+    a2 = np.ndarray([1, 2, 3])
+
     c = '1 2 3 4 5'
-    d = d.split(' ')
+
+    d = c.split(' ')
 
     socketpair()
 
-    print(a)
+    print("end")
