@@ -94,13 +94,18 @@ class CallVisitor(ast.NodeVisitor):
         print()
 
     def visit_Call(self, node):
-        # TODO：re.sub只会显示CALL sub
-        # 不会显示re
+        # 当前语句的行数
+        line_num = node.lineno
+        # TODO：打log
+        # TODO：判断是否有赋值
+        source[line_num - 1] += 'print xxx\n'
+        print(source[line_num - 1])
         try:
             # xx.xx 不区分方法和构造函数
             # re.sub，np.ndarray
             print(node.func.value.id, node.func.attr)
         except:
+            # TODO：什么时候是attr，什么时候是id
             if 'attr' in node.func.__dict__:
                 print(node.func.attr)
             else:
@@ -109,10 +114,8 @@ class CallVisitor(ast.NodeVisitor):
 
 
 if __name__ == "__main__":
-    pathes = [r'D:\Anaconda\Anaconda\envs\py37\Lib\re.py',
-              r'D:\Anaconda\Anaconda\envs\py37\Lib\os.py',
-              r'D:\Anaconda\Anaconda\envs\py37\Lib\json\__init__.py'
-              ]
+    pathes = [r'E:\Anaconda\Lib\re.py',
+              r'E:\Anaconda\Lib\os.py']
     res = {}
     for path in pathes:
         with open(path, encoding='utf8') as f:
@@ -136,15 +139,15 @@ if __name__ == "__main__":
     with open('test.json', 'w', encoding='utf8') as f:
         f.write(json.dumps(res, indent=4))
 
-    path = r'D:\课件\大三上\软件质量测试\大作业\code\Software_test\test.py'
+    # TODO：识别目标代码自定义的函数
+    path = r'D:\软件测试\test.py'
     with open(path, encoding='utf8') as f:
         source = f.readlines()
-    source = ''.join(source)  #连接字符串数组。将字符串、元组、列表中的元素以指定的字符(分隔符)连接生成一个新的字符串
+    source2 = ''.join(source)
 
-    root = ast.parse(source)
+    root = ast.parse(source2)
 
-    print("\ntest print:")
-    print(astunparse.dump(root))
+    # print(astunparse.dump(root))
 
     visitor = CallVisitor()
     visitor.visit(root)
