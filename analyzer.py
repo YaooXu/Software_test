@@ -95,11 +95,25 @@ class CallVisitor(ast.NodeVisitor):
 
     def visit_Call(self, node):
         # 当前语句的行数
+        print("node print:")
+        # print(type(astunparse.dump(node)))
+        print(astunparse.dump(node))
         line_num = node.lineno
-        # TODO：打log
+
         # TODO：判断是否有赋值
-        source[line_num - 1] += 'print xxx\n'
+
+        # TODO：打log
+        log_path = "./log_txt/" + filename + ".txt"
+        print("log_path = " + log_path)
+        # 插入信息
+        content = "insert\\n"
+        # content = "line: %d, id = %s, attr = %s\\n"%(line_num, node.func.value.id, node.func.attr)
+        addition = ""
+        addition += "with open(\"%s\", \"a+\", encoding=\'utf8\') as f:\n    f.write(\"%s\")"%(log_path, content)
+        # print(addition)
+        source[line_num - 1] += '%s\n'%(addition)
         print(source[line_num - 1])
+
         try:
             # xx.xx 不区分方法和构造函数
             # re.sub，np.ndarray
@@ -143,6 +157,10 @@ if __name__ == "__main__":
     path = r'D:\课件\大三上\软件质量测试\大作业\code\Software_test\test.py'
     with open(path, encoding='utf8') as f:
         source = f.readlines()
+        filename = path.split("\\")
+        filename = filename[-1][0:-3]
+        # print("Test filename = " + filename)
+
     source2 = ''.join(source)
 
     root = ast.parse(source2)
@@ -151,3 +169,6 @@ if __name__ == "__main__":
 
     visitor = CallVisitor()
     visitor.visit(root)
+    with open("./write/%s.py"%(filename), "w+", encoding='utf8') as f:
+        tmp = ''.join(source)
+        f.write(tmp)

@@ -10,7 +10,8 @@ if __name__ == '__main__':
     b = []
     b.append('bbb')
 
-    c = '1 2 3 4 5'.split(' ')
+    c = '1 2 3 4 5'
+    d = d.split(' ')
 
     socketpair()
 
