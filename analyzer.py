@@ -103,9 +103,6 @@ def typeCastToString(castParameter):
     return newType
 
 
-
-
-
 # 分析目标代码的函数调用
 class CallVisitor(ast.NodeVisitor):
     def __init__(self):
@@ -119,13 +116,25 @@ class CallVisitor(ast.NodeVisitor):
         self.names.add(node.id)
 
     def visit_ClassDef(self, node):
-        self.all_class[node.name] = []
-        print('ClassDef:', node.name)
-        for sub_node in ast.walk(node):
+        # self.all_class[node.name] = []
+        # print('ClassDef:', node.name)
+        # for sub_node in ast.walk(node):
+        #     if isinstance(sub_node, ast.FunctionDef):
+        #         print('func name:', sub_node.name)
+        #         self.all_class[node.name].append(sub_node.name)
+        body = node.body
+        for sub_node in body:
             if isinstance(sub_node, ast.FunctionDef):
-                print('func name:', sub_node.name)
-                self.all_class[node.name].append(sub_node.name)
-        print()
+                self.visit_FunctionDef(sub_node)
+
+        pass
+
+    def visit_FunctionDef(self, node):
+        body = node.body
+        for sub_node in body:
+            if isinstance(sub_node, ast.Assign):
+                self.visit_Assign(sub_node)
+        pass
 
     # 判断是否有assign
     def visit_Assign(self, node):
@@ -137,35 +146,59 @@ class CallVisitor(ast.NodeVisitor):
         # print(type(astunparse.dump(node)))
         col_offset = node.col_offset
         if not isinstance(node.value, ast.Call):
-            print("节点不存在Call")
+            print("节点未调用方法或者函数")
             return
 
-        # args = " "
-        # for tmp in node.value.args:
-        #     print(type(tmp))
-        #     print(tmp)
-        #     # args += tmp.s
-        # # args = " ".join('%s' %id.s for id in node.value.args)
-        # print("参数 = " + args)
+        if 'id' not in node.value.func.__dict__:
+            # print('*.*')
+            if node.value.func.attr not in flags:
+                return
+            else:
+                print("系统调用：%s" % (node.value.func.attr))
+            try:
+                # 打log
+                log_path = "./log_txt/" + filename + ".txt"
+                # print("log_path = " + log_path)
+                # 插入信息
+                # content = "insert\\n"
+                content = "line: %d, id = %s, attr = %s, output =  %%s\\n" % (
+                    line_num, node.value.func.value.id, node.value.func.attr)
+                # 插装
+                addition = ""
+                addition += "%swith open(\"%s\", \"a+\", encoding=\'utf8\') as f:\n    %sf.write(\"%s\"%%%s)" % (
+                    " " * col_offset, log_path, " " * col_offset, content, node.targets[0].id)
+                # print(addition)
+                source[line_num - 1] += '%s\n' % (addition)
+                # print(source[line_num - 1])
+                print("插装成功")
+            except:
+                print("错误：节点属性缺少")
+        else:
+            # print('*')
+            if node.value.func.id not in flags:
+                print("不是系统调用！")
+                return
+            else:
+                print("系统调用：%s"%(node.value.func.id))
+            try:
+                # 打log
+                log_path = "./log_txt/" + filename + ".txt"
+                # print("log_path = " + log_path)
+                # 插入信息
+                # content = "insert\\n"
+                content = "line: %d, attr = %s, output =  %%s\\n" % (
+                    line_num, node.value.func.id)
+                # 插装
+                addition = ""
+                addition += "%swith open(\"%s\", \"a+\", encoding=\'utf8\') as f:\n    %sf.write(\"%s\"%%%s)" % (
+                    " " * col_offset, log_path, " " * col_offset, content, node.targets[0].id)
+                # print(addition)
+                source[line_num - 1] += '%s\n' % (addition)
+                # print(source[line_num - 1])
+                print("插装成功")
+            except:
+                print("错误：节点属性缺少")
 
-        try:
-            # print(node.value.func.value.id, node.value.func.attr)
-            # 打log
-            log_path = "./log_txt/" + filename + ".txt"
-            print("log_path = " + log_path)
-            # 插入信息
-            # content = "insert\\n"
-            content = "line: %d, id = %s, attr = %s\\n" % (
-                line_num, node.value.func.value.id, node.value.func.attr)
-            #插装
-            addition = ""
-            addition += "%swith open(\"%s\", \"a+\", encoding=\'utf8\') as f:\n    %sf.write(\"%s\")" % (
-            " " * col_offset, log_path, " " * col_offset, content)
-            # print(addition)
-            source[line_num - 1] += '%s\n' % (addition)
-            # print(source[line_num - 1])
-        except:
-            print("错误：节点属性缺少")
 
     def visit_Call(self, node):
         pass
@@ -182,12 +215,30 @@ class CallVisitor(ast.NodeVisitor):
         #         print(node.func.id)
         #     pass
 
+def get_map(json_path):
+    with open(json_path, 'r') as f:
+        print("解析json，得到系统调用：")
+        data = json.load(f)
+        # print(data)
+        for i in data:
+            print(i)
+            for sub_class in data[i]['classes']:
+                for j in data[i]['classes'][sub_class]:
+                    # print(j)
+                    flags[j] = 1
+            for sub_fun in data[i]['funcs']:
+                flags[sub_fun] = 1
+
+
 
 if __name__ == "__main__":
-    # print typeCast(['1','2','3'])
-    # print(typeCastToString([{'name': 'xiaoming'}, {'age': 12}]))
+
     pathes = [r'D:\Anaconda\Anaconda\Lib\re.py',
-              r'D:\Anaconda\Anaconda\Lib\os.py']
+              r'D:\Anaconda\Anaconda\Lib\os.py',
+              r'C:\Users\王华章\.PyCharm2019.2\system\python_stubs\313387385\builtins.py',
+              r'D:\课件\大三上\软件质量测试\大作业\code\Software_test\test.py',
+              r'D:\Anaconda\Anaconda\Lib\site-packages\numpy\__init__.py']
+
     res = {}
     for path in pathes:
         with open(path, encoding='utf8') as f:
@@ -212,9 +263,13 @@ if __name__ == "__main__":
     with open('test.json', 'w', encoding='utf8') as f:
         f.write(json.dumps(res, indent=4))
 
-    # TODO：识别目标代码自定义的函数
+    flags = {}
+    get_map("test.json")
+    print(flags)
+
+    # 识别目标代码自定义的函数
     path = r'D:\课件\大三上\软件质量测试\大作业\code\Software_test\test.py'
-    with open(path, encoding='utf8') as f:
+    with open(path, 'r', encoding='utf8') as f:
         source = f.readlines()
         filename = path.split("\\")
         filename = filename[-1][0:-3]

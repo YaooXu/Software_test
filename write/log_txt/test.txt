@@ -1,3 +1,5 @@
-line: 9, id = re, attr = sub
-line: 10, id = np, attr = ndarray
-line: 14, id = c, attr = split
+line: 23, id = re, attr = sub, output =  -a-b-d-
+line: 24, attr = sub, output =  -a-b-d-
+line: 15, id = re, attr = sub, output =  -a-b-d-
+line: 25, attr = zzz, output =  -a-b-d-
+line: 27, id = c, attr = split, output =  ['1', '2', '3', '4', '5']
