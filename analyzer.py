@@ -3,6 +3,11 @@ import re
 import ast
 import json
 import astunparse
+import numpy as np
+
+global source, file_parent_path, file_name
+cnt = 0
+flags = {}
 
 
 # 测试的时候用的
@@ -156,22 +161,24 @@ class CallVisitor(ast.NodeVisitor):
             else:
                 print("系统调用：%s" % (node.value.func.attr))
             try:
+                global cnt
                 # 打log
-                log_name = os.path.join("./log/", filename + "_" + str(cnt) + "_line" + str(line_num)
+                log_name = os.path.join(file_parent_path, 'log',
+                                        file_name + "_" + str(cnt) + "_line" + str(line_num)
                                         + "_" + node.value.func.value.id + "_" + node.value.func.attr + "_py%s.txt")
                 print("log_name = " + log_name)
                 # 插入信息
                 content = "output =  %s\\n"
                 # 插装
                 addition = ""
-                addition += "%swith open(\"%s\"%%(sys.version[0:5]), \"w+\", encoding=\'utf8\') as f:\n    %sf.write(\"%s\"%%str(%s))" % (
-                    " " * col_offset, log_name," " * col_offset, content, node.targets[0].id)
+                addition += "%swith open(r\"%s\"%%(sys.version[0:3]), \"w+\", encoding=\'utf8\') as f:\n    %sf.write(\"%s\"%%str(%s))" % (
+                    " " * col_offset, log_name, " " * col_offset, content, node.targets[0].id)
                 # print(addition)
                 source[line_num - 1] += '%s\n' % (addition)
                 # print(source[line_num - 1])
 
-
                 print("插装成功")
+                cnt += 1
             except:
                 print("错误：节点属性缺少")
         else:
@@ -183,14 +190,15 @@ class CallVisitor(ast.NodeVisitor):
                 print("系统调用：%s" % (node.value.func.id))
             try:
                 # 打log
-                log_name = os.path.join("./log/", filename + "_" + str(cnt) + "_line" + str(line_num)
+                log_name = os.path.join(file_parent_path, 'log',
+                                        file_name + "_" + str(cnt) + "_line" + str(line_num)
                                         + "_" + node.value.func.id + "_py%s.txt")
                 print("log_name = " + log_name)
                 # 插入信息
                 content = "output =  %s\\n"
                 # 插装
                 addition = ""
-                addition += "%swith open(\"%s\"%%(sys.version[0:5]), \"w+\", encoding=\'utf8\') as f:\n    %sf.write(\"%s\"%%str(%s))" % (
+                addition += "%swith open(r\"%s\"%%(sys.version[0:3]), \"w+\", encoding=\'utf8\') as f:\n    %sf.write(\"%s\"%%str(%s))" % (
                     " " * col_offset, log_name, " " * col_offset, content, node.targets[0].id)
                 # print(addition)
                 source[line_num - 1] += '%s\n' % (addition)
@@ -230,16 +238,9 @@ def get_map(json_path):
                 flags[sub_fun] = 1
 
 
-if __name__ == "__main__":
-
-    pathes = [r'D:\Anaconda\Anaconda\Lib\re.py',
-              r'D:\Anaconda\Anaconda\Lib\os.py',
-              r'C:\Users\王华章\.PyCharm2019.2\system\python_stubs\313387385\builtins.py',
-              r'D:\课件\大三上\软件质量测试\大作业\code\Software_test\test.py',
-              r'D:\Anaconda\Anaconda\Lib\site-packages\numpy\__init__.py']
-
+def analyse_lib(lib_pathes: list):
     res = {}
-    for path in pathes:
+    for path in lib_pathes:
         with open(path, encoding='utf8') as f:
             source = f.readlines()
         tmp = ''
@@ -257,52 +258,73 @@ if __name__ == "__main__":
         }
         # 得到模块的无后缀名字
         module_name = os.path.split(path)[-1].split('.')[0]
+        if module_name == '__init__':
+            dir_path = os.path.split(path)[0]
+            module_name = os.path.split(dir_path)[-1].split('.')[0]
         res[module_name] = cur_res
 
-    with open('test.json', 'w', encoding='utf8') as f:
+    with open('module_func_class.json', 'w', encoding='utf8') as f:
         f.write(json.dumps(res, indent=4))
 
-    flags = {}
-    get_map("test.json")
+    get_map("module_func_class.json")
     print(flags)
 
-    if not os.path.exists("./write"):
-        os.mkdir("./write")
 
-    #待插装的代码集合
-    test_pathes = [r'D:\课件\大三上\软件质量测试\大作业\code\Software_test\test.py']
+def get_plugin_file(file_path: str, save_path=None):
+    r"""
+
+    :param file_path: 待插装的目标文件
+    :param save_path: 插装后文件的保存路径，如果为None默认放到与目标文件同一目录下
+    :return: 插装之后的文件路径
+    """
+    print('generating plugin file for % s' % file_path)
+
+    with open(file_path, 'r', encoding='utf8') as f:
+        global source, file_parent_path, file_name
+        source = f.readlines()
+        # file_parent_path = file_path.split("\\")
+        file_parent_path = os.path.split(file_path)[0]
+        file_name = os.path.split(file_path)[-1][0:-3]
+        print(file_parent_path, file_name)
+        # print("Test file_parent_path = " + file_parent_path)
+
+    # log文件夹
+    log_path = os.path.join(file_parent_path, 'log')
+
+    if not os.path.exists(log_path):
+        os.mkdir(log_path)
+
+    source_str = ''.join(source)
+    root = ast.parse(source_str)
+    # print(astunparse.dump(root))
+
+    visitor = CallVisitor()
+    visitor.visit(root)
+
+    # 插装后代码路径
+    if save_path is None:
+        save_path = file_parent_path + "/" + "plugin_" + file_name + ".py"
+    source[0] = 'import sys\n' + source[0]
+    with open(save_path, "w+", encoding='utf8') as f:
+        tmp = ''.join(source)
+        f.write(tmp)
+
+    return save_path
+
+
+if __name__ == "__main__":
+
+    pathes = [r'E:\Anaconda\Lib\re.py',
+              r'E:\Anaconda\Lib\os.py',
+              r'E:\Anaconda\Lib\site-packages\numpy\__init__.py',
+              r'C:\Users\dell\.PyCharm2019.1\system\python_stubs\-727401014\builtins.py',
+              ]
+    analyse_lib(pathes)
+
+    # 待插装的代码集合
+    test_pathes = []
     # 识别目标代码自定义的函数
-    cnt = 0
+
     for path in test_pathes:
         # path = r'D:\课件\大三上\软件质量测试\大作业\code\Software_test\test.py'
-        with open(path, 'r', encoding='utf8') as f:
-            source = f.readlines()
-            filename = path.split("\\")
-            filename = filename[-1][0:-3]
-            # print("Test filename = " + filename)
-        cnt += 1
-        #每个待测试文件一个文件夹
-        dir_path = "./write/" + filename
-        log_path = dir_path + "/log/"
-        input_path = dir_path + "/input/"
-
-        if not os.path.exists(dir_path):
-            os.mkdir(dir_path)
-        if not os.path.exists(log_path):
-            os.mkdir(log_path)
-        if not os.path.exists(input_path):
-            os.mkdir(input_path)
-
-        tmp = ''
-        source2 = tmp.join(source)
-        root = ast.parse(source2)
-        # print(astunparse.dump(root))
-
-        visitor = CallVisitor()
-        visitor.visit(root)
-        #插装后代码路径
-        save_file = dir_path + "/" + filename + ".py"
-        source[0] += 'import sys\n'
-        with open(save_file, "w+", encoding='utf8') as f:
-            tmp = ''.join(source)
-            f.write(tmp)
+        get_plugin_file(path)

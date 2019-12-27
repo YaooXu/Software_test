@@ -2,5 +2,5 @@
 .gitignore
 .idea/
 .vscode/
-test.json
 test*
+log_test.py
