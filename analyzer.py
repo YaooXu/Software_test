@@ -157,16 +157,18 @@ class CallVisitor(ast.NodeVisitor):
                 print("系统调用：%s" % (node.value.func.attr))
             try:
                 # 打log
-                log_path = "./log_txt/" + filename + ".txt"
-                # print("log_path = " + log_path)
+                log_name = os.path.join("./log/", filename + "_" + str(cnt) + "_line" + str(line_num)
+                                        + "_" + node.value.func.value.id + "_" + node.value.func.attr + "_py36.txt")
+                print("log_name = " + log_name)
                 # 插入信息
                 # content = "insert\\n"
-                content = "line: %d, id = %s, attr = %s, output =  %%s\\n" % (
-                    line_num, node.value.func.value.id, node.value.func.attr)
+                # content = "line: %d, id = %s, attr = %s, output =  %%s\\n" % (
+                #     line_num, node.value.func.value.id, node.value.func.attr)
+                content = "output =  %s\\n"
                 # 插装
                 addition = ""
-                addition += "%swith open(\"%s\", \"a+\", encoding=\'utf8\') as f:\n    %sf.write(\"%s\"%%%s)" % (
-                    " " * col_offset, log_path, " " * col_offset, content, node.targets[0].id)
+                addition += "%swith open(\"%s\", \"w+\", encoding=\'utf8\') as f:\n    %sf.write(\"%s\"%%str(%s))" % (
+                    " " * col_offset, log_name, " " * col_offset, content, node.targets[0].id)
                 # print(addition)
                 source[line_num - 1] += '%s\n' % (addition)
                 # print(source[line_num - 1])
@@ -182,16 +184,18 @@ class CallVisitor(ast.NodeVisitor):
                 print("系统调用：%s"%(node.value.func.id))
             try:
                 # 打log
-                log_path = "./log_txt/" + filename + ".txt"
-                # print("log_path = " + log_path)
+                log_name = os.path.join("./log/", filename + "_" + str(cnt) + "_line" + str(line_num)
+                                        + "_" + node.value.func.id + "_py36.txt")
+                print("log_name = " + log_name)
                 # 插入信息
                 # content = "insert\\n"
-                content = "line: %d, attr = %s, output =  %%s\\n" % (
-                    line_num, node.value.func.id)
+                # content = "line: %d, id = %s, attr = %s, output =  %%s\\n" % (
+                #     line_num, node.value.func.value.id, node.value.func.attr)
+                content = "output =  %s\\n"
                 # 插装
                 addition = ""
-                addition += "%swith open(\"%s\", \"a+\", encoding=\'utf8\') as f:\n    %sf.write(\"%s\"%%%s)" % (
-                    " " * col_offset, log_path, " " * col_offset, content, node.targets[0].id)
+                addition += "%swith open(\"%s\", \"w+\", encoding=\'utf8\') as f:\n    %sf.write(\"%s\"%%str(%s))" % (
+                    " " * col_offset, log_name, " " * col_offset, content, node.targets[0].id)
                 # print(addition)
                 source[line_num - 1] += '%s\n' % (addition)
                 # print(source[line_num - 1])
@@ -267,29 +271,40 @@ if __name__ == "__main__":
     get_map("test.json")
     print(flags)
 
-    # 识别目标代码自定义的函数
-    path = r'D:\课件\大三上\软件质量测试\大作业\code\Software_test\test.py'
-    with open(path, 'r', encoding='utf8') as f:
-        source = f.readlines()
-        filename = path.split("\\")
-        filename = filename[-1][0:-3]
-        # print("Test filename = " + filename)
-
-    tmp = ''
-    source2 = tmp.join(source)
-
-    root = ast.parse(source2)
-
-    # print(astunparse.dump(root))
-
-    visitor = CallVisitor()
-    visitor.visit(root)
-
     if not os.path.exists("./write"):
         os.mkdir("./write")
-    if not os.path.exists("./write/log_txt"):
-        os.mkdir("./write/log_txt")
 
-    with open("./write/%s.py"%(filename), "w+", encoding='utf8') as f:
-        tmp = ''.join(source)
-        f.write(tmp)
+
+    test_pathes = [r'D:\课件\大三上\软件质量测试\大作业\code\Software_test\test.py']
+    # 识别目标代码自定义的函数
+    cnt = 0
+    for path in test_pathes:
+        # path = r'D:\课件\大三上\软件质量测试\大作业\code\Software_test\test.py'
+        with open(path, 'r', encoding='utf8') as f:
+            source = f.readlines()
+            filename = path.split("\\")
+            filename = filename[-1][0:-3]
+            # print("Test filename = " + filename)
+        cnt += 1
+        #每个待测试文件一个文件夹
+        dir_path = "./write/" + filename
+        log_path = dir_path + "/log/"
+        input_path = dir_path + "/input/"
+        if not os.path.exists(dir_path):
+            os.mkdir(dir_path)
+        if not os.path.exists(log_path):
+            os.mkdir(log_path)
+        if not os.path.exists(input_path):
+            os.mkdir(input_path)
+
+        tmp = ''
+        source2 = tmp.join(source)
+        root = ast.parse(source2)
+        # print(astunparse.dump(root))
+
+        visitor = CallVisitor()
+        visitor.visit(root)
+        new_file = dir_path + "/" + filename + ".py"
+        with open(new_file, "w+", encoding='utf8') as f:
+            tmp = ''.join(source)
+            f.write(tmp)
