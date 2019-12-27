@@ -17,6 +17,9 @@ def zzz():
 
 
 if __name__ == '__main__':
+    a = input().split(' ')
+    print(a)
+
     a2 = np.ndarray([1, 2, 3])
     b = []
     b.append('bbb')

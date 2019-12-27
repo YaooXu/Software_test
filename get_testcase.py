@@ -12,8 +12,8 @@ MAGIC_START_POINT = 17000
 handle = 'casalazara'
 
 SOURCE_CODE_BEGIN = '<pre id="program-source-text" class="prettyprint lang-py linenums program-source" style="padding: 0.5em;">'
-#SUBMISSION_URL = 'http://codeforces.com/contest/{ContestId}/submission/{SubmissionId}'
-#USER_INFO_URL = 'http://codeforces.com/api/user.status?handle={handle}&from=1&count={count}'
+# SUBMISSION_URL = 'http://codeforces.com/contest/{ContestId}/submission/{SubmissionId}'
+# USER_INFO_URL = 'http://codeforces.com/api/user.status?handle={handle}&from=1&count={count}'
 
 EXT = {'C++': 'cpp', 'C': 'c', 'Java': 'java', 'Python 3': 'py', 'Delphi': 'dpr', 'FPC': 'pas', 'C#': 'cs'}
 EXT_keys = EXT.keys()
@@ -74,6 +74,7 @@ def get_subssion(st, en):
                     submissions.append(link)
     return submissions
 
+
 def get_texturl(url):
     url = 'http://codeforces.com/problemset/submission/50/67642646'
     response = requests.get(url)
@@ -82,6 +83,7 @@ def get_texturl(url):
     divs = tb.find_all('div')
     texturl = divs[6].contents[5].contents[3].contents[5].find('a').get('href')
     return texturl
+
 
 if __name__ == '__main__':
 

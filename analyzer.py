@@ -179,7 +179,7 @@ class CallVisitor(ast.NodeVisitor):
                 print("不是系统调用！")
                 return
             else:
-                print("系统调用：%s"%(node.value.func.id))
+                print("系统调用：%s" % (node.value.func.id))
             try:
                 # 打log
                 log_path = "./log_txt/" + filename + ".txt"
@@ -199,7 +199,6 @@ class CallVisitor(ast.NodeVisitor):
             except:
                 print("错误：节点属性缺少")
 
-
     def visit_Call(self, node):
         pass
 
@@ -214,6 +213,7 @@ class CallVisitor(ast.NodeVisitor):
         #     else:
         #         print(node.func.id)
         #     pass
+
 
 def get_map(json_path):
     with open(json_path, 'r') as f:
@@ -230,7 +230,6 @@ def get_map(json_path):
                 flags[sub_fun] = 1
 
 
-
 if __name__ == "__main__":
 
     pathes = [r'D:\Anaconda\Anaconda\Lib\re.py',
@@ -243,7 +242,7 @@ if __name__ == "__main__":
     for path in pathes:
         with open(path, encoding='utf8') as f:
             source = f.readlines()
-        tmp =''
+        tmp = ''
         source = tmp.join(source)
 
         t = ast.parse(source)
@@ -290,6 +289,6 @@ if __name__ == "__main__":
     if not os.path.exists("./write/log_txt"):
         os.mkdir("./write/log_txt")
 
-    with open("./write/%s.py"%(filename), "w+", encoding='utf8') as f:
+    with open("./write/%s.py" % (filename), "w+", encoding='utf8') as f:
         tmp = ''.join(source)
         f.write(tmp)
