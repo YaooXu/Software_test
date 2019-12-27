@@ -8,4 +8,4 @@ if __name__ == "__main__":
         # TODO:插入信息
         content = "insert"
         f.write(content)
-
+    print(sys.version[0:5])

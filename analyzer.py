@@ -158,20 +158,19 @@ class CallVisitor(ast.NodeVisitor):
             try:
                 # 打log
                 log_name = os.path.join("./log/", filename + "_" + str(cnt) + "_line" + str(line_num)
-                                        + "_" + node.value.func.value.id + "_" + node.value.func.attr + "_py36.txt")
+                                        + "_" + node.value.func.value.id + "_" + node.value.func.attr + "_py%s.txt")
                 print("log_name = " + log_name)
                 # 插入信息
-                # content = "insert\\n"
-                # content = "line: %d, id = %s, attr = %s, output =  %%s\\n" % (
-                #     line_num, node.value.func.value.id, node.value.func.attr)
                 content = "output =  %s\\n"
                 # 插装
                 addition = ""
-                addition += "%swith open(\"%s\", \"w+\", encoding=\'utf8\') as f:\n    %sf.write(\"%s\"%%str(%s))" % (
-                    " " * col_offset, log_name, " " * col_offset, content, node.targets[0].id)
+                addition += "%swith open(\"%s\"%%(sys.version[0:5]), \"w+\", encoding=\'utf8\') as f:\n    %sf.write(\"%s\"%%str(%s))" % (
+                    " " * col_offset, log_name," " * col_offset, content, node.targets[0].id)
                 # print(addition)
                 source[line_num - 1] += '%s\n' % (addition)
                 # print(source[line_num - 1])
+
+
                 print("插装成功")
             except:
                 print("错误：节点属性缺少")
@@ -185,16 +184,13 @@ class CallVisitor(ast.NodeVisitor):
             try:
                 # 打log
                 log_name = os.path.join("./log/", filename + "_" + str(cnt) + "_line" + str(line_num)
-                                        + "_" + node.value.func.id + "_py36.txt")
+                                        + "_" + node.value.func.id + "_py%s.txt")
                 print("log_name = " + log_name)
                 # 插入信息
-                # content = "insert\\n"
-                # content = "line: %d, id = %s, attr = %s, output =  %%s\\n" % (
-                #     line_num, node.value.func.value.id, node.value.func.attr)
                 content = "output =  %s\\n"
                 # 插装
                 addition = ""
-                addition += "%swith open(\"%s\", \"w+\", encoding=\'utf8\') as f:\n    %sf.write(\"%s\"%%str(%s))" % (
+                addition += "%swith open(\"%s\"%%(sys.version[0:5]), \"w+\", encoding=\'utf8\') as f:\n    %sf.write(\"%s\"%%str(%s))" % (
                     " " * col_offset, log_name, " " * col_offset, content, node.targets[0].id)
                 # print(addition)
                 source[line_num - 1] += '%s\n' % (addition)
@@ -274,7 +270,7 @@ if __name__ == "__main__":
     if not os.path.exists("./write"):
         os.mkdir("./write")
 
-
+    #待插装的代码集合
     test_pathes = [r'D:\课件\大三上\软件质量测试\大作业\code\Software_test\test.py']
     # 识别目标代码自定义的函数
     cnt = 0
@@ -290,6 +286,7 @@ if __name__ == "__main__":
         dir_path = "./write/" + filename
         log_path = dir_path + "/log/"
         input_path = dir_path + "/input/"
+
         if not os.path.exists(dir_path):
             os.mkdir(dir_path)
         if not os.path.exists(log_path):
@@ -304,7 +301,9 @@ if __name__ == "__main__":
 
         visitor = CallVisitor()
         visitor.visit(root)
-        new_file = dir_path + "/" + filename + ".py"
-        with open(new_file, "w+", encoding='utf8') as f:
+        #插装后代码路径
+        save_file = dir_path + "/" + filename + ".py"
+        source[0] += 'import sys\n'
+        with open(save_file, "w+", encoding='utf8') as f:
             tmp = ''.join(source)
             f.write(tmp)
