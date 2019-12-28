@@ -270,7 +270,7 @@ def analyse_lib(lib_pathes: list):
     print(flags)
 
 
-def get_plugin_file(file_path: str, save_path=None):
+def get_plugin_file(file_path: str, save_path=None, over_write=True):
     r"""
 
     :param file_path: 待插装的目标文件
@@ -282,11 +282,9 @@ def get_plugin_file(file_path: str, save_path=None):
     with open(file_path, 'r', encoding='utf8') as f:
         global source, file_parent_path, file_name
         source = f.readlines()
-        # file_parent_path = file_path.split("\\")
         file_parent_path = os.path.split(file_path)[0]
         file_name = os.path.split(file_path)[-1][0:-3]
-        print(file_parent_path, file_name)
-        # print("Test file_parent_path = " + file_parent_path)
+        # print(file_parent_path, file_name)
 
     # log文件夹
     log_path = os.path.join(file_parent_path, 'log')
@@ -298,16 +296,18 @@ def get_plugin_file(file_path: str, save_path=None):
     root = ast.parse(source_str)
     # print(astunparse.dump(root))
 
-    visitor = CallVisitor()
-    visitor.visit(root)
-
-    # 插装后代码路径
     if save_path is None:
         save_path = file_parent_path + "/" + "plugin_" + file_name + ".py"
-    source[0] = 'import sys\n' + source[0]
-    with open(save_path, "w+", encoding='utf8') as f:
-        tmp = ''.join(source)
-        f.write(tmp)
+
+    if over_write:
+        visitor = CallVisitor()
+        visitor.visit(root)
+
+        # 插装后代码路径
+        source[0] = 'import sys\n' + source[0]
+        with open(save_path, "w+", encoding='utf8') as f:
+            tmp = ''.join(source)
+            f.write(tmp)
 
     return save_path
 
