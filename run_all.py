@@ -1,7 +1,6 @@
 import os
 import sys
 from analyzer import get_plugin_file, get_map
-import re
 
 
 def run_with_pys(python_file_path: str, input_file_path: str):
@@ -28,7 +27,7 @@ if __name__ == '__main__':
 
     python_pathes = ['E:\Anaconda\envs\PY37\python.exe', 'E:\Anaconda\python.exe']
     # print(sys.version[:3])
-    test_case_path = './testcase/2333'
+    test_case_path = './source/'
     for root, dirs, files in os.walk(test_case_path):
         if root.endswith('log'):
             # 遍历到log文件夹，跳过
@@ -45,7 +44,7 @@ if __name__ == '__main__':
                             # 需要重写
                             plugin_file = get_plugin_file(python_file_path)
                     else:
-                        get_plugin_file(python_file_path)
+                        plugin_file = get_plugin_file(python_file_path)
                 elif file.endswith('.txt'):
                     input_file_path = os.path.join(root, file)
 

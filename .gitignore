@@ -4,3 +4,5 @@
 .vscode/
 test*
 log_test.py
+__*
+source
