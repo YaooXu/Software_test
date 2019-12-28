@@ -29,10 +29,10 @@ def compare_file(file1_name, file2_name):
     temp=1
     for i in range(length):
         if text1_lines[i]!=text2_lines[i]:
-             a=str(temp)
+             k=str(temp)
              temp=temp+1
              result=open('compare_result.text','a')
-             result.write(a)
+             result.write(k)
              result.write(':\n')
              result.write(filename1)
              result.write(':')
