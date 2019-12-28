@@ -9,8 +9,7 @@ def run_with_pys(python_file_path: str, input_file_path: str):
         cmd_line = 'cat %s | %s %s' % (input_file_path, python_path, python_file_path)
         print(cmd_line)
         # os.system(cmd_line)
-        subprocess.run(cmd_line, shell=True)
-
+        subprocess.Popen(['powershell.exe', cmd_line], stdout=sys.stdout)
 
 def plugin_exit(files):
     flag = 0
