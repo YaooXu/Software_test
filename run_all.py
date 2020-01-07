@@ -1,6 +1,6 @@
 import os
 import sys
-from analyzer import get_plugin_file, get_map
+from analyzer import get_instrument_file, load_json
 import subprocess
 
 
@@ -11,23 +11,23 @@ def run_with_pys(python_file_path: str, input_file_path: str):
         # os.system(cmd_line)
         subprocess.Popen(['powershell.exe', cmd_line], stdout=sys.stdout)
 
-def plugin_exit(files):
+def instrument_exit(files):
     flag = 0
     for file in files:
-        if file.startswith('plugin'):
+        if file.startswith('instrument'):
             flag = 1
     return flag
 
 
 if __name__ == '__main__':
     print('loading func')
-    get_map('./module_func_class.json')
+    load_json('./module_func_class.json')
 
     # 是否重写插装文件
     over_write = 1
 
-    python_pathes = ['E:\Anaconda\envs\PY37\python.exe',
-                     'E:\Anaconda\python.exe']
+    python_pathes = ['python33',
+                     'python38']
 
     # print(sys.version[:3])
     test_case_path = './source/'
@@ -39,14 +39,14 @@ if __name__ == '__main__':
             # 该目录有文件
             python_file_path, input_file_path = None, None
             for file in files:
-                if file.endswith('.py') and not file.startswith('plugin'):
+                if file.endswith('.py') and not file.startswith('instrument'):
                     python_file_path = os.path.join(root, file)
-                    if plugin_exit(files):
+                    if instrument_exit(files):
                         # 已存在插装文件
-                        plugin_file = get_plugin_file(python_file_path, over_write=over_write)
+                        instrument_file = get_instrument_file(python_file_path, over_write=over_write)
                     else:
-                        plugin_file = get_plugin_file(python_file_path)
+                        instrument_file = get_instrument_file(python_file_path)
                 elif file.endswith('.txt'):
                     input_file_path = os.path.join(root, file)
 
-            run_with_pys(plugin_file, input_file_path)
+            run_with_pys(instrument_file, input_file_path)

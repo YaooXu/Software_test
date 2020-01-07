@@ -17,13 +17,13 @@ source
 - codeforce_1000
   - 1000.py
   - input.txt
-  - plugin_1000.py
+  - instrument_1000.py
   - log
     - 1000_1_linexx_re_sub_py3.6.txt
 - codeforce_702
   - 702.py
   - input.txt
-  - plugin_702.py
+  - instrument_702.py
   - log
     - 702_1_linexx_c_split_py3.6.txt 
 

@@ -6,45 +6,9 @@ import astunparse
 import numpy as np
 
 global source, file_parent_path, file_name
+TAB_SIZE = 4
 cnt = 0
-flags = {}
-
-
-# 测试的时候用的
-class v(ast.NodeVisitor):
-
-    def generic_visit(self, node):
-        print(type(node).__name__)
-        ast.NodeVisitor.generic_visit(self, node)
-
-
-# 测试的时候用的
-class w(v):
-
-    def visit_Load(self, node):
-        pass
-
-    def visit_arg(self, node):
-        pass
-
-    def visit_argument(self, node):
-        pass
-
-    def visit_Call(self, node):
-        try:
-            print('Call:', node.func.id)
-        except:
-            print('Call:', node.func.attr)
-
-    def visit_Name(self, node):
-        print('Name:', node.id)
-
-    def visit_ClassDef(self, node):
-        print('ClassDef:', node.name)
-        for sub_node in ast.walk(node):
-            if isinstance(sub_node, ast.FunctionDef):
-                print('func name:', sub_node.name)
-        print()
+all_func = {}
 
 
 # 分析源码的class和method
@@ -64,14 +28,17 @@ class SourceAnalyser(ast.NodeVisitor):
         self.names.add(node.id)
 
     def visit_FunctionDef(self, node):
-        print('func name:', node.name)
-        self.all_func.append(node.name)
+        if node.name[0] != '_':
+            # 忽略私有
+            print('func name:', node.name)
+            self.all_func.append(node.name)
 
     def visit_ClassDef(self, node):
         self.all_class[node.name] = []
         print('ClassDef:', node.name)
         for sub_node in ast.walk(node):
-            if isinstance(sub_node, ast.FunctionDef):
+            if isinstance(sub_node, ast.FunctionDef) and sub_node.name[0] != '_':
+                # 忽略私有
                 print('method name:', sub_node.name)
                 self.all_class[node.name].append(sub_node.name)
         print()
@@ -106,6 +73,34 @@ def typeCastToString(castParameter):
 
     #     return type(newType)
     return newType
+
+
+def in_all_func(node, all_func):
+    # 判断是不是代码库函数调用
+    # 调用方式的不同会使node.value.func中的属性不一样
+    if 'attr' in node.value.func.__dict__:
+        if node.value.func.attr in all_func:
+            print("代码库函数调用：%s" % node.value.func.attr)
+            return True
+    elif 'id' in node.value.func.__dict__:
+        if node.value.func.id in all_func:
+            print("代码库函数调用：%s" % node.value.func.id)
+            return True
+
+    print("不是代码库函数调用")
+    return False
+
+
+def add_brackets(s):
+    # 给字符串加括号
+    s = '(' + s + ')'
+    return s
+
+
+def add_quotes(s):
+    # 给字符串加双引号
+    s = '\"' + s + '\"'
+    return s
 
 
 # 分析目标代码的函数调用
@@ -143,6 +138,8 @@ class CallVisitor(ast.NodeVisitor):
 
     # 判断是否有assign
     def visit_Assign(self, node):
+        global cnt
+
         print("\n------访问Assign节点---")
         line_num = node.lineno
 
@@ -154,58 +151,69 @@ class CallVisitor(ast.NodeVisitor):
             print("节点未调用方法或者函数")
             return
 
-        if 'id' not in node.value.func.__dict__:
-            # print('*.*')
-            if node.value.func.attr not in flags:
-                return
-            else:
-                print("系统调用：%s" % (node.value.func.attr))
-            try:
-                global cnt
-                # 打log
-                log_name = os.path.join(file_parent_path, 'log',
-                                        file_name + "_" + str(cnt) + "_line" + str(line_num)
-                                        + "_" + node.value.func.value.id + "_" + node.value.func.attr + "_py%s.txt")
-                print("log_name = " + log_name)
-                # 插入信息
-                content = "output =  %s\\n"
-                # 插装
-                addition = ""
-                addition += "%swith open(r\"%s\"%%(sys.version[0:3]), \"w+\", encoding=\'utf8\') as f:\n    %sf.write(\"%s\"%%str(%s))" % (
-                    " " * col_offset, log_name, " " * col_offset, content, node.targets[0].id)
-                # print(addition)
-                source[line_num - 1] += '%s\n' % (addition)
-                # print(source[line_num - 1])
+        if not in_all_func(node, all_func):
+            # 不是调用的代码库函数
+            return
 
-                print("插装成功")
-                cnt += 1
-            except:
-                print("错误：节点属性缺少")
-        else:
-            # print('*')
-            if node.value.func.id not in flags:
-                print("不是系统调用！")
-                return
-            else:
-                print("系统调用：%s" % (node.value.func.id))
+        # 每个log文件的前缀路径
+        prefix_log_path = os.path.join(file_parent_path, 'log', file_name + "_" + str(cnt) + "_line" + str(line_num))
+
+        # log中输出内容的前缀信息
+        prefix_output = "output = %s\\n"
+        prefix_args = "input ="
+
+        if 'id' not in node.value.func.__dict__:
+            # *.* 形式的函数调用
             try:
                 # 打log
-                log_name = os.path.join(file_parent_path, 'log',
-                                        file_name + "_" + str(cnt) + "_line" + str(line_num)
-                                        + "_" + node.value.func.id + "_py%s.txt")
+                log_name = prefix_log_path + "_" + node.value.func.value.id + "_" + node.value.func.attr + "_py%s.txt"
                 print("log_name = " + log_name)
-                # 插入信息
-                content = "output =  %s\\n"
-                # 插装
-                addition = ""
-                addition += "%swith open(r\"%s\"%%(sys.version[0:3]), \"w+\", encoding=\'utf8\') as f:\n    %sf.write(\"%s\"%%str(%s))" % (
-                    " " * col_offset, log_name, " " * col_offset, content, node.targets[0].id)
-                # print(addition)
-                source[line_num - 1] += '%s\n' % (addition)
-                # print(source[line_num - 1])
-                print("插装成功")
             except:
                 print("错误：节点属性缺少")
+                return
+        else:
+            # * 形式的函数调用
+            try:
+                # 打log
+                log_name = prefix_log_path + "_" + node.value.func.id + "_py%s.txt"
+                print("log_name = " + log_name)
+            except:
+                print("错误：节点属性缺少")
+                return
+
+        # 第二行参数得多加一个缩进
+        addition = "%swith open(r\"%s\"%%(sys.version[0:3]), \"w+\", encoding=\'utf8\') as f:\n%sf.write(\"%s\"%%str(%s))" % (
+            " " * col_offset, log_name, " " * (col_offset + TAB_SIZE), prefix_output, node.targets[0].id)
+        # print(addition)
+        source[line_num - 1] += '%s\n' % (addition)
+        # print(source[line_num - 1])
+
+        print("插装成功")
+        cnt += 1
+        if len(node.value.args):
+            # 该函数调用存在参数
+            # f.write("input = %s %s %s" % ('x*', '-', str(s)))
+            to_print_list = []  # 待打印的参数
+            print('参数列表:')
+            for arg in node.value.args:
+                # 前面的打印形式str加个%s
+                prefix_args += " %s"
+                # 字符串是s , 变量名是id
+                if 's' in arg.__dict__:
+                    print(arg.s)
+                    to_print_list.append("\"%s\"" % arg.s)
+                else:
+                    print(arg.id)
+                    to_print_list.append("str(%s)" % arg.id)
+            to_print_str = ",".join(to_print_list)  # 'x*', '-', str(s)
+            to_print_str = add_brackets(to_print_str)  # ('x*', '-', str(s))
+            prefix_args = add_quotes(prefix_args)  # "input = %s %s %s"
+
+            # 最终插入的语句
+            instrument_str = "f.write" + add_brackets(prefix_args + ' % ' + to_print_str)
+            # 加上缩进和换行符插入
+            source[line_num - 1] += " " * (col_offset + TAB_SIZE) + instrument_str + '\n'
+            # print(instrument_str)
 
     def visit_Call(self, node):
         pass
@@ -223,7 +231,8 @@ class CallVisitor(ast.NodeVisitor):
         #     pass
 
 
-def get_map(json_path):
+def load_json(json_path):
+    # 加载json中的所有函数
     with open(json_path, 'r') as f:
         print("解析json，得到系统调用：")
         data = json.load(f)
@@ -233,21 +242,20 @@ def get_map(json_path):
             for sub_class in data[i]['classes']:
                 for j in data[i]['classes'][sub_class]:
                     # print(j)
-                    flags[j] = 1
+                    all_func[j] = 1
             for sub_fun in data[i]['funcs']:
-                flags[sub_fun] = 1
+                all_func[sub_fun] = 1
 
 
 def analyse_lib(lib_pathes: list):
     res = {}
     for path in lib_pathes:
+        print('********************************************\n\n%s*' % path)
         with open(path, encoding='utf8') as f:
             source = f.readlines()
-        tmp = ''
-        source = tmp.join(source)
+        source = ''.join(source)
 
         t = ast.parse(source)
-        # w().visit(t)
 
         analyzer = SourceAnalyser()
         analyzer.analyze(t)
@@ -259,6 +267,8 @@ def analyse_lib(lib_pathes: list):
         # 得到模块的无后缀名字
         module_name = os.path.split(path)[-1].split('.')[0]
         if module_name == '__init__':
+            # 如果有的模块的所有信息在__init__总给出
+            # 需要再分割一次路径名
             dir_path = os.path.split(path)[0]
             module_name = os.path.split(dir_path)[-1].split('.')[0]
         res[module_name] = cur_res
@@ -266,18 +276,18 @@ def analyse_lib(lib_pathes: list):
     with open('module_func_class.json', 'w', encoding='utf8') as f:
         f.write(json.dumps(res, indent=4))
 
-    get_map("module_func_class.json")
-    print(flags)
+    load_json("module_func_class.json")
+    print(all_func)
 
 
-def get_plugin_file(file_path: str, save_path=None, over_write=True):
+def get_instrument_file(file_path: str, save_path=None, over_write=True):
     r"""
 
     :param file_path: 待插装的目标文件
     :param save_path: 插装后文件的保存路径，如果为None默认放到与目标文件同一目录下
     :return: 插装之后的文件路径
     """
-    print('generating plugin file for % s' % file_path)
+    print('generating instrument file for % s' % file_path)
 
     with open(file_path, 'r', encoding='utf8') as f:
         global source, file_parent_path, file_name
@@ -297,7 +307,7 @@ def get_plugin_file(file_path: str, save_path=None, over_write=True):
     # print(astunparse.dump(root))
 
     if save_path is None:
-        save_path = file_parent_path + "/" + "plugin_" + file_name + ".py"
+        save_path = file_parent_path + "/" + "instrument_" + file_name + ".py"
 
     if over_write:
         visitor = CallVisitor()
@@ -313,18 +323,22 @@ def get_plugin_file(file_path: str, save_path=None, over_write=True):
 
 
 if __name__ == "__main__":
-
-    pathes = [r'E:\Anaconda\Lib\re.py',
-              r'E:\Anaconda\Lib\os.py',
-              r'E:\Anaconda\Lib\site-packages\numpy\__init__.py',
-              r'C:\Users\dell\.PyCharm2019.1\system\python_stubs\-727401014\builtins.py',
-              ]
+    lib_dir = 'E:\Anaconda\Lib'
+    pathes = []
+    for root, dir, files in os.walk(lib_dir):
+        # 暂时只处理root下的.py文件
+        for file in files:
+            if file.startswith('_') or file[-2:] != 'py':
+                continue
+            path = os.path.join(root, file)
+            pathes.append(path)
+        break
     analyse_lib(pathes)
 
-    # 待插装的代码集合
-    test_pathes = []
-    # 识别目标代码自定义的函数
-
-    for path in test_pathes:
-        # path = r'D:\课件\大三上\软件质量测试\大作业\code\Software_test\test.py'
-        get_plugin_file(path)
+    # # 待插装的代码集合
+    # test_pathes = []
+    # # 识别目标代码自定义的函数
+    #
+    # for path in test_pathes:
+    #     # path = r'D:\课件\大三上\软件质量测试\大作业\code\Software_test\test.py'
+    #     get_instrument_file(path)
