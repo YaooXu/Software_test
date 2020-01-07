@@ -2,6 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import os
 
+ignoretags = ['gp', 'go', 'gr', 'gt']
+
 def gettext(dir, divs):
     if divs.__len__() == 0:
         return
@@ -30,20 +32,11 @@ def gettext(dir, divs):
                 if i == 1: #非法语句
                     if classtag == ['p']:
                         break
-                if classtag == ['gp'] or classtag == ['go']:
+                if classtag[0] in ignoretags:
                     continue
                 text = spans[i].contents[0]
                 # print(text)
                 file.write(text)
-                # if spans[i].contents is not None:
-                #     if classtag == ['gp']:
-                #         file.write('\n')
-                #     elif classtag == ['go']:
-                #         continue
-                #     elif classtag == ['kn'] or classtag == ['nn']:
-                #         file.write(''.join(spans[i].contents) + ' ')
-                #     else:
-                #         file.write(''.join(spans[i].contents))
 
         file.close()
     except IndexError:
