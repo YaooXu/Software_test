@@ -1,9 +1,3399 @@
 {
+    "abc": {
+        "classes": {
+            "abstractclassmethod": [],
+            "abstractstaticmethod": [],
+            "abstractproperty": [],
+            "ABCMeta": [
+                "register"
+            ],
+            "ABC": []
+        },
+        "funcs": [
+            "abstractmethod",
+            "get_cache_token"
+        ]
+    },
+    "aifc": {
+        "classes": {
+            "Error": [],
+            "Aifc_read": [
+                "initfp",
+                "getfp",
+                "rewind",
+                "close",
+                "tell",
+                "getnchannels",
+                "getnframes",
+                "getsampwidth",
+                "getframerate",
+                "getcomptype",
+                "getcompname",
+                "getparams",
+                "getmarkers",
+                "getmark",
+                "setpos",
+                "readframes"
+            ],
+            "Aifc_write": [
+                "initfp",
+                "aiff",
+                "aifc",
+                "setnchannels",
+                "getnchannels",
+                "setsampwidth",
+                "getsampwidth",
+                "setframerate",
+                "getframerate",
+                "setnframes",
+                "getnframes",
+                "setcomptype",
+                "getcomptype",
+                "getcompname",
+                "setparams",
+                "getparams",
+                "setmark",
+                "getmark",
+                "getmarkers",
+                "tell",
+                "writeframesraw",
+                "writeframes",
+                "close"
+            ]
+        },
+        "funcs": [
+            "open"
+        ]
+    },
+    "antigravity": {
+        "classes": {},
+        "funcs": [
+            "geohash"
+        ]
+    },
+    "argparse": {
+        "classes": {
+            "_AttributeHolder": [],
+            "HelpFormatter": [
+                "start_section",
+                "end_section",
+                "add_text",
+                "add_usage",
+                "add_argument",
+                "add_arguments",
+                "format_help",
+                "format_help",
+                "format",
+                "get_lines"
+            ],
+            "RawDescriptionHelpFormatter": [],
+            "RawTextHelpFormatter": [],
+            "ArgumentDefaultsHelpFormatter": [],
+            "MetavarTypeHelpFormatter": [],
+            "ArgumentError": [],
+            "ArgumentTypeError": [],
+            "Action": [],
+            "_StoreAction": [],
+            "_StoreConstAction": [],
+            "_StoreTrueAction": [],
+            "_StoreFalseAction": [],
+            "_AppendAction": [],
+            "_AppendConstAction": [],
+            "_CountAction": [],
+            "_HelpAction": [],
+            "_VersionAction": [],
+            "_SubParsersAction": [
+                "add_parser"
+            ],
+            "FileType": [],
+            "Namespace": [],
+            "_ActionsContainer": [
+                "register",
+                "set_defaults",
+                "get_default",
+                "add_argument",
+                "add_argument_group",
+                "add_mutually_exclusive_group"
+            ],
+            "_ArgumentGroup": [],
+            "_MutuallyExclusiveGroup": [],
+            "ArgumentParser": [
+                "add_subparsers",
+                "parse_args",
+                "parse_known_args",
+                "convert_arg_line_to_args",
+                "format_usage",
+                "format_help",
+                "print_usage",
+                "print_help",
+                "exit",
+                "error",
+                "identity",
+                "take_action",
+                "consume_optional",
+                "consume_positionals"
+            ]
+        },
+        "funcs": []
+    },
+    "ast": {
+        "classes": {
+            "NodeVisitor": [
+                "visit",
+                "generic_visit"
+            ],
+            "NodeTransformer": [
+                "generic_visit"
+            ]
+        },
+        "funcs": [
+            "parse",
+            "literal_eval",
+            "dump",
+            "copy_location",
+            "fix_missing_locations",
+            "increment_lineno",
+            "iter_fields",
+            "iter_child_nodes",
+            "get_docstring",
+            "walk"
+        ]
+    },
+    "asynchat": {
+        "classes": {
+            "async_chat": [
+                "collect_incoming_data",
+                "found_terminator",
+                "set_terminator",
+                "get_terminator",
+                "handle_read",
+                "handle_write",
+                "handle_close",
+                "push",
+                "push_with_producer",
+                "readable",
+                "writable",
+                "close_when_done",
+                "initiate_send",
+                "discard_buffers"
+            ],
+            "simple_producer": [
+                "more"
+            ]
+        },
+        "funcs": [
+            "find_prefix_at_end"
+        ]
+    },
+    "asyncore": {
+        "classes": {
+            "ExitNow": [],
+            "dispatcher": [
+                "add_channel",
+                "del_channel",
+                "create_socket",
+                "set_socket",
+                "set_reuse_addr",
+                "readable",
+                "writable",
+                "listen",
+                "bind",
+                "connect",
+                "accept",
+                "send",
+                "recv",
+                "close",
+                "log",
+                "log_info",
+                "handle_read_event",
+                "handle_connect_event",
+                "handle_write_event",
+                "handle_expt_event",
+                "handle_error",
+                "handle_expt",
+                "handle_read",
+                "handle_write",
+                "handle_connect",
+                "handle_accept",
+                "handle_accepted",
+                "handle_close"
+            ],
+            "dispatcher_with_send": [
+                "initiate_send",
+                "handle_write",
+                "writable",
+                "send"
+            ],
+            "file_wrapper": [
+                "recv",
+                "send",
+                "getsockopt",
+                "close",
+                "fileno"
+            ],
+            "file_dispatcher": [
+                "set_file"
+            ]
+        },
+        "funcs": [
+            "read",
+            "write",
+            "readwrite",
+            "poll",
+            "poll2",
+            "loop",
+            "compact_traceback",
+            "close_all"
+        ]
+    },
+    "base64": {
+        "classes": {},
+        "funcs": [
+            "b64encode",
+            "b64decode",
+            "standard_b64encode",
+            "standard_b64decode",
+            "urlsafe_b64encode",
+            "urlsafe_b64decode",
+            "b32encode",
+            "b32decode",
+            "b16encode",
+            "b16decode",
+            "a85encode",
+            "a85decode",
+            "b85encode",
+            "b85decode",
+            "encode",
+            "decode",
+            "encodebytes",
+            "encodestring",
+            "decodebytes",
+            "decodestring",
+            "main",
+            "test"
+        ]
+    },
+    "bdb": {
+        "classes": {
+            "BdbQuit": [],
+            "Bdb": [
+                "canonic",
+                "reset",
+                "trace_dispatch",
+                "dispatch_line",
+                "dispatch_call",
+                "dispatch_return",
+                "dispatch_exception",
+                "is_skipped_module",
+                "stop_here",
+                "break_here",
+                "do_clear",
+                "break_anywhere",
+                "user_call",
+                "user_line",
+                "user_return",
+                "user_exception",
+                "set_until",
+                "set_step",
+                "set_next",
+                "set_return",
+                "set_trace",
+                "set_continue",
+                "set_quit",
+                "set_break",
+                "clear_break",
+                "clear_bpbynumber",
+                "clear_all_file_breaks",
+                "clear_all_breaks",
+                "get_bpbynumber",
+                "get_break",
+                "get_breaks",
+                "get_file_breaks",
+                "get_all_breaks",
+                "get_stack",
+                "format_stack_entry",
+                "run",
+                "runeval",
+                "runctx",
+                "runcall"
+            ],
+            "Breakpoint": [
+                "deleteMe",
+                "enable",
+                "disable",
+                "bpprint",
+                "bpformat"
+            ],
+            "Tdb": [
+                "user_call",
+                "user_line",
+                "user_return",
+                "user_exception"
+            ]
+        },
+        "funcs": [
+            "set_trace",
+            "checkfuncname",
+            "effective",
+            "foo",
+            "bar",
+            "test"
+        ]
+    },
+    "binhex": {
+        "classes": {
+            "Error": [],
+            "FInfo": [],
+            "openrsrc": [
+                "read",
+                "write",
+                "close"
+            ],
+            "_Hqxcoderengine": [
+                "write",
+                "close"
+            ],
+            "_Rlecoderengine": [
+                "write",
+                "close"
+            ],
+            "BinHex": [
+                "write",
+                "close_data",
+                "write_rsrc",
+                "close"
+            ],
+            "_Hqxdecoderengine": [
+                "read",
+                "close"
+            ],
+            "_Rledecoderengine": [
+                "read",
+                "close"
+            ],
+            "HexBin": [
+                "read",
+                "close_data",
+                "read_rsrc",
+                "close"
+            ]
+        },
+        "funcs": [
+            "getfileinfo",
+            "binhex",
+            "hexbin"
+        ]
+    },
+    "bisect": {
+        "classes": {},
+        "funcs": [
+            "insort_right",
+            "bisect_right",
+            "insort_left",
+            "bisect_left"
+        ]
+    },
+    "bz2": {
+        "classes": {
+            "BZ2File": [
+                "close",
+                "closed",
+                "fileno",
+                "seekable",
+                "readable",
+                "writable",
+                "peek",
+                "read",
+                "read1",
+                "readinto",
+                "readline",
+                "readlines",
+                "write",
+                "writelines",
+                "seek",
+                "tell"
+            ]
+        },
+        "funcs": [
+            "open",
+            "compress",
+            "decompress"
+        ]
+    },
+    "calendar": {
+        "classes": {
+            "IllegalMonthError": [],
+            "IllegalWeekdayError": [],
+            "_localized_month": [],
+            "_localized_day": [],
+            "Calendar": [
+                "getfirstweekday",
+                "setfirstweekday",
+                "iterweekdays",
+                "itermonthdates",
+                "itermonthdays2",
+                "itermonthdays",
+                "monthdatescalendar",
+                "monthdays2calendar",
+                "monthdayscalendar",
+                "yeardatescalendar",
+                "yeardays2calendar",
+                "yeardayscalendar"
+            ],
+            "TextCalendar": [
+                "prweek",
+                "formatday",
+                "formatweek",
+                "formatweekday",
+                "formatweekheader",
+                "formatmonthname",
+                "prmonth",
+                "formatmonth",
+                "formatyear",
+                "pryear"
+            ],
+            "HTMLCalendar": [
+                "formatday",
+                "formatweek",
+                "formatweekday",
+                "formatweekheader",
+                "formatmonthname",
+                "formatmonth",
+                "formatyear",
+                "formatyearpage"
+            ],
+            "different_locale": [],
+            "LocaleTextCalendar": [
+                "formatweekday",
+                "formatmonthname"
+            ],
+            "LocaleHTMLCalendar": [
+                "formatweekday",
+                "formatmonthname"
+            ]
+        },
+        "funcs": [
+            "isleap",
+            "leapdays",
+            "weekday",
+            "monthrange",
+            "setfirstweekday",
+            "format",
+            "formatstring",
+            "timegm",
+            "main"
+        ]
+    },
+    "cgi": {
+        "classes": {
+            "MiniFieldStorage": [],
+            "FieldStorage": [
+                "getvalue",
+                "getfirst",
+                "getlist",
+                "keys",
+                "read_urlencoded",
+                "read_multi",
+                "read_single",
+                "read_binary",
+                "read_lines",
+                "read_lines_to_eof",
+                "read_lines_to_outerboundary",
+                "skip_lines",
+                "make_file"
+            ]
+        },
+        "funcs": [
+            "initlog",
+            "dolog",
+            "nolog",
+            "closelog",
+            "parse",
+            "parse_qs",
+            "parse_qsl",
+            "parse_multipart",
+            "parse_header",
+            "test",
+            "print_exception",
+            "print_environ",
+            "print_form",
+            "print_directory",
+            "print_arguments",
+            "print_environ_usage",
+            "escape",
+            "valid_boundary"
+        ]
+    },
+    "cgitb": {
+        "classes": {
+            "Hook": [
+                "handle"
+            ]
+        },
+        "funcs": [
+            "reset",
+            "small",
+            "strong",
+            "grey",
+            "lookup",
+            "scanvars",
+            "html",
+            "text",
+            "enable"
+        ]
+    },
+    "chunk": {
+        "classes": {
+            "Chunk": [
+                "getname",
+                "getsize",
+                "close",
+                "isatty",
+                "seek",
+                "tell",
+                "read",
+                "skip"
+            ]
+        },
+        "funcs": []
+    },
+    "cmd": {
+        "classes": {
+            "Cmd": [
+                "cmdloop",
+                "precmd",
+                "postcmd",
+                "preloop",
+                "postloop",
+                "parseline",
+                "onecmd",
+                "emptyline",
+                "default",
+                "completedefault",
+                "completenames",
+                "complete",
+                "get_names",
+                "complete_help",
+                "do_help",
+                "print_topics",
+                "columnize"
+            ]
+        },
+        "funcs": []
+    },
+    "code": {
+        "classes": {
+            "InteractiveInterpreter": [
+                "runsource",
+                "runcode",
+                "showsyntaxerror",
+                "showtraceback",
+                "write"
+            ],
+            "InteractiveConsole": [
+                "resetbuffer",
+                "interact",
+                "push",
+                "raw_input"
+            ]
+        },
+        "funcs": [
+            "interact"
+        ]
+    },
+    "codecs": {
+        "classes": {
+            "CodecInfo": [],
+            "Codec": [
+                "encode",
+                "decode"
+            ],
+            "IncrementalEncoder": [
+                "encode",
+                "reset",
+                "getstate",
+                "setstate"
+            ],
+            "BufferedIncrementalEncoder": [
+                "encode",
+                "reset",
+                "getstate",
+                "setstate"
+            ],
+            "IncrementalDecoder": [
+                "decode",
+                "reset",
+                "getstate",
+                "setstate"
+            ],
+            "BufferedIncrementalDecoder": [
+                "decode",
+                "reset",
+                "getstate",
+                "setstate"
+            ],
+            "StreamWriter": [
+                "write",
+                "writelines",
+                "reset",
+                "seek"
+            ],
+            "StreamReader": [
+                "decode",
+                "read",
+                "readline",
+                "readlines",
+                "reset",
+                "seek"
+            ],
+            "StreamReaderWriter": [
+                "read",
+                "readline",
+                "readlines",
+                "write",
+                "writelines",
+                "reset",
+                "seek"
+            ],
+            "StreamRecoder": [
+                "read",
+                "readline",
+                "readlines",
+                "write",
+                "writelines",
+                "reset"
+            ]
+        },
+        "funcs": [
+            "open",
+            "EncodedFile",
+            "getencoder",
+            "getdecoder",
+            "getincrementalencoder",
+            "getincrementaldecoder",
+            "getreader",
+            "getwriter",
+            "iterencode",
+            "iterdecode",
+            "make_identity_dict",
+            "make_encoding_map"
+        ]
+    },
+    "codeop": {
+        "classes": {
+            "Compile": [],
+            "CommandCompiler": []
+        },
+        "funcs": [
+            "compile_command"
+        ]
+    },
+    "colorsys": {
+        "classes": {},
+        "funcs": [
+            "rgb_to_yiq",
+            "yiq_to_rgb",
+            "rgb_to_hls",
+            "hls_to_rgb",
+            "rgb_to_hsv",
+            "hsv_to_rgb"
+        ]
+    },
+    "compileall": {
+        "classes": {},
+        "funcs": [
+            "compile_dir",
+            "compile_file",
+            "compile_path",
+            "main"
+        ]
+    },
+    "configparser": {
+        "classes": {
+            "Error": [],
+            "NoSectionError": [],
+            "DuplicateSectionError": [],
+            "DuplicateOptionError": [],
+            "NoOptionError": [],
+            "InterpolationError": [],
+            "InterpolationMissingOptionError": [],
+            "InterpolationSyntaxError": [],
+            "InterpolationDepthError": [],
+            "ParsingError": [
+                "filename",
+                "filename",
+                "append"
+            ],
+            "MissingSectionHeaderError": [],
+            "Interpolation": [
+                "before_get",
+                "before_set",
+                "before_read",
+                "before_write"
+            ],
+            "BasicInterpolation": [
+                "before_get",
+                "before_set"
+            ],
+            "ExtendedInterpolation": [
+                "before_get",
+                "before_set"
+            ],
+            "LegacyInterpolation": [
+                "before_get",
+                "before_set"
+            ],
+            "RawConfigParser": [
+                "defaults",
+                "sections",
+                "add_section",
+                "has_section",
+                "options",
+                "read",
+                "read_file",
+                "read_string",
+                "read_dict",
+                "readfp",
+                "get",
+                "getint",
+                "getfloat",
+                "getboolean",
+                "items",
+                "popitem",
+                "optionxform",
+                "has_option",
+                "set",
+                "write",
+                "remove_option",
+                "remove_section",
+                "converters"
+            ],
+            "ConfigParser": [
+                "set",
+                "add_section"
+            ],
+            "SafeConfigParser": [],
+            "SectionProxy": [
+                "parser",
+                "name",
+                "get"
+            ],
+            "ConverterMapping": []
+        },
+        "funcs": []
+    },
+    "contextlib": {
+        "classes": {
+            "AbstractContextManager": [],
+            "ContextDecorator": [
+                "inner"
+            ],
+            "_GeneratorContextManager": [],
+            "closing": [],
+            "_RedirectStream": [],
+            "redirect_stdout": [],
+            "redirect_stderr": [],
+            "suppress": [],
+            "ExitStack": [
+                "pop_all",
+                "push",
+                "callback",
+                "enter_context",
+                "close"
+            ]
+        },
+        "funcs": [
+            "contextmanager"
+        ]
+    },
+    "copy": {
+        "classes": {
+            "Error": []
+        },
+        "funcs": [
+            "copy",
+            "deepcopy"
+        ]
+    },
+    "copyreg": {
+        "classes": {},
+        "funcs": [
+            "pickle",
+            "constructor",
+            "pickle_complex",
+            "add_extension",
+            "remove_extension",
+            "clear_extension_cache"
+        ]
+    },
+    "cProfile": {
+        "classes": {
+            "Profile": [
+                "print_stats",
+                "dump_stats",
+                "create_stats",
+                "snapshot_stats",
+                "run",
+                "runctx",
+                "runcall"
+            ]
+        },
+        "funcs": [
+            "run",
+            "runctx",
+            "label",
+            "main"
+        ]
+    },
+    "crypt": {
+        "classes": {
+            "_Method": []
+        },
+        "funcs": [
+            "mksalt",
+            "crypt"
+        ]
+    },
+    "csv": {
+        "classes": {
+            "Dialect": [],
+            "excel": [],
+            "excel_tab": [],
+            "unix_dialect": [],
+            "DictReader": [
+                "fieldnames",
+                "fieldnames"
+            ],
+            "DictWriter": [
+                "writeheader",
+                "writerow",
+                "writerows"
+            ],
+            "Sniffer": [
+                "sniff",
+                "has_header"
+            ]
+        },
+        "funcs": []
+    },
+    "datetime": {
+        "classes": {
+            "timedelta": [
+                "total_seconds",
+                "days",
+                "seconds",
+                "microseconds",
+                "plural"
+            ],
+            "date": [
+                "fromtimestamp",
+                "today",
+                "fromordinal",
+                "ctime",
+                "strftime",
+                "isoformat",
+                "year",
+                "month",
+                "day",
+                "timetuple",
+                "toordinal",
+                "replace",
+                "weekday",
+                "isoweekday",
+                "isocalendar"
+            ],
+            "tzinfo": [
+                "tzname",
+                "utcoffset",
+                "dst",
+                "fromutc"
+            ],
+            "time": [
+                "hour",
+                "minute",
+                "second",
+                "microsecond",
+                "tzinfo",
+                "fold",
+                "isoformat",
+                "strftime",
+                "utcoffset",
+                "tzname",
+                "dst",
+                "replace"
+            ],
+            "datetime": [
+                "hour",
+                "minute",
+                "second",
+                "microsecond",
+                "tzinfo",
+                "fold",
+                "fromtimestamp",
+                "utcfromtimestamp",
+                "now",
+                "utcnow",
+                "combine",
+                "timetuple",
+                "timestamp",
+                "utctimetuple",
+                "date",
+                "time",
+                "timetz",
+                "replace",
+                "astimezone",
+                "ctime",
+                "isoformat",
+                "strptime",
+                "utcoffset",
+                "tzname",
+                "dst",
+                "local"
+            ],
+            "timezone": [
+                "utcoffset",
+                "tzname",
+                "dst",
+                "fromutc"
+            ]
+        },
+        "funcs": []
+    },
+    "decimal": {
+        "classes": {},
+        "funcs": []
+    },
+    "difflib": {
+        "classes": {
+            "SequenceMatcher": [
+                "set_seqs",
+                "set_seq1",
+                "set_seq2",
+                "find_longest_match",
+                "get_matching_blocks",
+                "get_opcodes",
+                "get_grouped_opcodes",
+                "ratio",
+                "quick_ratio",
+                "real_quick_ratio"
+            ],
+            "Differ": [
+                "compare"
+            ],
+            "HtmlDiff": [
+                "make_file",
+                "make_table",
+                "expand_tabs"
+            ]
+        },
+        "funcs": [
+            "get_close_matches",
+            "IS_LINE_JUNK",
+            "IS_CHARACTER_JUNK",
+            "unified_diff",
+            "context_diff",
+            "diff_bytes",
+            "ndiff",
+            "restore"
+        ]
+    },
+    "dis": {
+        "classes": {
+            "Instruction": [],
+            "Bytecode": [
+                "from_traceback",
+                "info",
+                "dis"
+            ]
+        },
+        "funcs": [
+            "dis",
+            "distb",
+            "pretty_flags",
+            "code_info",
+            "show_code",
+            "get_instructions",
+            "disassemble",
+            "findlabels",
+            "findlinestarts"
+        ]
+    },
+    "doctest": {
+        "classes": {
+            "_SpoofOut": [
+                "getvalue",
+                "truncate"
+            ],
+            "_OutputRedirectingPdb": [
+                "set_trace",
+                "set_continue",
+                "trace_dispatch"
+            ],
+            "Example": [],
+            "DocTest": [],
+            "DocTestParser": [
+                "parse",
+                "get_doctest",
+                "get_examples"
+            ],
+            "DocTestFinder": [
+                "find"
+            ],
+            "DocTestRunner": [
+                "report_start",
+                "report_success",
+                "report_failure",
+                "report_unexpected_exception",
+                "run",
+                "summarize",
+                "merge",
+                "out"
+            ],
+            "OutputChecker": [
+                "check_output",
+                "output_difference"
+            ],
+            "DocTestFailure": [],
+            "UnexpectedException": [],
+            "DebugRunner": [
+                "run",
+                "report_unexpected_exception",
+                "report_failure"
+            ],
+            "DocTestCase": [
+                "setUp",
+                "tearDown",
+                "runTest",
+                "format_failure",
+                "debug",
+                "id",
+                "shortDescription"
+            ],
+            "SkipDocTestCase": [
+                "setUp",
+                "test_skip",
+                "shortDescription"
+            ],
+            "_DocTestSuite": [],
+            "DocFileCase": [
+                "id",
+                "format_failure"
+            ],
+            "_TestClass": [
+                "square",
+                "get"
+            ]
+        },
+        "funcs": [
+            "register_optionflag",
+            "testmod",
+            "testfile",
+            "run_docstring_examples",
+            "set_unittest_reportflags",
+            "DocTestSuite",
+            "DocFileTest",
+            "DocFileSuite",
+            "script_from_examples",
+            "testsource",
+            "debug_src",
+            "debug_script",
+            "debug"
+        ]
+    },
+    "dummy_threading": {
+        "classes": {},
+        "funcs": []
+    },
+    "enum": {
+        "classes": {
+            "auto": [],
+            "_EnumDict": [],
+            "EnumMeta": [],
+            "Enum": [
+                "name",
+                "value"
+            ],
+            "IntEnum": [],
+            "Flag": [],
+            "IntFlag": []
+        },
+        "funcs": [
+            "unique"
+        ]
+    },
+    "filecmp": {
+        "classes": {
+            "dircmp": [
+                "phase0",
+                "phase1",
+                "phase2",
+                "phase3",
+                "phase4",
+                "phase4_closure",
+                "report",
+                "report_partial_closure",
+                "report_full_closure"
+            ]
+        },
+        "funcs": [
+            "clear_cache",
+            "cmp",
+            "cmpfiles",
+            "demo"
+        ]
+    },
+    "fileinput": {
+        "classes": {
+            "FileInput": [
+                "close",
+                "nextfile",
+                "readline",
+                "filename",
+                "lineno",
+                "filelineno",
+                "fileno",
+                "isfirstline",
+                "isstdin"
+            ]
+        },
+        "funcs": [
+            "input",
+            "close",
+            "nextfile",
+            "filename",
+            "lineno",
+            "filelineno",
+            "fileno",
+            "isfirstline",
+            "isstdin",
+            "hook_compressed",
+            "hook_encoded"
+        ]
+    },
+    "fnmatch": {
+        "classes": {},
+        "funcs": [
+            "fnmatch",
+            "filter",
+            "fnmatchcase",
+            "translate"
+        ]
+    },
+    "formatter": {
+        "classes": {
+            "NullFormatter": [
+                "end_paragraph",
+                "add_line_break",
+                "add_hor_rule",
+                "add_label_data",
+                "add_flowing_data",
+                "add_literal_data",
+                "flush_softspace",
+                "push_alignment",
+                "pop_alignment",
+                "push_font",
+                "pop_font",
+                "push_margin",
+                "pop_margin",
+                "set_spacing",
+                "push_style",
+                "pop_style",
+                "assert_line_data"
+            ],
+            "AbstractFormatter": [
+                "end_paragraph",
+                "add_line_break",
+                "add_hor_rule",
+                "add_label_data",
+                "format_counter",
+                "format_letter",
+                "format_roman",
+                "add_flowing_data",
+                "add_literal_data",
+                "flush_softspace",
+                "push_alignment",
+                "pop_alignment",
+                "push_font",
+                "pop_font",
+                "push_margin",
+                "pop_margin",
+                "set_spacing",
+                "push_style",
+                "pop_style",
+                "assert_line_data"
+            ],
+            "NullWriter": [
+                "flush",
+                "new_alignment",
+                "new_font",
+                "new_margin",
+                "new_spacing",
+                "new_styles",
+                "send_paragraph",
+                "send_line_break",
+                "send_hor_rule",
+                "send_label_data",
+                "send_flowing_data",
+                "send_literal_data"
+            ],
+            "AbstractWriter": [
+                "new_alignment",
+                "new_font",
+                "new_margin",
+                "new_spacing",
+                "new_styles",
+                "send_paragraph",
+                "send_line_break",
+                "send_hor_rule",
+                "send_label_data",
+                "send_flowing_data",
+                "send_literal_data"
+            ],
+            "DumbWriter": [
+                "reset",
+                "send_paragraph",
+                "send_line_break",
+                "send_hor_rule",
+                "send_literal_data",
+                "send_flowing_data"
+            ]
+        },
+        "funcs": [
+            "test"
+        ]
+    },
+    "fractions": {
+        "classes": {
+            "Fraction": [
+                "from_float",
+                "from_decimal",
+                "limit_denominator",
+                "numerator",
+                "denominator",
+                "forward",
+                "reverse"
+            ]
+        },
+        "funcs": [
+            "gcd"
+        ]
+    },
+    "ftplib": {
+        "classes": {
+            "Error": [],
+            "error_reply": [],
+            "error_temp": [],
+            "error_perm": [],
+            "error_proto": [],
+            "FTP": [
+                "connect",
+                "getwelcome",
+                "set_debuglevel",
+                "set_pasv",
+                "sanitize",
+                "putline",
+                "putcmd",
+                "getline",
+                "getmultiline",
+                "getresp",
+                "voidresp",
+                "abort",
+                "sendcmd",
+                "voidcmd",
+                "sendport",
+                "sendeprt",
+                "makeport",
+                "makepasv",
+                "ntransfercmd",
+                "transfercmd",
+                "login",
+                "retrbinary",
+                "retrlines",
+                "storbinary",
+                "storlines",
+                "acct",
+                "nlst",
+                "dir",
+                "mlsd",
+                "rename",
+                "delete",
+                "cwd",
+                "size",
+                "mkd",
+                "rmd",
+                "pwd",
+                "quit",
+                "close"
+            ],
+            "FTP_TLS": [
+                "login",
+                "auth",
+                "ccc",
+                "prot_p",
+                "prot_c",
+                "ntransfercmd",
+                "abort"
+            ]
+        },
+        "funcs": [
+            "parse150",
+            "parse227",
+            "parse229",
+            "parse257",
+            "print_line",
+            "ftpcp",
+            "test"
+        ]
+    },
+    "functools": {
+        "classes": {
+            "RLock": [],
+            "partial": [],
+            "partialmethod": [],
+            "_HashedSeq": []
+        },
+        "funcs": [
+            "update_wrapper",
+            "wraps",
+            "total_ordering",
+            "cmp_to_key",
+            "lru_cache",
+            "singledispatch"
+        ]
+    },
+    "genericpath": {
+        "classes": {},
+        "funcs": [
+            "exists",
+            "isfile",
+            "isdir",
+            "getsize",
+            "getmtime",
+            "getatime",
+            "getctime",
+            "commonprefix",
+            "samestat",
+            "samefile",
+            "sameopenfile"
+        ]
+    },
+    "getopt": {
+        "classes": {
+            "GetoptError": []
+        },
+        "funcs": [
+            "getopt",
+            "gnu_getopt",
+            "do_longs",
+            "long_has_args",
+            "do_shorts",
+            "short_has_arg"
+        ]
+    },
+    "getpass": {
+        "classes": {
+            "GetPassWarning": []
+        },
+        "funcs": [
+            "unix_getpass",
+            "win_getpass",
+            "fallback_getpass",
+            "getuser"
+        ]
+    },
+    "gettext": {
+        "classes": {
+            "NullTranslations": [
+                "add_fallback",
+                "gettext",
+                "lgettext",
+                "ngettext",
+                "lngettext",
+                "info",
+                "charset",
+                "output_charset",
+                "set_output_charset",
+                "install"
+            ],
+            "GNUTranslations": [
+                "lgettext",
+                "lngettext",
+                "gettext",
+                "ngettext"
+            ]
+        },
+        "funcs": [
+            "c2py",
+            "find",
+            "translation",
+            "install",
+            "textdomain",
+            "bindtextdomain",
+            "bind_textdomain_codeset",
+            "dgettext",
+            "ldgettext",
+            "dngettext",
+            "ldngettext",
+            "gettext",
+            "lgettext",
+            "ngettext",
+            "lngettext"
+        ]
+    },
+    "glob": {
+        "classes": {},
+        "funcs": [
+            "glob",
+            "iglob",
+            "glob0",
+            "glob1",
+            "has_magic",
+            "escape"
+        ]
+    },
+    "gzip": {
+        "classes": {
+            "_PaddedFile": [
+                "read",
+                "prepend",
+                "seek",
+                "seekable"
+            ],
+            "GzipFile": [
+                "filename",
+                "mtime",
+                "write",
+                "read",
+                "read1",
+                "peek",
+                "closed",
+                "close",
+                "flush",
+                "fileno",
+                "rewind",
+                "readable",
+                "writable",
+                "seekable",
+                "seek",
+                "readline"
+            ],
+            "_GzipReader": [
+                "read"
+            ]
+        },
+        "funcs": [
+            "open",
+            "write32u",
+            "compress",
+            "decompress"
+        ]
+    },
+    "hashlib": {
+        "classes": {},
+        "funcs": [
+            "pbkdf2_hmac"
+        ]
+    },
+    "heapq": {
+        "classes": {},
+        "funcs": [
+            "heappush",
+            "heappop",
+            "heapreplace",
+            "heappushpop",
+            "heapify",
+            "merge",
+            "nsmallest",
+            "nlargest"
+        ]
+    },
+    "hmac": {
+        "classes": {
+            "HMAC": [
+                "name",
+                "update",
+                "copy",
+                "digest",
+                "hexdigest"
+            ]
+        },
+        "funcs": [
+            "new"
+        ]
+    },
+    "imaplib": {
+        "classes": {
+            "IMAP4": [
+                "open",
+                "read",
+                "readline",
+                "send",
+                "shutdown",
+                "socket",
+                "recent",
+                "response",
+                "append",
+                "authenticate",
+                "capability",
+                "check",
+                "close",
+                "copy",
+                "create",
+                "delete",
+                "deleteacl",
+                "enable",
+                "expunge",
+                "fetch",
+                "getacl",
+                "getannotation",
+                "getquota",
+                "getquotaroot",
+                "list",
+                "login",
+                "login_cram_md5",
+                "logout",
+                "lsub",
+                "myrights",
+                "namespace",
+                "noop",
+                "partial",
+                "proxyauth",
+                "rename",
+                "search",
+                "select",
+                "setacl",
+                "setannotation",
+                "setquota",
+                "sort",
+                "starttls",
+                "status",
+                "store",
+                "subscribe",
+                "thread",
+                "uid",
+                "unsubscribe",
+                "xatom",
+                "print_log"
+            ],
+            "IMAP4_SSL": [
+                "open"
+            ],
+            "IMAP4_stream": [
+                "open",
+                "read",
+                "readline",
+                "send",
+                "shutdown"
+            ],
+            "_Authenticator": [
+                "process",
+                "encode",
+                "decode"
+            ]
+        },
+        "funcs": [
+            "Internaldate2tuple",
+            "Int2AP",
+            "ParseFlags",
+            "Time2Internaldate",
+            "run"
+        ]
+    },
+    "imghdr": {
+        "classes": {},
+        "funcs": [
+            "what",
+            "test_jpeg",
+            "test_png",
+            "test_gif",
+            "test_tiff",
+            "test_rgb",
+            "test_pbm",
+            "test_pgm",
+            "test_ppm",
+            "test_rast",
+            "test_xbm",
+            "test_bmp",
+            "test_webp",
+            "test_exr",
+            "test",
+            "testall"
+        ]
+    },
+    "imp": {
+        "classes": {
+            "NullImporter": [
+                "find_module"
+            ],
+            "_HackedGetData": [
+                "get_data"
+            ],
+            "_LoadSourceCompatibility": [],
+            "_LoadCompiledCompatibility": []
+        },
+        "funcs": [
+            "new_module",
+            "get_magic",
+            "get_tag",
+            "cache_from_source",
+            "source_from_cache",
+            "get_suffixes",
+            "load_source",
+            "load_compiled",
+            "load_package",
+            "load_module",
+            "find_module",
+            "reload",
+            "init_builtin",
+            "load_dynamic"
+        ]
+    },
+    "inspect": {
+        "classes": {
+            "EndOfBlock": [],
+            "BlockFinder": [
+                "tokeneater"
+            ],
+            "_void": [],
+            "_empty": [],
+            "_ParameterKind": [],
+            "Parameter": [
+                "name",
+                "default",
+                "annotation",
+                "kind",
+                "replace"
+            ],
+            "BoundArguments": [
+                "signature",
+                "args",
+                "kwargs",
+                "apply_defaults"
+            ],
+            "Signature": [
+                "from_function",
+                "from_builtin",
+                "from_callable",
+                "parameters",
+                "return_annotation",
+                "replace",
+                "bind",
+                "bind_partial"
+            ]
+        },
+        "funcs": [
+            "ismodule",
+            "isclass",
+            "ismethod",
+            "ismethoddescriptor",
+            "isdatadescriptor",
+            "ismemberdescriptor",
+            "ismemberdescriptor",
+            "isgetsetdescriptor",
+            "isgetsetdescriptor",
+            "isfunction",
+            "isgeneratorfunction",
+            "iscoroutinefunction",
+            "isasyncgenfunction",
+            "isasyncgen",
+            "isgenerator",
+            "iscoroutine",
+            "isawaitable",
+            "istraceback",
+            "isframe",
+            "iscode",
+            "isbuiltin",
+            "isroutine",
+            "isabstract",
+            "getmembers",
+            "classify_class_attrs",
+            "getmro",
+            "unwrap",
+            "indentsize",
+            "getdoc",
+            "cleandoc",
+            "getfile",
+            "getmodulename",
+            "getsourcefile",
+            "getabsfile",
+            "getmodule",
+            "findsource",
+            "getcomments",
+            "getblock",
+            "getsourcelines",
+            "getsource",
+            "walktree",
+            "getclasstree",
+            "getargs",
+            "getargspec",
+            "getfullargspec",
+            "getargvalues",
+            "formatannotation",
+            "formatannotationrelativeto",
+            "formatargspec",
+            "formatargvalues",
+            "getcallargs",
+            "getclosurevars",
+            "getframeinfo",
+            "getlineno",
+            "getouterframes",
+            "getinnerframes",
+            "currentframe",
+            "stack",
+            "trace",
+            "getattr_static",
+            "getgeneratorstate",
+            "getgeneratorlocals",
+            "getcoroutinestate",
+            "getcoroutinelocals",
+            "signature"
+        ]
+    },
+    "io": {
+        "classes": {
+            "IOBase": [],
+            "RawIOBase": [],
+            "BufferedIOBase": [],
+            "TextIOBase": []
+        },
+        "funcs": []
+    },
+    "ipaddress": {
+        "classes": {
+            "AddressValueError": [],
+            "NetmaskValueError": [],
+            "_IPAddressBase": [
+                "exploded",
+                "compressed",
+                "reverse_pointer",
+                "version"
+            ],
+            "_BaseAddress": [],
+            "_BaseNetwork": [
+                "hosts",
+                "overlaps",
+                "broadcast_address",
+                "hostmask",
+                "with_prefixlen",
+                "with_netmask",
+                "with_hostmask",
+                "num_addresses",
+                "prefixlen",
+                "address_exclude",
+                "compare_networks",
+                "subnets",
+                "supernet",
+                "is_multicast",
+                "is_reserved",
+                "is_link_local",
+                "is_private",
+                "is_global",
+                "is_unspecified",
+                "is_loopback"
+            ],
+            "_BaseV4": [
+                "max_prefixlen",
+                "version"
+            ],
+            "IPv4Address": [
+                "packed",
+                "is_reserved",
+                "is_private",
+                "is_global",
+                "is_multicast",
+                "is_unspecified",
+                "is_loopback",
+                "is_link_local"
+            ],
+            "IPv4Interface": [
+                "ip",
+                "with_prefixlen",
+                "with_netmask",
+                "with_hostmask"
+            ],
+            "IPv4Network": [
+                "is_global"
+            ],
+            "_IPv4Constants": [],
+            "_BaseV6": [
+                "max_prefixlen",
+                "version"
+            ],
+            "IPv6Address": [
+                "packed",
+                "is_multicast",
+                "is_reserved",
+                "is_link_local",
+                "is_site_local",
+                "is_private",
+                "is_global",
+                "is_unspecified",
+                "is_loopback",
+                "ipv4_mapped",
+                "teredo",
+                "sixtofour"
+            ],
+            "IPv6Interface": [
+                "ip",
+                "with_prefixlen",
+                "with_netmask",
+                "with_hostmask",
+                "is_unspecified",
+                "is_loopback"
+            ],
+            "IPv6Network": [
+                "hosts",
+                "is_site_local"
+            ],
+            "_IPv6Constants": []
+        },
+        "funcs": [
+            "ip_address",
+            "ip_network",
+            "ip_interface",
+            "v4_int_to_packed",
+            "v6_int_to_packed",
+            "summarize_address_range",
+            "collapse_addresses",
+            "get_mixed_type_key"
+        ]
+    },
+    "keyword": {
+        "classes": {},
+        "funcs": [
+            "main"
+        ]
+    },
+    "linecache": {
+        "classes": {},
+        "funcs": [
+            "getline",
+            "clearcache",
+            "getlines",
+            "checkcache",
+            "updatecache",
+            "lazycache"
+        ]
+    },
+    "locale": {
+        "classes": {},
+        "funcs": [
+            "localeconv",
+            "setlocale",
+            "localeconv",
+            "format",
+            "format_string",
+            "currency",
+            "str",
+            "delocalize",
+            "atof",
+            "atoi",
+            "normalize",
+            "getdefaultlocale",
+            "getlocale",
+            "setlocale",
+            "resetlocale",
+            "getpreferredencoding",
+            "getpreferredencoding",
+            "getpreferredencoding"
+        ]
+    },
+    "lzma": {
+        "classes": {
+            "LZMAFile": [
+                "close",
+                "closed",
+                "fileno",
+                "seekable",
+                "readable",
+                "writable",
+                "peek",
+                "read",
+                "read1",
+                "readline",
+                "write",
+                "seek",
+                "tell"
+            ]
+        },
+        "funcs": [
+            "open",
+            "compress",
+            "decompress"
+        ]
+    },
+    "macpath": {
+        "classes": {
+            "norm_error": []
+        },
+        "funcs": [
+            "normcase",
+            "isabs",
+            "join",
+            "split",
+            "splitext",
+            "splitdrive",
+            "dirname",
+            "basename",
+            "ismount",
+            "islink",
+            "lexists",
+            "expandvars",
+            "expanduser",
+            "normpath",
+            "abspath",
+            "realpath"
+        ]
+    },
+    "macurl2path": {
+        "classes": {},
+        "funcs": [
+            "url2pathname",
+            "pathname2url"
+        ]
+    },
+    "mailbox": {
+        "classes": {
+            "Mailbox": [
+                "add",
+                "remove",
+                "discard",
+                "get",
+                "get_message",
+                "get_string",
+                "get_bytes",
+                "get_file",
+                "iterkeys",
+                "keys",
+                "itervalues",
+                "values",
+                "iteritems",
+                "items",
+                "clear",
+                "pop",
+                "popitem",
+                "update",
+                "flush",
+                "lock",
+                "unlock",
+                "close"
+            ],
+            "Maildir": [
+                "add",
+                "remove",
+                "discard",
+                "get_message",
+                "get_bytes",
+                "get_file",
+                "iterkeys",
+                "flush",
+                "lock",
+                "unlock",
+                "close",
+                "list_folders",
+                "get_folder",
+                "add_folder",
+                "remove_folder",
+                "clean",
+                "next"
+            ],
+            "_singlefileMailbox": [
+                "add",
+                "remove",
+                "iterkeys",
+                "lock",
+                "unlock",
+                "flush",
+                "close"
+            ],
+            "_mboxMMDF": [
+                "get_message",
+                "get_string",
+                "get_bytes",
+                "get_file"
+            ],
+            "mbox": [],
+            "MMDF": [],
+            "MH": [
+                "add",
+                "remove",
+                "get_message",
+                "get_bytes",
+                "get_file",
+                "iterkeys",
+                "lock",
+                "unlock",
+                "flush",
+                "close",
+                "list_folders",
+                "get_folder",
+                "add_folder",
+                "remove_folder",
+                "get_sequences",
+                "set_sequences",
+                "pack"
+            ],
+            "Babyl": [
+                "add",
+                "remove",
+                "get_message",
+                "get_bytes",
+                "get_file",
+                "get_labels"
+            ],
+            "Message": [],
+            "MaildirMessage": [
+                "get_subdir",
+                "set_subdir",
+                "get_flags",
+                "set_flags",
+                "add_flag",
+                "remove_flag",
+                "get_date",
+                "set_date",
+                "get_info",
+                "set_info"
+            ],
+            "_mboxMMDFMessage": [
+                "get_from",
+                "set_from",
+                "get_flags",
+                "set_flags",
+                "add_flag",
+                "remove_flag"
+            ],
+            "mboxMessage": [],
+            "MHMessage": [
+                "get_sequences",
+                "set_sequences",
+                "add_sequence",
+                "remove_sequence"
+            ],
+            "BabylMessage": [
+                "get_labels",
+                "set_labels",
+                "add_label",
+                "remove_label",
+                "get_visible",
+                "set_visible",
+                "update_visible"
+            ],
+            "MMDFMessage": [],
+            "_ProxyFile": [
+                "read",
+                "read1",
+                "readline",
+                "readlines",
+                "tell",
+                "seek",
+                "close",
+                "readable",
+                "writable",
+                "seekable",
+                "flush",
+                "closed"
+            ],
+            "_PartialFile": [
+                "tell",
+                "seek",
+                "close"
+            ],
+            "Error": [],
+            "NoSuchMailboxError": [],
+            "NotEmptyError": [],
+            "ExternalClashError": [],
+            "FormatError": []
+        },
+        "funcs": []
+    },
+    "mailcap": {
+        "classes": {},
+        "funcs": [
+            "lineno_sort_key",
+            "getcaps",
+            "listmailcapfiles",
+            "readmailcapfile",
+            "parseline",
+            "parsefield",
+            "findmatch",
+            "lookup",
+            "subst",
+            "findparam",
+            "test",
+            "show"
+        ]
+    },
+    "mimetypes": {
+        "classes": {
+            "MimeTypes": [
+                "add_type",
+                "guess_type",
+                "guess_all_extensions",
+                "guess_extension",
+                "read",
+                "readfp",
+                "read_windows_registry",
+                "enum_types"
+            ]
+        },
+        "funcs": [
+            "guess_type",
+            "guess_all_extensions",
+            "guess_extension",
+            "add_type",
+            "init",
+            "read_mime_types",
+            "usage"
+        ]
+    },
+    "modulefinder": {
+        "classes": {
+            "Module": [],
+            "ModuleFinder": [
+                "msg",
+                "msgin",
+                "msgout",
+                "run_script",
+                "load_file",
+                "import_hook",
+                "determine_parent",
+                "find_head_package",
+                "load_tail",
+                "ensure_fromlist",
+                "find_all_submodules",
+                "import_module",
+                "load_module",
+                "scan_opcodes",
+                "scan_code",
+                "load_package",
+                "add_module",
+                "find_module",
+                "report",
+                "any_missing",
+                "any_missing_maybe",
+                "replace_paths_in_code"
+            ]
+        },
+        "funcs": [
+            "AddPackagePath",
+            "ReplacePackage",
+            "test"
+        ]
+    },
+    "netrc": {
+        "classes": {
+            "NetrcParseError": [],
+            "netrc": [
+                "authenticators"
+            ]
+        },
+        "funcs": []
+    },
+    "nntplib": {
+        "classes": {
+            "NNTPError": [],
+            "NNTPReplyError": [],
+            "NNTPTemporaryError": [],
+            "NNTPPermanentError": [],
+            "NNTPProtocolError": [],
+            "NNTPDataError": [],
+            "_NNTPBase": [
+                "getwelcome",
+                "getcapabilities",
+                "set_debuglevel",
+                "capabilities",
+                "newgroups",
+                "newnews",
+                "list",
+                "description",
+                "descriptions",
+                "group",
+                "help",
+                "stat",
+                "next",
+                "last",
+                "head",
+                "body",
+                "article",
+                "slave",
+                "xhdr",
+                "xover",
+                "over",
+                "xgtitle",
+                "xpath",
+                "date",
+                "post",
+                "ihave",
+                "quit",
+                "login",
+                "remove_number",
+                "starttls"
+            ],
+            "NNTP": [],
+            "NNTP_SSL": []
+        },
+        "funcs": [
+            "decode_header",
+            "cut"
+        ]
+    },
+    "ntpath": {
+        "classes": {},
+        "funcs": [
+            "normcase",
+            "isabs",
+            "join",
+            "splitdrive",
+            "splitunc",
+            "split",
+            "splitext",
+            "basename",
+            "dirname",
+            "islink",
+            "lexists",
+            "ismount",
+            "expanduser",
+            "expandvars",
+            "normpath",
+            "abspath",
+            "abspath",
+            "relpath",
+            "commonpath"
+        ]
+    },
+    "nturl2path": {
+        "classes": {},
+        "funcs": [
+            "url2pathname",
+            "pathname2url"
+        ]
+    },
+    "numbers": {
+        "classes": {
+            "Number": [],
+            "Complex": [
+                "real",
+                "imag",
+                "conjugate"
+            ],
+            "Real": [
+                "real",
+                "imag",
+                "conjugate"
+            ],
+            "Rational": [
+                "numerator",
+                "denominator"
+            ],
+            "Integral": [
+                "numerator",
+                "denominator"
+            ]
+        },
+        "funcs": []
+    },
+    "opcode": {
+        "classes": {},
+        "funcs": [
+            "def_op",
+            "name_op",
+            "jrel_op",
+            "jabs_op"
+        ]
+    },
+    "operator": {
+        "classes": {
+            "attrgetter": [
+                "func",
+                "func"
+            ],
+            "itemgetter": [
+                "func",
+                "func"
+            ],
+            "methodcaller": []
+        },
+        "funcs": [
+            "lt",
+            "le",
+            "eq",
+            "ne",
+            "ge",
+            "gt",
+            "not_",
+            "truth",
+            "is_",
+            "is_not",
+            "abs",
+            "add",
+            "and_",
+            "floordiv",
+            "index",
+            "inv",
+            "lshift",
+            "mod",
+            "mul",
+            "matmul",
+            "neg",
+            "or_",
+            "pos",
+            "pow",
+            "rshift",
+            "sub",
+            "truediv",
+            "xor",
+            "concat",
+            "contains",
+            "countOf",
+            "delitem",
+            "getitem",
+            "indexOf",
+            "setitem",
+            "length_hint",
+            "iadd",
+            "iand",
+            "iconcat",
+            "ifloordiv",
+            "ilshift",
+            "imod",
+            "imul",
+            "imatmul",
+            "ior",
+            "ipow",
+            "irshift",
+            "isub",
+            "itruediv",
+            "ixor"
+        ]
+    },
+    "optparse": {
+        "classes": {
+            "OptParseError": [],
+            "OptionError": [],
+            "OptionConflictError": [],
+            "OptionValueError": [],
+            "BadOptionError": [],
+            "AmbiguousOptionError": [],
+            "HelpFormatter": [
+                "set_parser",
+                "set_short_opt_delimiter",
+                "set_long_opt_delimiter",
+                "indent",
+                "dedent",
+                "format_usage",
+                "format_heading",
+                "format_description",
+                "format_epilog",
+                "expand_default",
+                "format_option",
+                "store_option_strings",
+                "format_option_strings"
+            ],
+            "IndentedHelpFormatter": [
+                "format_usage",
+                "format_heading"
+            ],
+            "TitledHelpFormatter": [
+                "format_usage",
+                "format_heading"
+            ],
+            "Option": [
+                "takes_value",
+                "get_opt_string",
+                "check_value",
+                "convert_value",
+                "process",
+                "take_action"
+            ],
+            "Values": [
+                "read_module",
+                "read_file",
+                "ensure_value"
+            ],
+            "OptionContainer": [
+                "set_conflict_handler",
+                "set_description",
+                "get_description",
+                "destroy",
+                "add_option",
+                "add_options",
+                "get_option",
+                "has_option",
+                "remove_option",
+                "format_option_help",
+                "format_description",
+                "format_help"
+            ],
+            "OptionGroup": [
+                "set_title",
+                "destroy",
+                "format_help"
+            ],
+            "OptionParser": [
+                "destroy",
+                "set_usage",
+                "enable_interspersed_args",
+                "disable_interspersed_args",
+                "set_process_default_values",
+                "set_default",
+                "set_defaults",
+                "get_default_values",
+                "add_option_group",
+                "get_option_group",
+                "parse_args",
+                "check_values",
+                "get_prog_name",
+                "expand_prog_name",
+                "get_description",
+                "exit",
+                "error",
+                "get_usage",
+                "print_usage",
+                "get_version",
+                "print_version",
+                "format_option_help",
+                "format_epilog",
+                "format_help",
+                "print_help"
+            ]
+        },
+        "funcs": [
+            "gettext",
+            "ngettext",
+            "check_builtin",
+            "check_choice"
+        ]
+    },
+    "os": {
+        "classes": {
+            "_Environ": [
+                "copy",
+                "setdefault"
+            ],
+            "_wrap_close": [
+                "close"
+            ],
+            "PathLike": []
+        },
+        "funcs": [
+            "makedirs",
+            "removedirs",
+            "renames",
+            "walk",
+            "fwalk",
+            "execl",
+            "execle",
+            "execlp",
+            "execlpe",
+            "execvp",
+            "execvpe",
+            "get_exec_path",
+            "getenv",
+            "getenvb",
+            "spawnv",
+            "spawnve",
+            "spawnvp",
+            "spawnvpe",
+            "spawnl",
+            "spawnle",
+            "spawnlp",
+            "spawnlpe",
+            "popen",
+            "fdopen"
+        ]
+    },
+    "pathlib": {
+        "classes": {
+            "_Flavour": [
+                "parse_parts",
+                "join_parsed_parts"
+            ],
+            "_WindowsFlavour": [
+                "splitroot",
+                "casefold",
+                "casefold_parts",
+                "resolve",
+                "is_reserved",
+                "make_uri",
+                "gethomedir"
+            ],
+            "_PosixFlavour": [
+                "splitroot",
+                "casefold",
+                "casefold_parts",
+                "resolve",
+                "is_reserved",
+                "make_uri",
+                "gethomedir"
+            ],
+            "_Accessor": [],
+            "_NormalAccessor": [
+                "readlink",
+                "wrapped",
+                "wrapped",
+                "lchmod",
+                "symlink",
+                "symlink"
+            ],
+            "_Selector": [
+                "select_from"
+            ],
+            "_TerminatingSelector": [],
+            "_PreciseSelector": [],
+            "_WildcardSelector": [],
+            "_RecursiveWildcardSelector": [],
+            "_PathParents": [],
+            "PurePath": [
+                "as_posix",
+                "as_uri",
+                "anchor",
+                "name",
+                "suffix",
+                "suffixes",
+                "stem",
+                "with_name",
+                "with_suffix",
+                "relative_to",
+                "parts",
+                "joinpath",
+                "parent",
+                "parents",
+                "is_absolute",
+                "is_reserved",
+                "match"
+            ],
+            "PurePosixPath": [],
+            "PureWindowsPath": [],
+            "Path": [
+                "cwd",
+                "home",
+                "samefile",
+                "iterdir",
+                "glob",
+                "rglob",
+                "absolute",
+                "resolve",
+                "stat",
+                "owner",
+                "group",
+                "open",
+                "read_bytes",
+                "read_text",
+                "write_bytes",
+                "write_text",
+                "touch",
+                "mkdir",
+                "chmod",
+                "lchmod",
+                "unlink",
+                "rmdir",
+                "lstat",
+                "rename",
+                "replace",
+                "symlink_to",
+                "exists",
+                "is_dir",
+                "is_file",
+                "is_symlink",
+                "is_block_device",
+                "is_char_device",
+                "is_fifo",
+                "is_socket",
+                "expanduser"
+            ],
+            "PosixPath": [],
+            "WindowsPath": [
+                "owner",
+                "group"
+            ]
+        },
+        "funcs": []
+    },
+    "pdb": {
+        "classes": {
+            "Restart": [],
+            "_rstr": [],
+            "Pdb": [
+                "sigint_handler",
+                "reset",
+                "forget",
+                "setup",
+                "execRcLines",
+                "user_call",
+                "user_line",
+                "bp_commands",
+                "user_return",
+                "user_exception",
+                "preloop",
+                "interaction",
+                "displayhook",
+                "default",
+                "precmd",
+                "onecmd",
+                "handle_command_def",
+                "message",
+                "error",
+                "do_commands",
+                "do_break",
+                "defaultFile",
+                "do_tbreak",
+                "lineinfo",
+                "checkline",
+                "do_enable",
+                "do_disable",
+                "do_condition",
+                "do_ignore",
+                "do_clear",
+                "do_where",
+                "do_up",
+                "do_down",
+                "do_until",
+                "do_step",
+                "do_next",
+                "do_run",
+                "do_return",
+                "do_continue",
+                "do_jump",
+                "do_debug",
+                "do_quit",
+                "do_EOF",
+                "do_args",
+                "do_retval",
+                "do_p",
+                "do_pp",
+                "do_list",
+                "do_longlist",
+                "do_source",
+                "do_whatis",
+                "do_display",
+                "do_undisplay",
+                "complete_undisplay",
+                "do_interact",
+                "do_alias",
+                "do_unalias",
+                "complete_unalias",
+                "print_stack_trace",
+                "print_stack_entry",
+                "do_help",
+                "help_exec",
+                "help_pdb",
+                "lookupmodule"
+            ]
+        },
+        "funcs": [
+            "find_function",
+            "getsourcelines",
+            "lasti2lineno",
+            "run",
+            "runeval",
+            "runctx",
+            "runcall",
+            "set_trace",
+            "post_mortem",
+            "pm",
+            "test",
+            "help",
+            "main"
+        ]
+    },
+    "pickle": {
+        "classes": {
+            "PickleError": [],
+            "PicklingError": [],
+            "UnpicklingError": [],
+            "_Stop": [],
+            "_Framer": [
+                "start_framing",
+                "end_framing",
+                "commit_frame",
+                "write"
+            ],
+            "_Unframer": [
+                "read",
+                "readline",
+                "load_frame"
+            ],
+            "_Pickler": [
+                "clear_memo",
+                "dump",
+                "memoize",
+                "put",
+                "get",
+                "save",
+                "persistent_id",
+                "save_pers",
+                "save_reduce",
+                "save_none",
+                "save_bool",
+                "save_long",
+                "save_float",
+                "save_bytes",
+                "save_str",
+                "save_tuple",
+                "save_list",
+                "save_dict",
+                "save_set",
+                "save_frozenset",
+                "save_global",
+                "save_type"
+            ],
+            "_Unpickler": [
+                "load",
+                "pop_mark",
+                "persistent_load",
+                "load_proto",
+                "load_frame",
+                "load_persid",
+                "load_binpersid",
+                "load_none",
+                "load_false",
+                "load_true",
+                "load_int",
+                "load_binint",
+                "load_binint1",
+                "load_binint2",
+                "load_long",
+                "load_long1",
+                "load_long4",
+                "load_float",
+                "load_binfloat",
+                "load_string",
+                "load_binstring",
+                "load_binbytes",
+                "load_unicode",
+                "load_binunicode",
+                "load_binunicode8",
+                "load_binbytes8",
+                "load_short_binstring",
+                "load_short_binbytes",
+                "load_short_binunicode",
+                "load_tuple",
+                "load_empty_tuple",
+                "load_tuple1",
+                "load_tuple2",
+                "load_tuple3",
+                "load_empty_list",
+                "load_empty_dictionary",
+                "load_empty_set",
+                "load_frozenset",
+                "load_list",
+                "load_dict",
+                "load_inst",
+                "load_obj",
+                "load_newobj",
+                "load_newobj_ex",
+                "load_global",
+                "load_stack_global",
+                "load_ext1",
+                "load_ext2",
+                "load_ext4",
+                "get_extension",
+                "find_class",
+                "load_reduce",
+                "load_pop",
+                "load_pop_mark",
+                "load_dup",
+                "load_get",
+                "load_binget",
+                "load_long_binget",
+                "load_put",
+                "load_binput",
+                "load_long_binput",
+                "load_memoize",
+                "load_append",
+                "load_appends",
+                "load_setitem",
+                "load_setitems",
+                "load_additems",
+                "load_build",
+                "load_mark",
+                "load_stop"
+            ]
+        },
+        "funcs": [
+            "whichmodule",
+            "encode_long",
+            "decode_long"
+        ]
+    },
+    "pickletools": {
+        "classes": {
+            "ArgumentDescriptor": [],
+            "StackObject": [],
+            "OpcodeInfo": [],
+            "_Example": []
+        },
+        "funcs": [
+            "read_uint1",
+            "read_uint2",
+            "read_int4",
+            "read_uint4",
+            "read_uint8",
+            "read_stringnl",
+            "read_stringnl_noescape",
+            "read_stringnl_noescape_pair",
+            "read_string1",
+            "read_string4",
+            "read_bytes1",
+            "read_bytes1",
+            "read_bytes4",
+            "read_bytes8",
+            "read_unicodestringnl",
+            "read_unicodestring1",
+            "read_unicodestring4",
+            "read_unicodestring8",
+            "read_decimalnl_short",
+            "read_decimalnl_long",
+            "read_floatnl",
+            "read_float8",
+            "read_long1",
+            "read_long4",
+            "assure_pickle_consistency",
+            "genops",
+            "optimize",
+            "dis"
+        ]
+    },
+    "pipes": {
+        "classes": {
+            "Template": [
+                "reset",
+                "clone",
+                "debug",
+                "append",
+                "prepend",
+                "open",
+                "open_r",
+                "open_w",
+                "copy",
+                "makepipeline"
+            ]
+        },
+        "funcs": [
+            "makepipeline"
+        ]
+    },
+    "pkgutil": {
+        "classes": {
+            "ImpImporter": [
+                "find_module",
+                "iter_modules"
+            ],
+            "ImpLoader": [
+                "load_module",
+                "get_data",
+                "is_package",
+                "get_code",
+                "get_source",
+                "get_filename"
+            ]
+        },
+        "funcs": [
+            "read_code",
+            "walk_packages",
+            "iter_modules",
+            "iter_importer_modules",
+            "iter_zipimport_modules",
+            "get_importer",
+            "iter_importers",
+            "get_loader",
+            "find_loader",
+            "extend_path",
+            "get_data"
+        ]
+    },
+    "platform": {
+        "classes": {},
+        "funcs": [
+            "libc_ver",
+            "linux_distribution",
+            "dist",
+            "popen",
+            "win32_ver",
+            "mac_ver",
+            "java_ver",
+            "system_alias",
+            "architecture",
+            "uname",
+            "system",
+            "node",
+            "release",
+            "version",
+            "machine",
+            "processor",
+            "python_implementation",
+            "python_version",
+            "python_version_tuple",
+            "python_branch",
+            "python_revision",
+            "python_build",
+            "python_compiler",
+            "platform"
+        ]
+    },
+    "plistlib": {
+        "classes": {
+            "_InternalDict": [],
+            "Dict": [],
+            "Plist": [
+                "fromFile",
+                "write"
+            ],
+            "Data": [
+                "fromBase64",
+                "asBase64"
+            ],
+            "_PlistParser": [
+                "parse",
+                "handle_begin_element",
+                "handle_end_element",
+                "handle_data",
+                "add_object",
+                "get_data",
+                "begin_dict",
+                "end_dict",
+                "end_key",
+                "begin_array",
+                "end_array",
+                "end_true",
+                "end_false",
+                "end_integer",
+                "end_real",
+                "end_string",
+                "end_data",
+                "end_date"
+            ],
+            "_DumbXMLWriter": [
+                "begin_element",
+                "end_element",
+                "simple_element",
+                "writeln"
+            ],
+            "_PlistWriter": [
+                "write",
+                "write_value",
+                "write_data",
+                "write_bytes",
+                "write_dict",
+                "write_array"
+            ],
+            "InvalidFileException": [],
+            "_BinaryPlistParser": [
+                "parse"
+            ],
+            "_BinaryPlistWriter": [
+                "write"
+            ]
+        },
+        "funcs": [
+            "readPlist",
+            "writePlist",
+            "readPlistFromBytes",
+            "writePlistToBytes",
+            "load",
+            "loads",
+            "dump",
+            "dumps"
+        ]
+    },
+    "poplib": {
+        "classes": {
+            "error_proto": [],
+            "POP3": [
+                "getwelcome",
+                "set_debuglevel",
+                "user",
+                "pass_",
+                "stat",
+                "list",
+                "retr",
+                "dele",
+                "noop",
+                "rset",
+                "quit",
+                "close",
+                "rpop",
+                "apop",
+                "top",
+                "uidl",
+                "utf8",
+                "capa",
+                "stls"
+            ],
+            "POP3_SSL": [
+                "stls"
+            ]
+        },
+        "funcs": []
+    },
+    "posixpath": {
+        "classes": {},
+        "funcs": [
+            "normcase",
+            "isabs",
+            "join",
+            "split",
+            "splitext",
+            "splitdrive",
+            "basename",
+            "dirname",
+            "islink",
+            "lexists",
+            "ismount",
+            "expanduser",
+            "expandvars",
+            "normpath",
+            "abspath",
+            "realpath",
+            "relpath",
+            "commonpath"
+        ]
+    },
+    "pprint": {
+        "classes": {
+            "_safe_key": [],
+            "PrettyPrinter": [
+                "pprint",
+                "pformat",
+                "isrecursive",
+                "isreadable",
+                "format"
+            ]
+        },
+        "funcs": [
+            "pprint",
+            "pformat",
+            "saferepr",
+            "isreadable",
+            "isrecursive"
+        ]
+    },
+    "profile": {
+        "classes": {
+            "_Utils": [
+                "run",
+                "runctx"
+            ],
+            "Profile": [
+                "trace_dispatch",
+                "trace_dispatch_i",
+                "trace_dispatch_mac",
+                "trace_dispatch_l",
+                "trace_dispatch_exception",
+                "trace_dispatch_call",
+                "trace_dispatch_c_call",
+                "trace_dispatch_return",
+                "set_cmd",
+                "simulate_call",
+                "simulate_cmd_complete",
+                "print_stats",
+                "dump_stats",
+                "create_stats",
+                "snapshot_stats",
+                "run",
+                "runctx",
+                "runcall",
+                "calibrate",
+                "f1",
+                "f",
+                "get_time_timer"
+            ]
+        },
+        "funcs": [
+            "run",
+            "runctx",
+            "main"
+        ]
+    },
+    "pstats": {
+        "classes": {
+            "Stats": [
+                "init",
+                "load_stats",
+                "get_top_level_stats",
+                "add",
+                "dump_stats",
+                "get_sort_arg_defs",
+                "sort_stats",
+                "reverse_order",
+                "strip_dirs",
+                "calc_callees",
+                "eval_print_amount",
+                "get_print_list",
+                "print_stats",
+                "print_callees",
+                "print_callers",
+                "print_call_heading",
+                "print_call_line",
+                "print_title",
+                "print_line"
+            ],
+            "TupleComp": [
+                "compare"
+            ],
+            "ProfileBrowser": [
+                "generic",
+                "generic_help",
+                "do_add",
+                "help_add",
+                "do_callees",
+                "help_callees",
+                "do_callers",
+                "help_callers",
+                "do_EOF",
+                "help_EOF",
+                "do_quit",
+                "help_quit",
+                "do_read",
+                "help_read",
+                "do_reverse",
+                "help_reverse",
+                "do_sort",
+                "help_sort",
+                "complete_sort",
+                "do_stats",
+                "help_stats",
+                "do_strip",
+                "help_strip",
+                "help_help",
+                "postcmd"
+            ]
+        },
+        "funcs": [
+            "func_strip_path",
+            "func_get_function_name",
+            "func_std_string",
+            "add_func_stats",
+            "add_callers",
+            "count_calls",
+            "f8"
+        ]
+    },
+    "pty": {
+        "classes": {},
+        "funcs": [
+            "openpty",
+            "master_open",
+            "slave_open",
+            "fork",
+            "spawn"
+        ]
+    },
+    "pyclbr": {
+        "classes": {
+            "Class": [],
+            "Function": []
+        },
+        "funcs": [
+            "readmodule",
+            "readmodule_ex"
+        ]
+    },
+    "pydoc": {
+        "classes": {
+            "ErrorDuringImport": [],
+            "Doc": [
+                "document",
+                "fail",
+                "getdocloc"
+            ],
+            "HTMLRepr": [
+                "escape",
+                "repr",
+                "repr1",
+                "repr_string",
+                "repr_instance"
+            ],
+            "HTMLDoc": [
+                "page",
+                "heading",
+                "section",
+                "bigsection",
+                "preformat",
+                "multicolumn",
+                "grey",
+                "namelink",
+                "classlink",
+                "modulelink",
+                "modpkglink",
+                "filelink",
+                "markup",
+                "formattree",
+                "docmodule",
+                "docclass",
+                "formatvalue",
+                "docroutine",
+                "docproperty",
+                "docother",
+                "docdata",
+                "index",
+                "spill",
+                "spilldescriptors",
+                "spilldata",
+                "maybe"
+            ],
+            "TextRepr": [
+                "repr1",
+                "repr_string",
+                "repr_instance"
+            ],
+            "TextDoc": [
+                "bold",
+                "indent",
+                "section",
+                "formattree",
+                "docmodule",
+                "docclass",
+                "formatvalue",
+                "docroutine",
+                "docproperty",
+                "docdata",
+                "docother",
+                "makename",
+                "spill",
+                "spilldescriptors",
+                "spilldata",
+                "maybe"
+            ],
+            "_PlainTextDoc": [
+                "bold"
+            ],
+            "Helper": [
+                "interact",
+                "getline",
+                "help",
+                "intro",
+                "list",
+                "listkeywords",
+                "listsymbols",
+                "listtopics",
+                "showtopic",
+                "showsymbol",
+                "listmodules",
+                "callback",
+                "onerror"
+            ],
+            "ModuleScanner": [
+                "run"
+            ]
+        },
+        "funcs": [
+            "pathdirs",
+            "getdoc",
+            "splitdoc",
+            "classname",
+            "isdata",
+            "replace",
+            "cram",
+            "stripid",
+            "allmethods",
+            "visiblename",
+            "classify_class_attrs",
+            "sort_attributes",
+            "ispackage",
+            "source_synopsis",
+            "synopsis",
+            "importfile",
+            "safeimport",
+            "pager",
+            "getpager",
+            "plain",
+            "pipepager",
+            "tempfilepager",
+            "ttypager",
+            "plainpager",
+            "describe",
+            "locate",
+            "resolve",
+            "render_doc",
+            "doc",
+            "writedoc",
+            "writedocs",
+            "apropos",
+            "browse",
+            "ispath",
+            "cli"
+        ]
+    },
+    "py_compile": {
+        "classes": {
+            "PyCompileError": []
+        },
+        "funcs": [
+            "compile",
+            "main"
+        ]
+    },
+    "queue": {
+        "classes": {
+            "Empty": [],
+            "Full": [],
+            "Queue": [
+                "task_done",
+                "join",
+                "qsize",
+                "empty",
+                "full",
+                "put",
+                "get",
+                "put_nowait",
+                "get_nowait"
+            ],
+            "PriorityQueue": [],
+            "LifoQueue": []
+        },
+        "funcs": []
+    },
+    "quopri": {
+        "classes": {},
+        "funcs": [
+            "needsquoting",
+            "quote",
+            "encode",
+            "encodestring",
+            "decode",
+            "decodestring",
+            "ishex",
+            "unhex",
+            "main"
+        ]
+    },
+    "random": {
+        "classes": {
+            "Random": [
+                "seed",
+                "getstate",
+                "setstate",
+                "randrange",
+                "randint",
+                "choice",
+                "shuffle",
+                "sample",
+                "choices",
+                "uniform",
+                "triangular",
+                "normalvariate",
+                "lognormvariate",
+                "expovariate",
+                "vonmisesvariate",
+                "gammavariate",
+                "gauss",
+                "betavariate",
+                "paretovariate",
+                "weibullvariate"
+            ],
+            "SystemRandom": [
+                "random",
+                "getrandbits",
+                "seed"
+            ]
+        },
+        "funcs": []
+    },
     "re": {
         "classes": {
             "RegexFlag": [],
             "Scanner": [
-                "__init__",
                 "scan"
             ]
         },
@@ -19,1140 +3409,1905 @@
             "compile",
             "purge",
             "template",
-            "escape",
-            "_compile",
-            "_compile_repl",
-            "_expand",
-            "_subx",
-            "_pickle"
+            "escape"
         ]
     },
-    "os": {
+    "reprlib": {
         "classes": {
-            "_Environ": [
-                "__init__",
-                "__getitem__",
-                "__setitem__",
-                "__delitem__",
-                "__iter__",
-                "__len__",
-                "__repr__",
-                "copy",
-                "setdefault"
-            ],
-            "_wrap_close": [
-                "__init__",
-                "close",
-                "__enter__",
-                "__exit__",
-                "__getattr__",
-                "__iter__"
-            ],
-            "PathLike": [
-                "__fspath__",
-                "__subclasshook__"
+            "Repr": [
+                "repr",
+                "repr1",
+                "repr_tuple",
+                "repr_list",
+                "repr_array",
+                "repr_set",
+                "repr_frozenset",
+                "repr_deque",
+                "repr_dict",
+                "repr_str",
+                "repr_int",
+                "repr_instance"
             ]
         },
         "funcs": [
-            "_exists",
-            "_get_exports_list",
-            "_add",
-            "makedirs",
-            "removedirs",
-            "renames",
-            "walk",
-            "fwalk",
-            "_fwalk",
-            "execl",
-            "execle",
-            "execlp",
-            "execlpe",
-            "execvp",
-            "execvpe",
-            "_execvpe",
-            "get_exec_path",
-            "_createenviron",
-            "getenv",
-            "_check_bytes",
-            "getenvb",
-            "_fscodec",
-            "_spawnvef",
-            "spawnv",
-            "spawnve",
-            "spawnvp",
-            "spawnvpe",
-            "spawnl",
-            "spawnle",
-            "spawnlp",
-            "spawnlpe",
-            "popen",
-            "fdopen",
-            "_fspath"
+            "recursive_repr"
         ]
     },
-    "numpy": {
+    "rlcompleter": {
+        "classes": {
+            "Completer": [
+                "complete",
+                "global_matches",
+                "attr_matches"
+            ]
+        },
+        "funcs": [
+            "get_class_members"
+        ]
+    },
+    "runpy": {
+        "classes": {
+            "_TempModule": [],
+            "_ModifiedArgv0": [],
+            "_Error": []
+        },
+        "funcs": [
+            "run_module",
+            "run_path"
+        ]
+    },
+    "sched": {
+        "classes": {
+            "Event": [],
+            "scheduler": [
+                "enterabs",
+                "enter",
+                "cancel",
+                "empty",
+                "run",
+                "queue"
+            ]
+        },
+        "funcs": []
+    },
+    "secrets": {
         "classes": {},
         "funcs": [
-            "extendkey",
-            "pkgload"
+            "randbelow",
+            "token_bytes",
+            "token_hex",
+            "token_urlsafe"
         ]
     },
-    "builtins": {
+    "selectors": {
         "classes": {
-            "__generator": [
-                "__init__",
-                "__iter__",
-                "__next__",
+            "_SelectorMapping": [],
+            "BaseSelector": [
+                "register",
+                "unregister",
+                "modify",
+                "select",
                 "close",
-                "send",
-                "throw"
+                "get_key",
+                "get_map"
             ],
-            "__asyncgenerator": [
-                "__init__",
-                "__aiter__",
-                "__anext__",
-                "aclose",
-                "asend",
-                "athrow"
-            ],
-            "__function": [
-                "__init__"
-            ],
-            "__method": [
-                "__init__"
-            ],
-            "__coroutine": [
-                "__init__",
-                "__await__",
+            "_BaseSelectorImpl": [
+                "register",
+                "unregister",
+                "modify",
                 "close",
+                "get_map"
+            ],
+            "SelectSelector": [
+                "register",
+                "unregister",
+                "select"
+            ],
+            "PollSelector": [
+                "register",
+                "unregister",
+                "select"
+            ],
+            "EpollSelector": [
+                "fileno",
+                "register",
+                "unregister",
+                "select",
+                "close"
+            ],
+            "DevpollSelector": [
+                "fileno",
+                "register",
+                "unregister",
+                "select",
+                "close"
+            ],
+            "KqueueSelector": [
+                "fileno",
+                "register",
+                "unregister",
+                "select",
+                "close"
+            ]
+        },
+        "funcs": []
+    },
+    "shelve": {
+        "classes": {
+            "_ClosedDict": [
+                "closed"
+            ],
+            "Shelf": [
+                "get",
+                "close",
+                "sync"
+            ],
+            "BsdDbShelf": [
+                "set_location",
+                "next",
+                "previous",
+                "first",
+                "last"
+            ],
+            "DbfilenameShelf": []
+        },
+        "funcs": [
+            "open"
+        ]
+    },
+    "shlex": {
+        "classes": {
+            "shlex": [
+                "push_token",
+                "push_source",
+                "pop_source",
+                "get_token",
+                "read_token",
+                "sourcehook",
+                "error_leader"
+            ]
+        },
+        "funcs": [
+            "split",
+            "quote"
+        ]
+    },
+    "shutil": {
+        "classes": {
+            "Error": [],
+            "SameFileError": [],
+            "SpecialFileError": [],
+            "ExecError": [],
+            "ReadError": [],
+            "RegistryError": []
+        },
+        "funcs": [
+            "copyfileobj",
+            "copyfile",
+            "copymode",
+            "copystat",
+            "copy",
+            "copy2",
+            "ignore_patterns",
+            "copytree",
+            "rmtree",
+            "move",
+            "get_archive_formats",
+            "register_archive_format",
+            "unregister_archive_format",
+            "make_archive",
+            "get_unpack_formats",
+            "register_unpack_format",
+            "unregister_unpack_format",
+            "unpack_archive",
+            "disk_usage",
+            "disk_usage",
+            "chown",
+            "get_terminal_size",
+            "which"
+        ]
+    },
+    "signal": {
+        "classes": {},
+        "funcs": [
+            "signal",
+            "getsignal",
+            "pthread_sigmask",
+            "sigpending",
+            "sigwait"
+        ]
+    },
+    "site": {
+        "classes": {},
+        "funcs": [
+            "makepath",
+            "abs_paths",
+            "removeduppaths",
+            "addpackage",
+            "addsitedir",
+            "check_enableusersite",
+            "getuserbase",
+            "getusersitepackages",
+            "addusersitepackages",
+            "getsitepackages",
+            "addsitepackages",
+            "setquit",
+            "setcopyright",
+            "sethelper",
+            "enablerlcompleter",
+            "venv",
+            "execsitecustomize",
+            "execusercustomize",
+            "main"
+        ]
+    },
+    "smtpd": {
+        "classes": {
+            "Devnull": [
+                "write",
+                "flush"
+            ],
+            "SMTPChannel": [
+                "max_command_size_limit",
+                "push",
+                "collect_incoming_data",
+                "found_terminator",
+                "smtp_HELO",
+                "smtp_EHLO",
+                "smtp_NOOP",
+                "smtp_QUIT",
+                "smtp_HELP",
+                "smtp_VRFY",
+                "smtp_MAIL",
+                "smtp_RCPT",
+                "smtp_RSET",
+                "smtp_DATA",
+                "smtp_EXPN"
+            ],
+            "SMTPServer": [
+                "handle_accepted",
+                "process_message"
+            ],
+            "DebuggingServer": [
+                "process_message"
+            ],
+            "PureProxy": [
+                "process_message"
+            ],
+            "MailmanProxy": [
+                "process_message"
+            ],
+            "Options": []
+        },
+        "funcs": [
+            "usage",
+            "parseargs"
+        ]
+    },
+    "smtplib": {
+        "classes": {
+            "SMTPException": [],
+            "SMTPNotSupportedError": [],
+            "SMTPServerDisconnected": [],
+            "SMTPResponseException": [],
+            "SMTPSenderRefused": [],
+            "SMTPRecipientsRefused": [],
+            "SMTPDataError": [],
+            "SMTPConnectError": [],
+            "SMTPHeloError": [],
+            "SMTPAuthenticationError": [],
+            "SMTP": [
+                "set_debuglevel",
+                "connect",
                 "send",
-                "throw"
+                "putcmd",
+                "getreply",
+                "docmd",
+                "helo",
+                "ehlo",
+                "has_extn",
+                "help",
+                "rset",
+                "noop",
+                "mail",
+                "rcpt",
+                "data",
+                "verify",
+                "expn",
+                "ehlo_or_helo_if_needed",
+                "auth",
+                "auth_cram_md5",
+                "auth_plain",
+                "auth_login",
+                "login",
+                "starttls",
+                "sendmail",
+                "send_message",
+                "close",
+                "quit"
             ],
-            "__namedtuple": [
-                "__new__",
-                "_make",
-                "__repr__",
-                "_asdict",
-                "_replace",
-                "__getnewargs__"
+            "SMTP_SSL": [],
+            "LMTP": [
+                "connect"
+            ]
+        },
+        "funcs": [
+            "quoteaddr",
+            "quotedata",
+            "prompt"
+        ]
+    },
+    "sndhdr": {
+        "classes": {},
+        "funcs": [
+            "what",
+            "whathdr",
+            "test_aifc",
+            "test_au",
+            "test_hcom",
+            "test_voc",
+            "test_wav",
+            "test_8svx",
+            "test_sndt",
+            "test_sndr",
+            "get_long_be",
+            "get_long_le",
+            "get_short_be",
+            "get_short_le",
+            "test",
+            "testall"
+        ]
+    },
+    "socket": {
+        "classes": {
+            "_GiveupOnSendfile": [],
+            "socket": [
+                "dup",
+                "accept",
+                "makefile",
+                "sendfile",
+                "close",
+                "detach",
+                "family",
+                "type",
+                "get_inheritable",
+                "set_inheritable",
+                "get_inheritable",
+                "set_inheritable"
             ],
-            "object": [
-                "__delattr__",
-                "__dir__",
-                "__eq__",
-                "__format__",
-                "__getattribute__",
-                "__ge__",
-                "__gt__",
-                "__hash__",
-                "__init_subclass__",
-                "__init__",
-                "__le__",
-                "__lt__",
-                "__new__",
-                "__ne__",
-                "__reduce_ex__",
-                "__reduce__",
-                "__repr__",
-                "__setattr__",
-                "__sizeof__",
-                "__str__",
-                "__subclasshook__"
+            "SocketIO": [
+                "readinto",
+                "write",
+                "readable",
+                "writable",
+                "seekable",
+                "fileno",
+                "name",
+                "mode",
+                "close"
+            ]
+        },
+        "funcs": [
+            "fromfd",
+            "fromshare",
+            "socketpair",
+            "socketpair",
+            "getfqdn",
+            "create_connection",
+            "getaddrinfo"
+        ]
+    },
+    "socketserver": {
+        "classes": {
+            "BaseServer": [
+                "server_activate",
+                "serve_forever",
+                "shutdown",
+                "service_actions",
+                "handle_request",
+                "handle_timeout",
+                "verify_request",
+                "process_request",
+                "server_close",
+                "finish_request",
+                "shutdown_request",
+                "close_request",
+                "handle_error"
             ],
-            "BaseException": [
-                "with_traceback",
-                "__delattr__",
-                "__getattribute__",
-                "__init__",
-                "__new__",
-                "__reduce__",
-                "__repr__",
-                "__setattr__",
-                "__setstate__",
-                "__str__"
+            "TCPServer": [
+                "server_bind",
+                "server_activate",
+                "server_close",
+                "fileno",
+                "get_request",
+                "shutdown_request",
+                "close_request"
             ],
-            "Exception": [
-                "__init__",
-                "__new__"
+            "UDPServer": [
+                "get_request",
+                "server_activate",
+                "shutdown_request",
+                "close_request"
             ],
-            "ArithmeticError": [
-                "__init__",
-                "__new__"
+            "ForkingMixIn": [
+                "collect_children",
+                "handle_timeout",
+                "service_actions",
+                "process_request"
             ],
-            "AssertionError": [
-                "__init__",
-                "__new__"
+            "ThreadingMixIn": [
+                "process_request_thread",
+                "process_request"
             ],
-            "AttributeError": [
-                "__init__",
-                "__new__"
+            "ForkingUDPServer": [],
+            "ForkingTCPServer": [],
+            "ThreadingUDPServer": [],
+            "ThreadingTCPServer": [],
+            "UnixStreamServer": [],
+            "UnixDatagramServer": [],
+            "ThreadingUnixStreamServer": [],
+            "ThreadingUnixDatagramServer": [],
+            "BaseRequestHandler": [
+                "setup",
+                "handle",
+                "finish"
             ],
-            "WindowsError": [
-                "__init__",
-                "__new__",
-                "__reduce__",
-                "__str__"
+            "StreamRequestHandler": [
+                "setup",
+                "finish"
             ],
-            "BlockingIOError": [
-                "__init__"
+            "_SocketWriter": [
+                "writable",
+                "write",
+                "fileno"
             ],
-            "int": [
-                "bit_length",
-                "conjugate",
-                "from_bytes",
-                "to_bytes",
-                "__abs__",
-                "__add__",
-                "__and__",
-                "__bool__",
-                "__ceil__",
-                "__divmod__",
-                "__eq__",
-                "__float__",
-                "__floordiv__",
-                "__floor__",
-                "__format__",
-                "__getattribute__",
-                "__getnewargs__",
-                "__ge__",
-                "__gt__",
-                "__hash__",
-                "__index__",
-                "__init__",
-                "__int__",
-                "__invert__",
-                "__le__",
-                "__lshift__",
-                "__lt__",
-                "__mod__",
-                "__mul__",
-                "__neg__",
-                "__new__",
-                "__ne__",
-                "__or__",
-                "__pos__",
-                "__pow__",
-                "__radd__",
-                "__rand__",
-                "__rdivmod__",
-                "__repr__",
-                "__rfloordiv__",
-                "__rlshift__",
-                "__rmod__",
-                "__rmul__",
-                "__ror__",
-                "__round__",
-                "__rpow__",
-                "__rrshift__",
-                "__rshift__",
-                "__rsub__",
-                "__rtruediv__",
-                "__rxor__",
-                "__sizeof__",
-                "__str__",
-                "__sub__",
-                "__truediv__",
-                "__trunc__",
-                "__xor__"
+            "DatagramRequestHandler": [
+                "setup",
+                "finish"
+            ]
+        },
+        "funcs": []
+    },
+    "sre_compile": {
+        "classes": {},
+        "funcs": [
+            "isstring",
+            "compile"
+        ]
+    },
+    "sre_constants": {
+        "classes": {
+            "error": [],
+            "_NamedIntConstant": []
+        },
+        "funcs": [
+            "dump"
+        ]
+    },
+    "sre_parse": {
+        "classes": {
+            "Verbose": [],
+            "Pattern": [
+                "groups",
+                "opengroup",
+                "closegroup",
+                "checkgroup",
+                "checklookbehindgroup"
             ],
-            "bool": [
-                "__and__",
-                "__init__",
-                "__new__",
-                "__or__",
-                "__rand__",
-                "__repr__",
-                "__ror__",
-                "__rxor__",
-                "__str__",
-                "__xor__"
-            ],
-            "ConnectionError": [
-                "__init__"
-            ],
-            "BrokenPipeError": [
-                "__init__"
-            ],
-            "BufferError": [
-                "__init__",
-                "__new__"
-            ],
-            "bytearray": [
-                "append",
-                "capitalize",
-                "center",
-                "clear",
-                "copy",
-                "count",
-                "decode",
-                "endswith",
-                "expandtabs",
-                "extend",
-                "find",
-                "fromhex",
-                "hex",
-                "index",
+            "SubPattern": [
+                "dump",
                 "insert",
-                "isalnum",
-                "isalpha",
-                "isdigit",
-                "islower",
-                "isspace",
-                "istitle",
-                "isupper",
-                "join",
-                "ljust",
-                "lower",
-                "lstrip",
-                "maketrans",
-                "partition",
-                "pop",
-                "remove",
-                "replace",
-                "reverse",
-                "rfind",
-                "rindex",
-                "rjust",
-                "rpartition",
-                "rsplit",
-                "rstrip",
-                "split",
-                "splitlines",
-                "startswith",
-                "strip",
-                "swapcase",
-                "title",
-                "translate",
-                "upper",
-                "zfill",
-                "__add__",
-                "__alloc__",
-                "__contains__",
-                "__delitem__",
-                "__eq__",
-                "__getattribute__",
-                "__getitem__",
-                "__ge__",
-                "__gt__",
-                "__iadd__",
-                "__imul__",
-                "__init__",
-                "__iter__",
-                "__len__",
-                "__le__",
-                "__lt__",
-                "__mod__",
-                "__mul__",
-                "__new__",
-                "__ne__",
-                "__reduce_ex__",
-                "__reduce__",
-                "__repr__",
-                "__rmod__",
-                "__rmul__",
-                "__setitem__",
-                "__sizeof__",
-                "__str__"
+                "append",
+                "getwidth"
             ],
-            "bytes": [
-                "capitalize",
-                "center",
-                "count",
-                "decode",
-                "endswith",
-                "expandtabs",
-                "find",
-                "fromhex",
-                "hex",
-                "index",
-                "isalnum",
-                "isalpha",
-                "isdigit",
-                "islower",
-                "isspace",
-                "istitle",
-                "isupper",
-                "join",
-                "ljust",
-                "lower",
-                "lstrip",
-                "maketrans",
-                "partition",
-                "replace",
-                "rfind",
-                "rindex",
-                "rjust",
-                "rpartition",
-                "rsplit",
-                "rstrip",
-                "split",
-                "splitlines",
-                "startswith",
-                "strip",
-                "swapcase",
-                "title",
-                "translate",
-                "upper",
-                "zfill",
-                "__add__",
-                "__contains__",
-                "__eq__",
-                "__getattribute__",
-                "__getitem__",
-                "__getnewargs__",
-                "__ge__",
-                "__gt__",
-                "__hash__",
-                "__init__",
-                "__iter__",
-                "__len__",
-                "__le__",
-                "__lt__",
-                "__mod__",
-                "__mul__",
-                "__new__",
-                "__ne__",
-                "__repr__",
-                "__rmod__",
-                "__rmul__",
-                "__str__"
+            "Tokenizer": [
+                "match",
+                "get",
+                "getwhile",
+                "getuntil",
+                "pos",
+                "tell",
+                "seek",
+                "error"
+            ]
+        },
+        "funcs": [
+            "fix_flags",
+            "parse",
+            "parse_template",
+            "expand_template"
+        ]
+    },
+    "ssl": {
+        "classes": {
+            "CertificateError": [],
+            "_ASN1Object": [
+                "fromnid",
+                "fromname"
             ],
-            "Warning": [
-                "__init__",
-                "__new__"
+            "Purpose": [],
+            "SSLContext": [
+                "wrap_socket",
+                "wrap_bio",
+                "set_npn_protocols",
+                "set_alpn_protocols",
+                "load_default_certs",
+                "options",
+                "options",
+                "verify_flags",
+                "verify_flags",
+                "verify_mode",
+                "verify_mode"
             ],
-            "BytesWarning": [
-                "__init__",
-                "__new__"
+            "SSLObject": [
+                "context",
+                "context",
+                "session",
+                "session",
+                "session_reused",
+                "server_side",
+                "server_hostname",
+                "read",
+                "write",
+                "getpeercert",
+                "selected_npn_protocol",
+                "selected_alpn_protocol",
+                "cipher",
+                "shared_ciphers",
+                "compression",
+                "pending",
+                "do_handshake",
+                "unwrap",
+                "get_channel_binding",
+                "version"
             ],
-            "ChildProcessError": [
-                "__init__"
+            "SSLSocket": [
+                "context",
+                "context",
+                "session",
+                "session",
+                "session_reused",
+                "dup",
+                "read",
+                "write",
+                "getpeercert",
+                "selected_npn_protocol",
+                "selected_alpn_protocol",
+                "cipher",
+                "shared_ciphers",
+                "compression",
+                "send",
+                "sendto",
+                "sendmsg",
+                "sendall",
+                "sendfile",
+                "recv",
+                "recv_into",
+                "recvfrom",
+                "recvfrom_into",
+                "recvmsg",
+                "recvmsg_into",
+                "pending",
+                "shutdown",
+                "unwrap",
+                "do_handshake",
+                "connect",
+                "connect_ex",
+                "accept",
+                "get_channel_binding",
+                "version"
+            ]
+        },
+        "funcs": [
+            "match_hostname",
+            "get_default_verify_paths",
+            "create_default_context",
+            "wrap_socket",
+            "cert_time_to_seconds",
+            "DER_cert_to_PEM_cert",
+            "PEM_cert_to_DER_cert",
+            "get_server_certificate",
+            "get_protocol_name"
+        ]
+    },
+    "stat": {
+        "classes": {},
+        "funcs": [
+            "S_IMODE",
+            "S_IFMT",
+            "S_ISDIR",
+            "S_ISCHR",
+            "S_ISBLK",
+            "S_ISREG",
+            "S_ISFIFO",
+            "S_ISLNK",
+            "S_ISSOCK",
+            "filemode"
+        ]
+    },
+    "statistics": {
+        "classes": {
+            "StatisticsError": []
+        },
+        "funcs": [
+            "mean",
+            "harmonic_mean",
+            "median",
+            "median_low",
+            "median_high",
+            "median_grouped",
+            "mode",
+            "variance",
+            "pvariance",
+            "stdev",
+            "pstdev"
+        ]
+    },
+    "string": {
+        "classes": {
+            "_TemplateMetaclass": [],
+            "Template": [
+                "substitute",
+                "safe_substitute",
+                "convert",
+                "convert"
             ],
-            "classmethod": [
-                "__get__",
-                "__init__",
-                "__new__"
+            "Formatter": [
+                "format",
+                "vformat",
+                "get_value",
+                "check_unused_args",
+                "format_field",
+                "convert_field",
+                "parse",
+                "get_field"
+            ]
+        },
+        "funcs": [
+            "capwords"
+        ]
+    },
+    "stringprep": {
+        "classes": {},
+        "funcs": [
+            "in_table_a1",
+            "in_table_b1",
+            "map_table_b3",
+            "map_table_b2",
+            "in_table_c11",
+            "in_table_c12",
+            "in_table_c11_c12",
+            "in_table_c21",
+            "in_table_c22",
+            "in_table_c21_c22",
+            "in_table_c3",
+            "in_table_c4",
+            "in_table_c5",
+            "in_table_c6",
+            "in_table_c7",
+            "in_table_c8",
+            "in_table_c9",
+            "in_table_d1",
+            "in_table_d2"
+        ]
+    },
+    "struct": {
+        "classes": {},
+        "funcs": []
+    },
+    "subprocess": {
+        "classes": {
+            "SubprocessError": [],
+            "CalledProcessError": [
+                "stdout",
+                "stdout"
             ],
-            "complex": [
-                "conjugate",
-                "__abs__",
-                "__add__",
-                "__bool__",
-                "__divmod__",
-                "__eq__",
-                "__float__",
-                "__floordiv__",
-                "__format__",
-                "__getattribute__",
-                "__getnewargs__",
-                "__ge__",
-                "__gt__",
-                "__hash__",
-                "__init__",
-                "__int__",
-                "__le__",
-                "__lt__",
-                "__mod__",
-                "__mul__",
-                "__neg__",
-                "__new__",
-                "__ne__",
-                "__pos__",
-                "__pow__",
-                "__radd__",
-                "__rdivmod__",
-                "__repr__",
-                "__rfloordiv__",
-                "__rmod__",
-                "__rmul__",
-                "__rpow__",
-                "__rsub__",
-                "__rtruediv__",
-                "__str__",
-                "__sub__",
-                "__truediv__"
+            "TimeoutExpired": [
+                "stdout",
+                "stdout"
             ],
-            "ConnectionAbortedError": [
-                "__init__"
+            "STARTUPINFO": [],
+            "Handle": [
+                "Close",
+                "Detach"
             ],
-            "ConnectionRefusedError": [
-                "__init__"
+            "CompletedProcess": [
+                "check_returncode"
             ],
-            "ConnectionResetError": [
-                "__init__"
+            "Popen": [
+                "communicate",
+                "poll",
+                "wait",
+                "send_signal",
+                "terminate",
+                "wait",
+                "send_signal",
+                "terminate",
+                "kill"
+            ]
+        },
+        "funcs": [
+            "call",
+            "check_call",
+            "check_output",
+            "run",
+            "list2cmdline",
+            "getstatusoutput",
+            "getoutput"
+        ]
+    },
+    "sunau": {
+        "classes": {
+            "Error": [],
+            "Au_read": [
+                "initfp",
+                "getfp",
+                "getnchannels",
+                "getsampwidth",
+                "getframerate",
+                "getnframes",
+                "getcomptype",
+                "getcompname",
+                "getparams",
+                "getmarkers",
+                "getmark",
+                "readframes",
+                "rewind",
+                "tell",
+                "setpos",
+                "close"
             ],
-            "DeprecationWarning": [
-                "__init__",
-                "__new__"
+            "Au_write": [
+                "initfp",
+                "setnchannels",
+                "getnchannels",
+                "setsampwidth",
+                "getsampwidth",
+                "setframerate",
+                "getframerate",
+                "setnframes",
+                "getnframes",
+                "setcomptype",
+                "getcomptype",
+                "getcompname",
+                "setparams",
+                "getparams",
+                "tell",
+                "writeframesraw",
+                "writeframes",
+                "close"
+            ]
+        },
+        "funcs": [
+            "open"
+        ]
+    },
+    "symbol": {
+        "classes": {},
+        "funcs": []
+    },
+    "symtable": {
+        "classes": {
+            "SymbolTableFactory": [
+                "new"
             ],
-            "dict": [
+            "SymbolTable": [
+                "get_type",
+                "get_id",
+                "get_name",
+                "get_lineno",
+                "is_optimized",
+                "is_nested",
+                "has_children",
+                "has_exec",
+                "get_identifiers",
+                "lookup",
+                "get_symbols",
+                "get_children"
+            ],
+            "Function": [
+                "get_parameters",
+                "get_locals",
+                "get_globals",
+                "get_frees"
+            ],
+            "Class": [
+                "get_methods"
+            ],
+            "Symbol": [
+                "get_name",
+                "is_referenced",
+                "is_parameter",
+                "is_global",
+                "is_declared_global",
+                "is_local",
+                "is_annotated",
+                "is_free",
+                "is_imported",
+                "is_assigned",
+                "is_namespace",
+                "get_namespaces",
+                "get_namespace"
+            ]
+        },
+        "funcs": [
+            "symtable"
+        ]
+    },
+    "sysconfig": {
+        "classes": {},
+        "funcs": [
+            "is_python_build",
+            "get_makefile_filename",
+            "parse_config_h",
+            "get_config_h_filename",
+            "get_scheme_names",
+            "get_path_names",
+            "get_paths",
+            "get_path",
+            "get_config_vars",
+            "get_config_var",
+            "get_platform",
+            "get_python_version"
+        ]
+    },
+    "tabnanny": {
+        "classes": {
+            "NannyNag": [
+                "get_lineno",
+                "get_msg",
+                "get_line"
+            ],
+            "Whitespace": [
+                "longest_run_of_spaces",
+                "indent_level",
+                "equal",
+                "not_equal_witness",
+                "less",
+                "not_less_witness"
+            ]
+        },
+        "funcs": [
+            "errprint",
+            "main",
+            "check",
+            "format_witnesses",
+            "process_tokens"
+        ]
+    },
+    "tarfile": {
+        "classes": {
+            "TarError": [],
+            "ExtractError": [],
+            "ReadError": [],
+            "CompressionError": [],
+            "StreamError": [],
+            "HeaderError": [],
+            "EmptyHeaderError": [],
+            "TruncatedHeaderError": [],
+            "EOFHeaderError": [],
+            "InvalidHeaderError": [],
+            "SubsequentHeaderError": [],
+            "_LowLevelFile": [
+                "close",
+                "read",
+                "write"
+            ],
+            "_Stream": [
+                "write",
+                "close",
+                "tell",
+                "seek",
+                "read"
+            ],
+            "_StreamProxy": [
+                "read",
+                "getcomptype",
+                "close"
+            ],
+            "_FileInFile": [
+                "flush",
+                "readable",
+                "writable",
+                "seekable",
+                "tell",
+                "seek",
+                "read",
+                "readinto",
+                "close"
+            ],
+            "ExFileObject": [],
+            "TarInfo": [
+                "get_info",
+                "tobuf",
+                "create_ustar_header",
+                "create_gnu_header",
+                "create_pax_header",
+                "create_pax_global_header",
+                "frombuf",
+                "fromtarfile",
+                "isreg",
+                "isfile",
+                "isdir",
+                "issym",
+                "islnk",
+                "ischr",
+                "isblk",
+                "isfifo",
+                "issparse",
+                "isdev"
+            ],
+            "TarFile": [
+                "open",
+                "taropen",
+                "gzopen",
+                "bz2open",
+                "xzopen",
+                "close",
+                "getmember",
+                "getmembers",
+                "getnames",
+                "gettarinfo",
+                "list",
+                "add",
+                "addfile",
+                "extractall",
+                "extract",
+                "extractfile",
+                "makedir",
+                "makefile",
+                "makeunknown",
+                "makefifo",
+                "makedev",
+                "makelink",
+                "chown",
+                "chmod",
+                "utime",
+                "next",
+                "not_compressed"
+            ]
+        },
+        "funcs": [
+            "stn",
+            "nts",
+            "nti",
+            "itn",
+            "calc_chksums",
+            "copyfileobj",
+            "filemode",
+            "is_tarfile",
+            "main"
+        ]
+    },
+    "telnetlib": {
+        "classes": {
+            "Telnet": [
+                "open",
+                "msg",
+                "set_debuglevel",
+                "close",
+                "get_socket",
+                "fileno",
+                "write",
+                "read_until",
+                "read_all",
+                "read_some",
+                "read_very_eager",
+                "read_eager",
+                "read_lazy",
+                "read_very_lazy",
+                "read_sb_data",
+                "set_option_negotiation_callback",
+                "process_rawq",
+                "rawq_getchar",
+                "fill_rawq",
+                "sock_avail",
+                "interact",
+                "mt_interact",
+                "listener",
+                "expect"
+            ]
+        },
+        "funcs": [
+            "test"
+        ]
+    },
+    "tempfile": {
+        "classes": {
+            "_RandomNameSequence": [
+                "rng"
+            ],
+            "_TemporaryFileCloser": [
+                "close",
+                "close"
+            ],
+            "_TemporaryFileWrapper": [
+                "close",
+                "func_wrapper"
+            ],
+            "SpooledTemporaryFile": [
+                "rollover",
+                "close",
+                "closed",
+                "encoding",
+                "fileno",
+                "flush",
+                "isatty",
+                "mode",
+                "name",
+                "newlines",
+                "read",
+                "readline",
+                "readlines",
+                "seek",
+                "softspace",
+                "tell",
+                "truncate",
+                "write",
+                "writelines"
+            ],
+            "TemporaryDirectory": [
+                "cleanup"
+            ]
+        },
+        "funcs": [
+            "gettempprefix",
+            "gettempprefixb",
+            "gettempdir",
+            "gettempdirb",
+            "mkstemp",
+            "mkdtemp",
+            "mktemp",
+            "NamedTemporaryFile",
+            "TemporaryFile"
+        ]
+    },
+    "textwrap": {
+        "classes": {
+            "TextWrapper": [
+                "wrap",
+                "fill"
+            ]
+        },
+        "funcs": [
+            "wrap",
+            "fill",
+            "shorten",
+            "dedent",
+            "indent"
+        ]
+    },
+    "this": {
+        "classes": {},
+        "funcs": []
+    },
+    "threading": {
+        "classes": {
+            "_RLock": [
+                "acquire",
+                "release"
+            ],
+            "Condition": [
+                "wait",
+                "wait_for",
+                "notify",
+                "notify_all"
+            ],
+            "Semaphore": [
+                "acquire",
+                "release"
+            ],
+            "BoundedSemaphore": [
+                "release"
+            ],
+            "Event": [
+                "is_set",
+                "set",
                 "clear",
+                "wait"
+            ],
+            "Barrier": [
+                "wait",
+                "reset",
+                "abort",
+                "parties",
+                "n_waiting",
+                "broken"
+            ],
+            "BrokenBarrierError": [],
+            "Thread": [
+                "start",
+                "run",
+                "join",
+                "name",
+                "name",
+                "ident",
+                "is_alive",
+                "daemon",
+                "daemon",
+                "isDaemon",
+                "setDaemon",
+                "getName",
+                "setName"
+            ],
+            "Timer": [
+                "cancel",
+                "run"
+            ],
+            "_MainThread": [],
+            "_DummyThread": [
+                "is_alive",
+                "join"
+            ]
+        },
+        "funcs": [
+            "setprofile",
+            "settrace",
+            "RLock",
+            "current_thread",
+            "active_count",
+            "enumerate",
+            "main_thread"
+        ]
+    },
+    "timeit": {
+        "classes": {
+            "Timer": [
+                "print_exc",
+                "timeit",
+                "repeat",
+                "autorange"
+            ]
+        },
+        "funcs": [
+            "reindent",
+            "timeit",
+            "repeat",
+            "main"
+        ]
+    },
+    "token": {
+        "classes": {},
+        "funcs": [
+            "ISTERMINAL",
+            "ISNONTERMINAL",
+            "ISEOF"
+        ]
+    },
+    "tokenize": {
+        "classes": {
+            "TokenInfo": [
+                "exact_type"
+            ],
+            "TokenError": [],
+            "StopTokenizing": [],
+            "Untokenizer": [
+                "add_whitespace",
+                "untokenize",
+                "compat"
+            ]
+        },
+        "funcs": [
+            "group",
+            "any",
+            "maybe",
+            "untokenize",
+            "detect_encoding",
+            "open",
+            "tokenize",
+            "generate_tokens",
+            "main"
+        ]
+    },
+    "trace": {
+        "classes": {
+            "_Ignore": [
+                "names"
+            ],
+            "CoverageResults": [
+                "is_ignored_filename",
+                "update",
+                "write_results",
+                "write_results_file"
+            ],
+            "Trace": [
+                "run",
+                "runctx",
+                "runfunc",
+                "file_module_function_of",
+                "globaltrace_trackcallers",
+                "globaltrace_countfuncs",
+                "globaltrace_lt",
+                "localtrace_trace_and_count",
+                "localtrace_trace",
+                "localtrace_count",
+                "results"
+            ]
+        },
+        "funcs": [
+            "main"
+        ]
+    },
+    "traceback": {
+        "classes": {
+            "FrameSummary": [
+                "line"
+            ],
+            "StackSummary": [
+                "extract",
+                "from_list",
+                "format"
+            ],
+            "TracebackException": [
+                "from_exception",
+                "format_exception_only",
+                "format"
+            ]
+        },
+        "funcs": [
+            "print_list",
+            "format_list",
+            "print_tb",
+            "format_tb",
+            "extract_tb",
+            "print_exception",
+            "format_exception",
+            "format_exception_only",
+            "print_exc",
+            "format_exc",
+            "print_last",
+            "print_stack",
+            "format_stack",
+            "extract_stack",
+            "clear_frames",
+            "walk_stack",
+            "walk_tb"
+        ]
+    },
+    "tracemalloc": {
+        "classes": {
+            "Statistic": [],
+            "StatisticDiff": [],
+            "Frame": [
+                "filename",
+                "lineno"
+            ],
+            "Traceback": [
+                "format"
+            ],
+            "Trace": [
+                "domain",
+                "size",
+                "traceback"
+            ],
+            "_Traces": [],
+            "BaseFilter": [],
+            "Filter": [
+                "filename_pattern"
+            ],
+            "DomainFilter": [
+                "domain"
+            ],
+            "Snapshot": [
+                "dump",
+                "load",
+                "filter_traces",
+                "statistics",
+                "compare_to"
+            ]
+        },
+        "funcs": [
+            "get_object_traceback",
+            "take_snapshot"
+        ]
+    },
+    "tty": {
+        "classes": {},
+        "funcs": [
+            "setraw",
+            "setcbreak"
+        ]
+    },
+    "turtle": {
+        "classes": {
+            "Vec2D": [
+                "rotate"
+            ],
+            "ScrolledCanvas": [
+                "reset",
+                "adjustScrolls",
+                "onResize",
+                "bbox",
+                "cget",
+                "config",
+                "bind",
+                "unbind",
+                "focus_force"
+            ],
+            "_Root": [
+                "setupcanvas",
+                "set_geometry",
+                "ondestroy",
+                "win_width",
+                "win_height"
+            ],
+            "TurtleScreenBase": [
+                "mainloop",
+                "textinput",
+                "numinput",
+                "eventfun",
+                "eventfun",
+                "eventfun",
+                "eventfun",
+                "eventfun",
+                "eventfun"
+            ],
+            "Terminator": [],
+            "TurtleGraphicsError": [],
+            "Shape": [
+                "addcomponent"
+            ],
+            "Tbuffer": [
+                "reset",
+                "push",
+                "pop",
+                "nr_of_items"
+            ],
+            "TurtleScreen": [
+                "clear",
+                "mode",
+                "setworldcoordinates",
+                "register_shape",
+                "colormode",
+                "reset",
+                "turtles",
+                "bgcolor",
+                "tracer",
+                "delay",
+                "update",
+                "window_width",
+                "window_height",
+                "getcanvas",
+                "getshapes",
+                "onclick",
+                "onkey",
+                "onkeypress",
+                "listen",
+                "ontimer",
+                "bgpic",
+                "screensize"
+            ],
+            "TNavigator": [
+                "reset",
+                "degrees",
+                "radians",
+                "forward",
+                "back",
+                "right",
+                "left",
+                "pos",
+                "xcor",
+                "ycor",
+                "goto",
+                "home",
+                "setx",
+                "sety",
+                "distance",
+                "towards",
+                "heading",
+                "setheading",
+                "circle",
+                "speed"
+            ],
+            "TPen": [
+                "resizemode",
+                "pensize",
+                "penup",
+                "pendown",
+                "isdown",
+                "speed",
+                "color",
+                "pencolor",
+                "fillcolor",
+                "showturtle",
+                "hideturtle",
+                "isvisible",
+                "pen"
+            ],
+            "_TurtleImage": [],
+            "RawTurtle": [
+                "reset",
+                "setundobuffer",
+                "undobufferentries",
+                "clear",
+                "clone",
+                "shape",
+                "shapesize",
+                "shearfactor",
+                "settiltangle",
+                "tiltangle",
+                "tilt",
+                "shapetransform",
+                "get_shapepoly",
+                "stamp",
+                "clearstamp",
+                "clearstamps",
+                "filling",
+                "begin_fill",
+                "end_fill",
+                "dot",
+                "write",
+                "begin_poly",
+                "end_poly",
+                "get_poly",
+                "getscreen",
+                "getturtle",
+                "onclick",
+                "onrelease",
+                "ondrag",
+                "undo"
+            ],
+            "_Screen": [
+                "setup",
+                "title",
+                "bye",
+                "exitonclick",
+                "exitGracefully"
+            ],
+            "Turtle": []
+        },
+        "funcs": [
+            "config_dict",
+            "readconfig",
+            "Screen",
+            "write_docstringdict",
+            "read_docstrings",
+            "getmethparlist",
+            "switchpen",
+            "demo1",
+            "demo2"
+        ]
+    },
+    "types": {
+        "classes": {
+            "_C": [],
+            "DynamicClassAttribute": [
+                "getter",
+                "setter",
+                "deleter"
+            ],
+            "_GeneratorWrapper": [
+                "send",
+                "throw",
+                "close",
+                "gi_code",
+                "gi_frame",
+                "gi_running",
+                "gi_yieldfrom"
+            ]
+        },
+        "funcs": [
+            "new_class",
+            "prepare_class",
+            "coroutine"
+        ]
+    },
+    "typing": {
+        "classes": {
+            "TypingMeta": [],
+            "_TypingBase": [],
+            "_FinalTypingBase": [],
+            "_ForwardRef": [],
+            "_TypeAlias": [],
+            "_Any": [],
+            "_NoReturn": [],
+            "TypeVar": [],
+            "_Union": [],
+            "_Optional": [],
+            "GenericMeta": [],
+            "Generic": [],
+            "_TypingEmpty": [],
+            "_TypingEllipsis": [],
+            "TupleMeta": [],
+            "Tuple": [],
+            "CallableMeta": [],
+            "Callable": [],
+            "_ClassVar": [],
+            "_ProtocolMeta": [],
+            "_Protocol": [],
+            "Awaitable": [],
+            "Coroutine": [],
+            "AsyncIterable": [],
+            "AsyncIterator": [],
+            "Iterable": [],
+            "Iterator": [],
+            "SupportsInt": [],
+            "SupportsFloat": [],
+            "SupportsComplex": [],
+            "SupportsBytes": [],
+            "SupportsAbs": [],
+            "SupportsRound": [],
+            "Reversible": [],
+            "Container": [],
+            "Collection": [],
+            "AbstractSet": [],
+            "MutableSet": [],
+            "Mapping": [],
+            "MutableMapping": [],
+            "Sequence": [],
+            "MutableSequence": [],
+            "ByteString": [],
+            "List": [],
+            "Deque": [],
+            "Set": [],
+            "FrozenSet": [],
+            "MappingView": [],
+            "KeysView": [],
+            "ItemsView": [],
+            "ValuesView": [],
+            "ContextManager": [],
+            "AsyncContextManager": [],
+            "Dict": [],
+            "DefaultDict": [],
+            "Counter": [],
+            "ChainMap": [],
+            "Generator": [],
+            "AsyncGenerator": [],
+            "Type": [],
+            "NamedTupleMeta": [],
+            "NamedTuple": [],
+            "IO": [
+                "mode",
+                "name",
+                "close",
+                "closed",
+                "fileno",
+                "flush",
+                "isatty",
+                "read",
+                "readable",
+                "readline",
+                "readlines",
+                "seek",
+                "seekable",
+                "tell",
+                "truncate",
+                "writable",
+                "write",
+                "writelines"
+            ],
+            "BinaryIO": [
+                "write"
+            ],
+            "TextIO": [
+                "buffer",
+                "encoding",
+                "errors",
+                "line_buffering",
+                "newlines"
+            ],
+            "io": [],
+            "re": []
+        },
+        "funcs": [
+            "cast",
+            "get_type_hints",
+            "no_type_check",
+            "no_type_check_decorator",
+            "overload",
+            "NewType"
+        ]
+    },
+    "uu": {
+        "classes": {
+            "Error": []
+        },
+        "funcs": [
+            "encode",
+            "decode",
+            "test"
+        ]
+    },
+    "uuid": {
+        "classes": {
+            "UUID": [
+                "bytes",
+                "bytes_le",
+                "fields",
+                "time_low",
+                "time_mid",
+                "time_hi_version",
+                "clock_seq_hi_variant",
+                "clock_seq_low",
+                "time",
+                "clock_seq",
+                "node",
+                "hex",
+                "urn",
+                "variant",
+                "version"
+            ]
+        },
+        "funcs": [
+            "getnode",
+            "uuid1",
+            "uuid3",
+            "uuid4",
+            "uuid5"
+        ]
+    },
+    "warnings": {
+        "classes": {
+            "_OptionError": [],
+            "WarningMessage": [],
+            "catch_warnings": []
+        },
+        "funcs": [
+            "showwarning",
+            "formatwarning",
+            "filterwarnings",
+            "simplefilter",
+            "resetwarnings",
+            "warn",
+            "warn_explicit"
+        ]
+    },
+    "wave": {
+        "classes": {
+            "Error": [],
+            "Wave_read": [
+                "initfp",
+                "getfp",
+                "rewind",
+                "close",
+                "tell",
+                "getnchannels",
+                "getnframes",
+                "getsampwidth",
+                "getframerate",
+                "getcomptype",
+                "getcompname",
+                "getparams",
+                "getmarkers",
+                "getmark",
+                "setpos",
+                "readframes"
+            ],
+            "Wave_write": [
+                "initfp",
+                "setnchannels",
+                "getnchannels",
+                "setsampwidth",
+                "getsampwidth",
+                "setframerate",
+                "getframerate",
+                "setnframes",
+                "getnframes",
+                "setcomptype",
+                "getcomptype",
+                "getcompname",
+                "setparams",
+                "getparams",
+                "setmark",
+                "getmark",
+                "getmarkers",
+                "tell",
+                "writeframesraw",
+                "writeframes",
+                "close"
+            ]
+        },
+        "funcs": [
+            "open"
+        ]
+    },
+    "weakref": {
+        "classes": {
+            "WeakMethod": [],
+            "WeakValueDictionary": [
                 "copy",
-                "fromkeys",
                 "get",
                 "items",
                 "keys",
-                "pop",
+                "itervaluerefs",
+                "values",
                 "popitem",
+                "pop",
                 "setdefault",
                 "update",
+                "valuerefs",
+                "remove"
+            ],
+            "KeyedRef": [],
+            "WeakKeyDictionary": [
+                "copy",
+                "get",
+                "items",
+                "keys",
                 "values",
-                "__contains__",
-                "__delitem__",
-                "__eq__",
-                "__getattribute__",
-                "__getitem__",
-                "__ge__",
-                "__gt__",
-                "__init__",
-                "__iter__",
-                "__len__",
-                "__le__",
-                "__lt__",
-                "__new__",
-                "__ne__",
-                "__repr__",
-                "__setitem__",
-                "__sizeof__"
-            ],
-            "enumerate": [
-                "__getattribute__",
-                "__init__",
-                "__iter__",
-                "__new__",
-                "__next__",
-                "__reduce__"
-            ],
-            "EOFError": [
-                "__init__",
-                "__new__"
-            ],
-            "FileExistsError": [
-                "__init__"
-            ],
-            "FileNotFoundError": [
-                "__init__"
-            ],
-            "filter": [
-                "__getattribute__",
-                "__init__",
-                "__iter__",
-                "__new__",
-                "__next__",
-                "__reduce__"
-            ],
-            "float": [
-                "as_integer_ratio",
-                "conjugate",
-                "fromhex",
-                "hex",
-                "is_integer",
-                "__abs__",
-                "__add__",
-                "__bool__",
-                "__divmod__",
-                "__eq__",
-                "__float__",
-                "__floordiv__",
-                "__format__",
-                "__getattribute__",
-                "__getformat__",
-                "__getnewargs__",
-                "__ge__",
-                "__gt__",
-                "__hash__",
-                "__init__",
-                "__int__",
-                "__le__",
-                "__lt__",
-                "__mod__",
-                "__mul__",
-                "__neg__",
-                "__new__",
-                "__ne__",
-                "__pos__",
-                "__pow__",
-                "__radd__",
-                "__rdivmod__",
-                "__repr__",
-                "__rfloordiv__",
-                "__rmod__",
-                "__rmul__",
-                "__round__",
-                "__rpow__",
-                "__rsub__",
-                "__rtruediv__",
-                "__setformat__",
-                "__str__",
-                "__sub__",
-                "__truediv__",
-                "__trunc__"
-            ],
-            "FloatingPointError": [
-                "__init__",
-                "__new__"
-            ],
-            "frozenset": [
-                "copy",
-                "difference",
-                "intersection",
-                "isdisjoint",
-                "issubset",
-                "issuperset",
-                "symmetric_difference",
-                "union",
-                "__and__",
-                "__contains__",
-                "__eq__",
-                "__getattribute__",
-                "__ge__",
-                "__gt__",
-                "__hash__",
-                "__init__",
-                "__iter__",
-                "__len__",
-                "__le__",
-                "__lt__",
-                "__new__",
-                "__ne__",
-                "__or__",
-                "__rand__",
-                "__reduce__",
-                "__repr__",
-                "__ror__",
-                "__rsub__",
-                "__rxor__",
-                "__sizeof__",
-                "__sub__",
-                "__xor__"
-            ],
-            "FutureWarning": [
-                "__init__",
-                "__new__"
-            ],
-            "GeneratorExit": [
-                "__init__",
-                "__new__"
-            ],
-            "ImportError": [
-                "__init__",
-                "__reduce__",
-                "__str__"
-            ],
-            "ImportWarning": [
-                "__init__",
-                "__new__"
-            ],
-            "SyntaxError": [
-                "__init__",
-                "__str__"
-            ],
-            "IndentationError": [
-                "__init__"
-            ],
-            "LookupError": [
-                "__init__",
-                "__new__"
-            ],
-            "IndexError": [
-                "__init__",
-                "__new__"
-            ],
-            "InterruptedError": [
-                "__init__"
-            ],
-            "IsADirectoryError": [
-                "__init__"
-            ],
-            "KeyboardInterrupt": [
-                "__init__",
-                "__new__"
-            ],
-            "KeyError": [
-                "__init__",
-                "__str__"
-            ],
-            "list": [
-                "append",
-                "clear",
-                "copy",
-                "count",
-                "extend",
-                "index",
-                "insert",
+                "keyrefs",
+                "popitem",
                 "pop",
-                "remove",
-                "reverse",
-                "sort",
-                "__add__",
-                "__contains__",
-                "__delitem__",
-                "__eq__",
-                "__getattribute__",
-                "__getitem__",
-                "__ge__",
-                "__gt__",
-                "__iadd__",
-                "__imul__",
-                "__init__",
-                "__iter__",
-                "__len__",
-                "__le__",
-                "__lt__",
-                "__mul__",
-                "__new__",
-                "__ne__",
-                "__repr__",
-                "__reversed__",
-                "__rmul__",
-                "__setitem__",
-                "__sizeof__"
-            ],
-            "map": [
-                "__getattribute__",
-                "__init__",
-                "__iter__",
-                "__new__",
-                "__next__",
-                "__reduce__"
-            ],
-            "MemoryError": [
-                "__init__",
-                "__new__"
-            ],
-            "memoryview": [
-                "cast",
-                "hex",
-                "release",
-                "tobytes",
-                "tolist",
-                "__delitem__",
-                "__enter__",
-                "__eq__",
-                "__exit__",
-                "__getattribute__",
-                "__getitem__",
-                "__ge__",
-                "__gt__",
-                "__hash__",
-                "__init__",
-                "__len__",
-                "__le__",
-                "__lt__",
-                "__new__",
-                "__ne__",
-                "__repr__",
-                "__setitem__"
-            ],
-            "ModuleNotFoundError": [
-                "__init__"
-            ],
-            "NameError": [
-                "__init__",
-                "__new__"
-            ],
-            "NotADirectoryError": [
-                "__init__"
-            ],
-            "RuntimeError": [
-                "__init__",
-                "__new__"
-            ],
-            "NotImplementedError": [
-                "__init__",
-                "__new__"
-            ],
-            "OverflowError": [
-                "__init__",
-                "__new__"
-            ],
-            "PendingDeprecationWarning": [
-                "__init__",
-                "__new__"
-            ],
-            "PermissionError": [
-                "__init__"
-            ],
-            "ProcessLookupError": [
-                "__init__"
-            ],
-            "property": [
-                "deleter",
-                "getter",
-                "setter",
-                "__delete__",
-                "__getattribute__",
-                "__get__",
-                "__init__",
-                "__new__",
-                "__set__"
-            ],
-            "range": [
-                "count",
-                "index",
-                "__bool__",
-                "__contains__",
-                "__eq__",
-                "__getattribute__",
-                "__getitem__",
-                "__ge__",
-                "__gt__",
-                "__hash__",
-                "__init__",
-                "__iter__",
-                "__len__",
-                "__le__",
-                "__lt__",
-                "__new__",
-                "__ne__",
-                "__reduce__",
-                "__repr__",
-                "__reversed__"
-            ],
-            "RecursionError": [
-                "__init__",
-                "__new__"
-            ],
-            "ReferenceError": [
-                "__init__",
-                "__new__"
-            ],
-            "ResourceWarning": [
-                "__init__",
-                "__new__"
-            ],
-            "reversed": [
-                "__getattribute__",
-                "__init__",
-                "__iter__",
-                "__length_hint__",
-                "__new__",
-                "__next__",
-                "__reduce__",
-                "__setstate__"
-            ],
-            "RuntimeWarning": [
-                "__init__",
-                "__new__"
-            ],
-            "set": [
-                "add",
-                "clear",
-                "copy",
-                "difference",
-                "difference_update",
-                "discard",
-                "intersection",
-                "intersection_update",
-                "isdisjoint",
-                "issubset",
-                "issuperset",
-                "pop",
-                "remove",
-                "symmetric_difference",
-                "symmetric_difference_update",
-                "union",
+                "setdefault",
                 "update",
-                "__and__",
-                "__contains__",
-                "__eq__",
-                "__getattribute__",
-                "__ge__",
-                "__gt__",
-                "__iand__",
-                "__init__",
-                "__ior__",
-                "__isub__",
-                "__iter__",
-                "__ixor__",
-                "__len__",
-                "__le__",
-                "__lt__",
-                "__new__",
-                "__ne__",
-                "__or__",
-                "__rand__",
-                "__reduce__",
-                "__repr__",
-                "__ror__",
-                "__rsub__",
-                "__rxor__",
-                "__sizeof__",
-                "__sub__",
-                "__xor__"
+                "remove"
             ],
-            "slice": [
-                "indices",
-                "__eq__",
-                "__getattribute__",
-                "__ge__",
-                "__gt__",
-                "__init__",
-                "__le__",
-                "__lt__",
-                "__new__",
-                "__ne__",
-                "__reduce__",
-                "__repr__"
+            "finalize": [
+                "detach",
+                "peek",
+                "alive",
+                "atexit",
+                "atexit"
+            ]
+        },
+        "funcs": []
+    },
+    "webbrowser": {
+        "classes": {
+            "Error": [],
+            "BaseBrowser": [
+                "open",
+                "open_new",
+                "open_new_tab"
             ],
-            "staticmethod": [
-                "__get__",
-                "__init__",
-                "__new__"
+            "GenericBrowser": [
+                "open"
             ],
-            "StopAsyncIteration": [
-                "__init__",
-                "__new__"
+            "BackgroundBrowser": [
+                "open"
             ],
-            "StopIteration": [
-                "__init__"
+            "UnixBrowser": [
+                "open"
             ],
-            "str": [
-                "capitalize",
-                "casefold",
-                "center",
-                "count",
-                "encode",
-                "endswith",
-                "expandtabs",
-                "find",
-                "format",
-                "format_map",
-                "index",
-                "isalnum",
-                "isalpha",
-                "isdecimal",
-                "isdigit",
-                "isidentifier",
-                "islower",
-                "isnumeric",
-                "isprintable",
-                "isspace",
-                "istitle",
-                "isupper",
-                "join",
-                "ljust",
-                "lower",
-                "lstrip",
-                "maketrans",
-                "partition",
-                "replace",
-                "rfind",
-                "rindex",
-                "rjust",
-                "rpartition",
-                "rsplit",
-                "rstrip",
-                "split",
-                "splitlines",
-                "startswith",
-                "strip",
-                "swapcase",
-                "title",
-                "translate",
-                "upper",
-                "zfill",
-                "__add__",
-                "__contains__",
-                "__eq__",
-                "__format__",
-                "__getattribute__",
-                "__getitem__",
-                "__getnewargs__",
-                "__ge__",
-                "__gt__",
-                "__hash__",
-                "__init__",
-                "__iter__",
-                "__len__",
-                "__le__",
-                "__lt__",
-                "__mod__",
-                "__mul__",
-                "__new__",
-                "__ne__",
-                "__repr__",
-                "__rmod__",
-                "__rmul__",
-                "__sizeof__",
-                "__str__"
+            "Mozilla": [],
+            "Netscape": [],
+            "Galeon": [],
+            "Chrome": [],
+            "Opera": [],
+            "Elinks": [],
+            "Konqueror": [
+                "open"
             ],
-            "super": [
-                "__getattribute__",
-                "__get__",
-                "__init__",
-                "__new__",
-                "__repr__"
+            "Grail": [
+                "open"
             ],
-            "SyntaxWarning": [
-                "__init__",
-                "__new__"
+            "WindowsDefault": [
+                "open"
             ],
-            "SystemError": [
-                "__init__",
-                "__new__"
+            "MacOSX": [
+                "open"
             ],
-            "SystemExit": [
-                "__init__"
-            ],
-            "TabError": [
-                "__init__"
-            ],
-            "TimeoutError": [
-                "__init__"
-            ],
-            "tuple": [
-                "count",
-                "index",
-                "__add__",
-                "__contains__",
-                "__eq__",
-                "__getattribute__",
-                "__getitem__",
-                "__getnewargs__",
-                "__ge__",
-                "__gt__",
-                "__hash__",
-                "__init__",
-                "__iter__",
-                "__len__",
-                "__le__",
-                "__lt__",
-                "__mul__",
-                "__new__",
-                "__ne__",
-                "__repr__",
-                "__rmul__"
-            ],
-            "type": [
-                "mro",
-                "__call__",
-                "__delattr__",
-                "__dir__",
-                "__getattribute__",
-                "__init__",
-                "__instancecheck__",
-                "__new__",
-                "__prepare__",
-                "__repr__",
-                "__setattr__",
-                "__sizeof__",
-                "__subclasscheck__",
-                "__subclasses__"
-            ],
-            "TypeError": [
-                "__init__",
-                "__new__"
-            ],
-            "UnboundLocalError": [
-                "__init__",
-                "__new__"
-            ],
-            "ValueError": [
-                "__init__",
-                "__new__"
-            ],
-            "UnicodeError": [
-                "__init__",
-                "__new__"
-            ],
-            "UnicodeDecodeError": [
-                "__init__",
-                "__new__",
-                "__str__"
-            ],
-            "UnicodeEncodeError": [
-                "__init__",
-                "__new__",
-                "__str__"
-            ],
-            "UnicodeTranslateError": [
-                "__init__",
-                "__new__",
-                "__str__"
-            ],
-            "UnicodeWarning": [
-                "__init__",
-                "__new__"
-            ],
-            "UserWarning": [
-                "__init__",
-                "__new__"
-            ],
-            "ZeroDivisionError": [
-                "__init__",
-                "__new__"
-            ],
-            "zip": [
-                "__getattribute__",
-                "__init__",
-                "__iter__",
-                "__new__",
-                "__next__",
-                "__reduce__"
-            ],
-            "__loader__": [
-                "create_module",
-                "exec_module",
-                "find_module",
-                "find_spec",
-                "get_code",
-                "get_source",
-                "is_package",
-                "load_module",
-                "module_repr",
-                "__init__"
+            "MacOSXOSAScript": [
+                "open"
             ]
         },
         "funcs": [
-            "abs",
-            "all",
-            "any",
-            "ascii",
-            "bin",
-            "callable",
-            "chr",
-            "compile",
-            "copyright",
-            "credits",
-            "delattr",
-            "dir",
-            "divmod",
-            "eval",
-            "exec",
-            "exit",
-            "format",
-            "getattr",
-            "globals",
-            "hasattr",
-            "hash",
-            "help",
-            "hex",
-            "id",
-            "input",
-            "isinstance",
-            "issubclass",
-            "iter",
-            "len",
-            "license",
-            "locals",
-            "max",
-            "min",
-            "next",
-            "oct",
+            "register",
+            "get",
             "open",
-            "ord",
-            "pow",
-            "print",
-            "quit",
-            "repr",
-            "round",
-            "setattr",
-            "sorted",
-            "sum",
-            "vars",
-            "__build_class__",
-            "__import__"
+            "open_new",
+            "open_new_tab",
+            "register_X_browsers",
+            "main"
+        ]
+    },
+    "xdrlib": {
+        "classes": {
+            "Error": [],
+            "ConversionError": [],
+            "Packer": [
+                "reset",
+                "get_buffer",
+                "pack_uint",
+                "pack_int",
+                "pack_bool",
+                "pack_uhyper",
+                "pack_float",
+                "pack_double",
+                "pack_fstring",
+                "pack_string",
+                "pack_list",
+                "pack_farray",
+                "pack_array"
+            ],
+            "Unpacker": [
+                "reset",
+                "get_position",
+                "set_position",
+                "get_buffer",
+                "done",
+                "unpack_uint",
+                "unpack_int",
+                "unpack_bool",
+                "unpack_uhyper",
+                "unpack_hyper",
+                "unpack_float",
+                "unpack_double",
+                "unpack_fstring",
+                "unpack_string",
+                "unpack_list",
+                "unpack_farray",
+                "unpack_array"
+            ]
+        },
+        "funcs": [
+            "raise_conversion_error"
+        ]
+    },
+    "zipapp": {
+        "classes": {
+            "ZipAppError": []
+        },
+        "funcs": [
+            "create_archive",
+            "get_interpreter",
+            "main"
+        ]
+    },
+    "zipfile": {
+        "classes": {
+            "BadZipFile": [],
+            "LargeZipFile": [],
+            "ZipInfo": [
+                "FileHeader",
+                "from_file",
+                "is_dir"
+            ],
+            "_ZipDecrypter": [],
+            "LZMACompressor": [
+                "compress",
+                "flush"
+            ],
+            "LZMADecompressor": [
+                "decompress"
+            ],
+            "_SharedFile": [
+                "read",
+                "close"
+            ],
+            "_Tellable": [
+                "write",
+                "tell",
+                "flush",
+                "close"
+            ],
+            "ZipExtFile": [
+                "readline",
+                "peek",
+                "readable",
+                "read",
+                "read1",
+                "close"
+            ],
+            "_ZipWriteFile": [
+                "writable",
+                "write",
+                "close"
+            ],
+            "ZipFile": [
+                "namelist",
+                "infolist",
+                "printdir",
+                "testzip",
+                "getinfo",
+                "setpassword",
+                "comment",
+                "comment",
+                "read",
+                "open",
+                "extract",
+                "extractall",
+                "write",
+                "writestr",
+                "close"
+            ],
+            "PyZipFile": [
+                "writepy"
+            ]
+        },
+        "funcs": [
+            "is_zipfile",
+            "main"
         ]
     }
 }
