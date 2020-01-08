@@ -172,6 +172,9 @@ class CallVisitor(ast.NodeVisitor):
                 print("错误：节点属性缺少")
                 return
         else:
+            if node.value.func.id == 'input':
+                # 跳过input函数
+                return
             # * 形式的函数调用
             try:
                 # 打log
@@ -180,16 +183,24 @@ class CallVisitor(ast.NodeVisitor):
             except:
                 print("错误：节点属性缺少")
                 return
+        try:
+            # 第二行参数得多加一个缩进
+            addition = "%swith open(r\"%s\"%%(sys.version[0:3]), \"w+\", encoding=\'utf8\') as f:\n%sf.write(\"%s\"%%str(%s))" % (
+                " " * col_offset, log_name, " " * (col_offset + TAB_SIZE), prefix_output, node.targets[0].id)
+            # print(addition)
 
-        # 第二行参数得多加一个缩进
-        addition = "%swith open(r\"%s\"%%(sys.version[0:3]), \"w+\", encoding=\'utf8\') as f:\n%sf.write(\"%s\"%%str(%s))" % (
-            " " * col_offset, log_name, " " * (col_offset + TAB_SIZE), prefix_output, node.targets[0].id)
-        # print(addition)
-        source[line_num - 1] += '%s\n' % (addition)
-        # print(source[line_num - 1])
+            while source[line_num - 1][-2] != ')':
+                # 有的函数调用有多行，注意 [-1] 是 \n
+                line_num += 1
+            source[line_num - 1] += '%s\n' % (addition)
+            # print(source[line_num - 1])
 
-        print("插装成功")
-        cnt += 1
+            print("插装成功")
+            cnt += 1
+        except:
+            print("错误：节点属性缺少")
+            return
+
         if len(node.value.args):
             # 该函数调用存在参数
             # f.write("input = %s %s %s" % ('x*', '-', str(s)))
@@ -201,10 +212,14 @@ class CallVisitor(ast.NodeVisitor):
                 # 字符串是s , 变量名是id
                 if 's' in arg.__dict__:
                     print(arg.s)
-                    to_print_list.append("\"%s\"" % arg.s)
-                else:
+                    to_print_list.append("r\"%s\"" % arg.s)
+                elif 'id' in arg.__dict__:
                     print(arg.id)
                     to_print_list.append("str(%s)" % arg.id)
+                else:
+                    print('参数列表中又无法解析的参数')
+                    return
+
             to_print_str = ",".join(to_print_list)  # 'x*', '-', str(s)
             to_print_str = add_brackets(to_print_str)  # ('x*', '-', str(s))
             prefix_args = add_quotes(prefix_args)  # "input = %s %s %s"
@@ -287,6 +302,9 @@ def get_instrument_file(file_path: str, save_path=None, over_write=True):
     :param save_path: 插装后文件的保存路径，如果为None默认放到与目标文件同一目录下
     :return: 插装之后的文件路径
     """
+    global cnt
+    cnt = 0
+
     print('generating instrument file for % s' % file_path)
 
     with open(file_path, 'r', encoding='utf8') as f:
@@ -333,6 +351,7 @@ if __name__ == "__main__":
             path = os.path.join(root, file)
             pathes.append(path)
         break
+    pathes.append(r'C:\Users\dell\.PyCharm2019.1\system\python_stubs\-727401014\builtins.py')
     analyse_lib(pathes)
 
     # # 待插装的代码集合

@@ -6,10 +6,17 @@ import subprocess
 
 def run_with_pys(python_file_path: str, input_file_path: str):
     for python_path in python_pathes:
-        cmd_line = 'cat %s | %s %s' % (input_file_path, python_path, python_file_path)
+        if input_file_path:
+            # 有输入文件
+            cmd_line = 'cat %s | %s %s' % (input_file_path, python_path, python_file_path)
+        else:
+            # 无输入文件
+            cmd_line = '%s %s' % (python_path, python_file_path)
+
         print(cmd_line)
         # os.system(cmd_line)
         subprocess.Popen(['powershell.exe', cmd_line], stdout=sys.stdout)
+
 
 def instrument_exit(files):
     flag = 0
@@ -30,7 +37,7 @@ if __name__ == '__main__':
                      'python38']
 
     # print(sys.version[:3])
-    test_case_path = './source/'
+    test_case_path = r'D:\软件测试\source\re'
     for root, dirs, files in os.walk(test_case_path):
         if root.endswith('log'):
             # 遍历到log文件夹，跳过
