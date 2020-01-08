@@ -2,7 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import os
 
-ignoretags = ['gp', 'go', 'gr', 'gt']
+ignoretags = ['gp', 'go',  'gt']
+ignoretags2 = ['gr', 'ne']
 
 def gettext(dir, divs):
     if divs.__len__() == 0:
@@ -16,6 +17,8 @@ def gettext(dir, divs):
             pre = divs[prei].find('pre')
             spans = pre.contents
 
+            ignoreflag = 0
+
             for i in range(spans.__len__()):
                 # print(i)
                 if i == 0:
@@ -23,19 +26,40 @@ def gettext(dir, divs):
 
                 spanstype = type(spans[i])
                 if str(spanstype) == "<class 'bs4.element.NavigableString'>":
+                    if spans[i] == '\n':
+                        if ignoreflag == 1:
+                            ignoreflag = 0
+                            continue
+                    if ignoreflag == 1:
+                        continue
                     file.write(spans[i])
-                    # print(spans[i])
+                    # print(spans[i], end = '')
                     continue
 
                 classtag = spans[i].attrs.get('class')
+                classstyle = spans[i].attrs.get('style')
+
+                if ignoreflag == 1:
+                    continue
+
+                if classtag is None:
+                    continue
+
+                if classstyle is not None:
+                    if classstyle == 'visibility: visible;':
+                        continue
+
                 # print(classtag)
                 if i == 1: #非法语句
                     if classtag == ['p']:
                         break
                 if classtag[0] in ignoretags:
                     continue
+                if classtag[0] in ignoretags2:
+                    ignoreflag = 1
+                    continue
                 text = spans[i].contents[0]
-                # print(text)
+                # print(text, end = '')
                 file.write(text)
 
         file.close()
