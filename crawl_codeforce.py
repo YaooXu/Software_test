@@ -55,7 +55,7 @@ def get_testcase(contest_id, problem_id):
 def get_subssion(st, en):
     template = 'http://codeforces.com/problemset/status/page/%s?order=BY_ARRIVED_DESC'
     urls = []
-    submissions = []
+
     for i in range(en, st - 1, -1):
         urls.append(template % i)
 
@@ -67,6 +67,7 @@ def get_subssion(st, en):
         show = url.split('/')[6].split('?')[0]
         print(show)
 
+        submissions = []
         for tr_tag in trs[1:]:
             tds = tr_tag.find_all('td')
             link_tag, lang_tag, verdict_tag = tds[0], tds[4], tds[5]
@@ -81,7 +82,7 @@ def get_subssion(st, en):
                 # print(link, verdict)
                 if verdict == "Accepted" or "Happy New Year!":
                     submissions.append(link)
-    return submissions
+        write_text(submissions)
 
 
 def get_texturl(url):
@@ -93,18 +94,7 @@ def get_texturl(url):
     texturl = divs[6].contents[5].contents[3].contents[5].find('a').get('href')
     return texturl
 
-
-if __name__ == '__main__':
-
-    st, en = eval(input("请输入起始、结束页码："))
-
-    if st > en:
-        st, en = en, st
-
-    start_time = time.time()
-
-    submissions = get_subssion(st, en)
-
+def write_text(submissions):
     for submission in submissions:
 
         submissionurl = 'http://codeforces.com' + submission
@@ -136,6 +126,18 @@ if __name__ == '__main__':
             file2 = open(new_directory + '/' + 'input.' + "txt", 'w')
             file2.write(text)
             file2.close()
+
+
+if __name__ == '__main__':
+
+    st, en = eval(input("请输入起始、结束页码："))
+
+    if st > en:
+        st, en = en, st
+
+    start_time = time.time()
+
+    get_subssion(st, en)
 
     end_time = time.time()
 
