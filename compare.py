@@ -66,7 +66,8 @@ def compare_all(test_case_path, versions):
     for root, dirs, files in os.walk(test_case_path):
         if root.endswith('log'):
             if files:
-                testcase = root.split("\\")[0].split('/')[-1]
+                test=os.path.dirname(root)
+                testcase = test.split("\\")[0].split('/')[-1]
                 with open(result_file, 'w') as f:
                     f.write(testcase + ':\n')
 
