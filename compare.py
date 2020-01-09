@@ -37,7 +37,7 @@ def compare_file(file1_name, file2_name,a):
             if matchObj==None:#如果返回结果是none
                 temp=temp+1
                 a=a+1
-                result.write('difference %d' % (a) + ' on line %d' % (i) + ':\n')
+                result.write('difference %d' % (a) + ':\n')
                 result.write(filename1 + ':')
                 result.write(text1_lines[i] + '\n')
             else:
