@@ -1,6 +1,6 @@
 import sys
 import os
-
+import re
 
 # 读取配置文件函数
 def read_file(file_name):
@@ -16,7 +16,7 @@ def read_file(file_name):
 
 
 # 比较两个文件
-def compare_file(file1_name, file2_name):
+def compare_file(file1_name, file2_name,a):
     if file1_name == "" or file2_name == "":
         print(
             '文件路径不能为空：file1_name的路径为：{0}, file2_name的路径为：{1} .'.format(file1_name, file2_name))
@@ -32,13 +32,25 @@ def compare_file(file1_name, file2_name):
         if text1_lines[i] != text2_lines[i]:
             k = str(temp)
             temp = temp + 1
+            a=a+1
             # TODO: k 现在每次都是1，改为difference的序号
-            result.write('difference ' + k + ' on line ' + str(i + 1) + ':\n')
-            result.write(filename1 + ':')
-            result.write(text1_lines[i] + '\n')
+            pattern = r"output = <"
+            matchObj = re.match(pattern, text1_lines[i])
+            if matchObj==None:#如果返回结果是none
+                result.write('difference %d' % (a) + ' on line %d' % (i) + ':\n')
+                result.write(filename1 + ':')
+                result.write(text1_lines[i] + '\n')
+            else:
+                result.close()
+                return temp-1
             result.write(filename2 + ':')
-            result.write(text2_lines[i] + '\n')
-            result.write('\n')
+            matchObj2 = re.match(pattern, text2_lines[i])
+            if matchObj2==None:  # 如果返回结果不是none
+
+                result.write(text2_lines[i] + '\n')
+            else:
+                result.write('output=object')
+        result.write('\n')
 
     result.close()
     return temp - 1
@@ -72,13 +84,13 @@ def compare_all(test_case_path, versions):
                         continue
 
                     print(filepath_33, filepath_38, '\n')
-                    tot += compare_file(filepath_33, filepath_38)
+                    tot += compare_file(filepath_33, filepath_38,tot)
 
     print('find ' + str(tot) + ' differences')
 
 
 if __name__ == "__main__":
-    test_case_path = './source/re'
+    test_case_path = '/Users/ziyantao/PycharmProjects/Software_test1'
     versions = ['3.3', '3.8']
     result_file = os.path.join(test_case_path, 'compare_result.txt')
     compare_all(test_case_path, versions)
