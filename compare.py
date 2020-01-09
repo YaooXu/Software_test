@@ -45,7 +45,7 @@ def compare_file(file1_name, file2_name,a):
                 return temp-1
             result.write(filename2 + ':')
             matchObj2 = re.match(pattern, text2_lines[i])
-            if matchObj2==None:  # 如果返回结果不是none
+            if matchObj2==None:  # 如果返回结果是none
 
                 result.write(text2_lines[i] + '\n')
             else:
