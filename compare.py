@@ -31,12 +31,12 @@ def compare_file(file1_name, file2_name,a):
     for i in range(length):
         if text1_lines[i] != text2_lines[i]:
             k = str(temp)
-            temp = temp + 1
-            a=a+1
             # TODO: k 现在每次都是1，改为difference的序号
             pattern = r"output = <"
             matchObj = re.match(pattern, text1_lines[i])
             if matchObj==None:#如果返回结果是none
+                temp=temp+1
+                a=a+1
                 result.write('difference %d' % (a) + ' on line %d' % (i) + ':\n')
                 result.write(filename1 + ':')
                 result.write(text1_lines[i] + '\n')
@@ -47,10 +47,10 @@ def compare_file(file1_name, file2_name,a):
             matchObj2 = re.match(pattern, text2_lines[i])
             if matchObj2==None:  # 如果返回结果是none
 
-                result.write(text2_lines[i] + '\n')
+                result.write(text2_lines[i] + '\n'+'\n')
             else:
                 result.write('output=object')
-        result.write('\n')
+        #result.write('\n')
 
     result.close()
     return temp - 1
