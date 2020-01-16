@@ -34,7 +34,7 @@ def gettest():
             text = test.contents[0]
             text = text.replace('\r', '')
             dir = filepath + '\\' + filename + '.py'
-            file = open(dir, 'w')
+            file = open(dir, 'w', encoding="utf-8")
             file.write(text)
             file.close()
 
