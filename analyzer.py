@@ -188,7 +188,13 @@ class CallVisitor(ast.NodeVisitor):
             addition = "%swith open(r\"%s\"%%(sys.version[0:3]), \"w+\", encoding=\'utf8\') as f:\n%sf.write(\"%s\"%%str(%s))" % (
                 " " * col_offset, log_name, " " * (col_offset + TAB_SIZE), prefix_output, node.targets[0].id)
             # print(addition)
-
+            if '#' in source[line_num - 1]:
+                # 清楚注释
+                idx = source[line_num - 1].find('#')
+                source[line_num - 1] = source[line_num - 1][:idx]
+            # 清楚右边多余的空格
+            source[line_num - 1] = source[line_num - 1].rstrip()
+            source[line_num - 1] += '\n'
             while source[line_num - 1][-2] != ')':
                 # 有的函数调用有多行，注意 [-1] 是 \n
                 line_num += 1

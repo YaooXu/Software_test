@@ -36,8 +36,8 @@ if __name__ == '__main__':
     python_pathes = ['python33',
                      'python38']
 
-    # print(sys.version[:3])
-    test_case_path = r'D:\软件测试\source\re'
+    # print(sys.VERSION[:3])
+    test_case_path = r'source/docs/stdtypes'
     for root, dirs, files in os.walk(test_case_path):
         if root.endswith('log'):
             # 遍历到log文件夹，跳过

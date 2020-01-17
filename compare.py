@@ -2,6 +2,7 @@ import sys
 import os
 import re
 
+
 # 读取配置文件函数
 def read_file(file_name):
     try:
@@ -16,7 +17,7 @@ def read_file(file_name):
 
 
 # 比较两个文件
-def compare_file(file1_name, file2_name,a):
+def compare_file(file1_name, file2_name, a):
     if file1_name == "" or file2_name == "":
         print(
             '文件路径不能为空：file1_name的路径为：{0}, file2_name的路径为：{1} .'.format(file1_name, file2_name))
@@ -32,25 +33,25 @@ def compare_file(file1_name, file2_name,a):
         if text1_lines[i] != text2_lines[i]:
             k = str(temp)
             # TODO: k 现在每次都是1，改为difference的序号
-            pattern = r"output = <"
+            pattern = r"output = <"  # 既要有input也要有output
             matchObj = re.match(pattern, text1_lines[i])
-            if matchObj==None:#如果返回结果是none
-                temp=temp+1
-                a=a+1
+            if matchObj == None:  # 如果返回结果是none
+                temp = temp + 1
+                a = a + 1
                 result.write('difference %d' % (a) + ':\n')
                 result.write(filename1 + ':')
                 result.write(text1_lines[i] + '\n')
             else:
                 result.close()
-                return temp-1
+                return temp - 1
             result.write(filename2 + ':')
             matchObj2 = re.match(pattern, text2_lines[i])
-            if matchObj2==None:  # 如果返回结果是none
+            if matchObj2 == None:  # 如果返回结果是none
 
-                result.write(text2_lines[i] + '\n'+'\n')
+                result.write(text2_lines[i] + '\n' + '\n')
             else:
                 result.write('output=object')
-        #result.write('\n')
+        # result.write('\n')
 
     result.close()
     return temp - 1
@@ -66,7 +67,7 @@ def compare_all(test_case_path, versions):
     for root, dirs, files in os.walk(test_case_path):
         if root.endswith('log'):
             if files:
-                test=os.path.dirname(root)
+                test = os.path.dirname(root)
                 testcase = test.split("\\")[0].split('/')[-1]
                 with open(result_file, 'w') as f:
                     f.write(testcase + ':\n')
@@ -85,13 +86,13 @@ def compare_all(test_case_path, versions):
                         continue
 
                     print(filepath_33, filepath_38, '\n')
-                    tot += compare_file(filepath_33, filepath_38,tot)
+                    tot += compare_file(filepath_33, filepath_38, tot)
 
     print('find ' + str(tot) + ' differences')
 
 
 if __name__ == "__main__":
-    test_case_path = '/Users/ziyantao/PycharmProjects/Software_test1'
+    test_case_path = 'source/docs/stdtypes'
     versions = ['3.3', '3.8']
     result_file = os.path.join(test_case_path, 'compare_result.txt')
     compare_all(test_case_path, versions)
