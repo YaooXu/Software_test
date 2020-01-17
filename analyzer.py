@@ -218,6 +218,8 @@ class CallVisitor(ast.NodeVisitor):
                 # 字符串是s , 变量名是id
                 if 's' in arg.__dict__:
                     print(arg.s)
+                    arg.s = str(arg.s).replace('\n', r'\n')
+                    # arg.s = arg.s.replace('\n', r'\n')
                     to_print_list.append("r\"%s\"" % arg.s)
                 elif 'id' in arg.__dict__:
                     print(arg.id)

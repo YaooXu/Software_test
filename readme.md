@@ -28,6 +28,10 @@ source
   - log
     - 702_1_linexx_c_split_py3.6.txt 
 
+### 还需要跑的代码
+
+
+
 ### Difference
 
 #### 可以直接使用
@@ -38,3 +42,6 @@ source
 - [`re.sub()`](https://docs.python.org/3/library/re.html#re.sub) now replaces empty matches adjacent to a previous non-empty match. For example `re.sub('x*', '-', 'abxd')` returns now `'-a-b--d-'` instead of `'-a-b-d-'` (the first minus between ‘b’ and ‘d’ replaces ‘x’, and the second minus replaces an empty string between ‘x’ and ‘d’).
 - os.dup2
 - bytes.fromhex
+
+
+

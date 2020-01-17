@@ -2,6 +2,8 @@ import sys
 import os
 import re
 
+result_file = None
+
 
 # 读取配置文件函数
 def read_file(file_name):
@@ -17,44 +19,49 @@ def read_file(file_name):
 
 
 # 比较两个文件
-def compare_file(file1_name, file2_name, a):
-    if file1_name == "" or file2_name == "":
+def compare_file(file1_path, file2_path, tot):
+    if file1_path == "" or file2_path == "":
         print(
-            '文件路径不能为空：file1_name的路径为：{0}, file2_name的路径为：{1} .'.format(file1_name, file2_name))
+            '文件路径不能为空：file1_name的路径为：{0}, file2_name的路径为：{1} .'.format(file1_path, file2_path))
         sys.exit()
-    dirname1, filename1 = os.path.split(file1_name)
-    dirname2, filename2 = os.path.split(file2_name)
-    text1_lines = read_file(file1_name)
-    text2_lines = read_file(file2_name)
-    length = len(text1_lines)
-    temp = 1
-    result = open(result_file, 'a')
-    for i in range(length):
-        if text1_lines[i] != text2_lines[i]:
-            k = str(temp)
-            # TODO: k 现在每次都是1，改为difference的序号
-            pattern = r"output = <"  # 既要有input也要有output
-            matchObj = re.match(pattern, text1_lines[i])
-            if matchObj == None:  # 如果返回结果是none
-                temp = temp + 1
-                a = a + 1
-                result.write('difference %d' % (a) + ':\n')
-                result.write(filename1 + ':')
-                result.write(text1_lines[i] + '\n')
-            else:
-                result.close()
-                return temp - 1
-            result.write(filename2 + ':')
-            matchObj2 = re.match(pattern, text2_lines[i])
-            if matchObj2 == None:  # 如果返回结果是none
 
-                result.write(text2_lines[i] + '\n' + '\n')
-            else:
-                result.write('output=object')
-        # result.write('\n')
+    with open(file1_path, 'r') as f:
+        text1_lines = f.readlines()
+    with open(file2_path, 'r') as f:
+        text2_lines = f.readlines()
 
-    result.close()
-    return temp - 1
+    # 输出是都不同
+    diff_output = 0
+    to_print = ''
+
+    for line1, line2 in zip(text1_lines, text2_lines):
+        # 先output再input
+        if line1.startswith('output'):
+            # 输出
+            if line1 == line2:
+                break
+            elif 'output = <' in line1 and 'at' in line1:
+                # 此时是地址不同 没有意义
+                break
+            else:
+                # 真正的不同输出
+                to_print += file1_path + ' ' + line1 + file2_path + ' ' + line2 + '\n'
+                diff_output += 1
+        elif line1.startswith('input'):
+            if line1 == line2:
+                # 输入相同 可以打印
+                to_print = line1 + '\n' + to_print
+            elif 'input = <' in line1 and 'at' in line1:
+                # 此时是地址不同 没有意义
+                continue
+
+    if diff_output:
+        result = open(result_file, 'a+')
+        result.write('difference %d\n' % (tot + 1))
+        result.write(to_print)
+        result.close()
+
+    return diff_output
 
 
 def get_base_filename(filename: str):
@@ -62,15 +69,21 @@ def get_base_filename(filename: str):
     return os.path.splitext(filename)[0]
 
 
-def compare_all(test_case_path, versions):
+def compare_all(test_case_path, versions=['3.3', '3.8']):
+    global result_file
+    result_file = os.path.join(test_case_path, 'compare_result.txt')
+    if os.path.exists(result_file):
+        os.remove(result_file)
+        print('移除文件 %s' % result_file)
+
     tot = 0
     for root, dirs, files in os.walk(test_case_path):
         if root.endswith('log'):
             if files:
                 test = os.path.dirname(root)
-                testcase = test.split("\\")[0].split('/')[-1]
-                with open(result_file, 'w') as f:
-                    f.write(testcase + ':\n')
+                module_name = os.path.split(test)[-1]
+                with open(result_file, 'a+') as f:
+                    f.write(module_name + ':\n')
 
                 for file in files:
                     base_name = get_base_filename(file)
@@ -92,7 +105,7 @@ def compare_all(test_case_path, versions):
 
 
 if __name__ == "__main__":
-    test_case_path = 'source/docs/stdtypes'
+    test_case_path = 'tmp'
     versions = ['3.3', '3.8']
-    result_file = os.path.join(test_case_path, 'compare_result.txt')
+
     compare_all(test_case_path, versions)

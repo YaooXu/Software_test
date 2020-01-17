@@ -7,3 +7,9 @@ log_test.py
 __*
 source
 compare_result.txt
+cache*
+counterfile
+example*
+hello.txt
+pipefile
+typescript

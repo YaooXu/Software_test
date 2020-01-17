@@ -2499,7 +2499,9 @@
             "spawnlp",
             "spawnlpe",
             "popen",
-            "fdopen"
+            "fdopen",
+            "dup",
+            "dup2"
         ]
     },
     "pathlib": {
