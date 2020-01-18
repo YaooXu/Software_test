@@ -40,7 +40,7 @@ if __name__ == '__main__':
                      'python38']
 
     # print(sys.VERSION[:3])
-    test_case_path = r'source/docs'
+    test_case_path = r'source/'
     for root, dirs, files in os.walk(test_case_path):
         if root.endswith('log'):
             # 遍历到log文件夹，跳过
